@@ -1,0 +1,1716 @@
+fileFormatVersion: 2
+guid: b75dc4ab68363e045875fe044f7c8b38
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_0
+  - first:
+      213: 21300002
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_1
+  - first:
+      213: 21300004
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_2
+  - first:
+      213: 21300006
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_3
+  - first:
+      213: 21300008
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_4
+  - first:
+      213: 21300010
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_5
+  - first:
+      213: 21300012
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_6
+  - first:
+      213: 21300014
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_7
+  - first:
+      213: 21300016
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_8
+  - first:
+      213: 21300018
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_9
+  - first:
+      213: 21300020
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_10
+  - first:
+      213: 21300022
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_11
+  - first:
+      213: 21300024
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_12
+  - first:
+      213: 21300026
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_13
+  - first:
+      213: 21300028
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_14
+  - first:
+      213: 21300030
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_15
+  - first:
+      213: 21300032
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_16
+  - first:
+      213: 21300034
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_17
+  - first:
+      213: 21300036
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_18
+  - first:
+      213: 21300038
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_19
+  - first:
+      213: 21300040
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_20
+  - first:
+      213: 21300042
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_21
+  - first:
+      213: 21300044
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_22
+  - first:
+      213: 21300046
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_23
+  - first:
+      213: 21300048
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_24
+  - first:
+      213: 21300050
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_25
+  - first:
+      213: 21300052
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_26
+  - first:
+      213: 21300054
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_27
+  - first:
+      213: 21300056
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_28
+  - first:
+      213: 21300058
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_29
+  - first:
+      213: 21300060
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_30
+  - first:
+      213: 21300062
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_31
+  - first:
+      213: 21300064
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_32
+  - first:
+      213: 21300066
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_33
+  - first:
+      213: 21300068
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_34
+  - first:
+      213: 21300070
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_35
+  - first:
+      213: 21300072
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_36
+  - first:
+      213: 21300074
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_37
+  - first:
+      213: 21300076
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_38
+  - first:
+      213: 21300078
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_39
+  - first:
+      213: 21300080
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_40
+  - first:
+      213: 21300082
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_41
+  - first:
+      213: 21300084
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_42
+  - first:
+      213: 21300086
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_43
+  - first:
+      213: 21300088
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_44
+  - first:
+      213: 21300090
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_45
+  - first:
+      213: 21300092
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_46
+  - first:
+      213: 21300094
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_47
+  - first:
+      213: 21300096
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_48
+  - first:
+      213: 21300098
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_49
+  - first:
+      213: 21300100
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_50
+  - first:
+      213: 21300102
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_51
+  - first:
+      213: 21300104
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_52
+  - first:
+      213: 21300106
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_53
+  - first:
+      213: 21300108
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_54
+  - first:
+      213: 21300110
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_55
+  - first:
+      213: 21300112
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_56
+  - first:
+      213: 21300114
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_57
+  - first:
+      213: 21300116
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_58
+  - first:
+      213: 21300118
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_59
+  - first:
+      213: 21300120
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_60
+  - first:
+      213: 21300122
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_61
+  - first:
+      213: 21300124
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_62
+  - first:
+      213: 21300126
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_63
+  - first:
+      213: 21300128
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_64
+  - first:
+      213: 21300130
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_65
+  - first:
+      213: 21300132
+    second: SNES_-_King_of_Dragons_-_Dark_Wizard6_66
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 599
+        width: 76
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f43ed0ef8309a341b0f0e0499bfb86c
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 599
+        width: 75
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b539042efd99ef640bc053cded38b6ca
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_2
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 599
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b883d89f688869046ad2e4f97eb9a629
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_3
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 599
+        width: 58
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f847114c50b982e4d9b64c8db86492d1
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_4
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 599
+        width: 56
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f903389739cc6f446b2370768c2d0624
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_5
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 599
+        width: 58
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa1c4862485bba408e350c928d6005e
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_6
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 519
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a849ae50b1c91414687d5eefaf748227
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 519
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d4a25b844d8f44c89bbfa0eecbf376
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_8
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 519
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52d4160e7b0fdc84ca82a54e4cdd869a
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_9
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 519
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a9b4ea0457d464698c6a031cadd40d
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 519
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673024c117e49994fbd38208864e4a8f
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_11
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 433
+        width: 59
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1bcdabdee19e1428c302a8e63ed5bb
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_12
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 433
+        width: 66
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 940068c95e13b464faec3bff307386b4
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_13
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 433
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba5fb0d68cecae44acd3e5ec8f21116
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_14
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 433
+        width: 69
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea380394235d4b4bb47de2689ae122b
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_15
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 433
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635f5170a23b07a4482aac695bebcf7a
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_16
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 341
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b3ea8b50c9e23342969f3b496ff0be2
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_17
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 341
+        width: 68
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d598cf79a0735d42a51d42eb1b41624
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_18
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 341
+        width: 60
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c72bfd3e291a8f4c98c12f0cd29f235
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_19
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 341
+        width: 63
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3ebc8ce7f5c3c347826f43a4e51abd1
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_20
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 341
+        width: 63
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c7c4cec62acd4448704f8f599f2ebb
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_21
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 253
+        width: 65
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ffad0973e9244b46a6fc127e2287317
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_22
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 253
+        width: 62
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ecffcfb3d239749b3fb15b6a4ac87e
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_23
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 253
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8ba7577e0902144b76d7f61d4e3dc0
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_24
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 253
+        width: 65
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00544d715ac19643a9598c4b7cc3231
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_25
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 161
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cb19134b6819e647bf74eae00e6c368
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_26
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 161
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91dcf3ec1e5c442409fe79f50d96c45d
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_27
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 161
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255dec8bc5d9f8a44b4d67331d9c1f51
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_28
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 161
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f6768f91ecb9f45bd79a034e56b5ee
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_29
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 233
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b627a4413f68814cb603b729f09d63b
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_30
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 161
+        width: 61
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51de2c78b9b3a24abac1d7982b2c029
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_31
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 122
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc0cb53e78f555d4bbd373be1be4d64b
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_32
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 119
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfc14b4979fe4774cb2f371930665134
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_33
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 117
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e698989bd9cd764e9d75ae5d41c71cf
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_34
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 117
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527606822cdf6e34ba5ed27da36c5a50
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_35
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 123
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbd6b6f152008d14e94c4c018794a623
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_36
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 122
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a0279ebf568f743a4488a3810687c2
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_37
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 119
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd0fd4bc36e05146b9451c270142387
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_38
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 124
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f159d6634f232fc45b493bdca268b4f2
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_39
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 121
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d015813e1b6f87e42a7fa21c6b81aa85
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_40
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 119
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1014256d83362cc4c89a590e791ed267
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_41
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 117
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83a876672fd74ba4387a08052248138d
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_42
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 118
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52762e407a31274683849c02db81f12
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_43
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 118
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172267282f0d9774a9cd66d5bdd645fb
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_44
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 118
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c15ad963383084a82e99ea282cd6cc
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_45
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 119
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b5934b670e47294880e8460f2d2840a
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_46
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 17
+        width: 22
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51affdbc11a65294a872a374e1225cd1
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_47
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 17
+        width: 22
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7eedffbc3264d2478ad2c83fcfe6a67
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_48
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 17
+        width: 21
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a3332dfdfd400459b9767180ee6917
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_49
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 17
+        width: 21
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e333abe671a1d874a987d966c27a6324
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_50
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 18
+        width: 22
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 027c13f693eb175469830e902995533c
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_51
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 17
+        width: 22
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3127d1079fe13041a5f899fa7d4569b
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_52
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 17
+        width: 20
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f3dddf0b1c3074695fe2837359fa95
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_53
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 58
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e7ba648687a684ea751f49748f79b9
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_54
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 57
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239f7decad3421f41bd360a5f9becef6
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_55
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 57
+        width: 40
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444a03aad62db4e4aa979dd4a22bf3c7
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_56
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 57
+        width: 30
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af83d79a512bf624194d2c23ec1cc24b
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_57
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 57
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346c72c779c2b98408db4ed17829532d
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_58
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 73
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0c70dcafd0589f408b270f03f22ea3d
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_59
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 224
+        width: 45
+        height: 15
+      alignment: 9
+      pivot: {x: 0.0684828, y: 2.7654674}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b645b517cc214dc42bd04709665b4f89
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_60
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 221
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb6cabec21859e4e9088197a90f4eae
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_61
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 200
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3a954edd8c721c42929870b5998ceb4
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_62
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 154
+        width: 55
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2f8d018c5c9944b95add33639bf0e8
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_63
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 180
+        width: 1
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3282f10ebac40ce44946b629a662a020
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_64
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 171
+        width: 43
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cae906c149a32f45b0309ef87b7c952
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_65
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 180
+        width: 45
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9453ae5f83726d34aa0858a07b5d7c9e
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SNES_-_King_of_Dragons_-_Dark_Wizard6_66
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 200
+        width: 42
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f3de39d285b8c4fa200aca047e88f2
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 819d3e8397b83bd4fa7aab24fbe7a9f8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
