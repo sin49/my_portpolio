@@ -22,6 +22,7 @@ public class gameendui : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //이긴 팀을 표시
         if (gameManager.team_win == 1)
         {
             red_win_text.gameObject.SetActive(true);
@@ -33,8 +34,9 @@ public class gameendui : MonoBehaviour
             mvp_text.text = gameManager.mvp_player.NickName + "    total score: " + gameManager.mvp_player.GetScore();
         else
             Debug.Log("sometihng's wrong");*/
+            //자신의 점수와 킬,데스 수를 표시
         player_score_text.text = "kill: " + gameManager.kill + " death: " + gameManager.death + " total score: " + PhotonNetwork.player.GetScore();
-
+        
         game_end_text.text = "game will end in " + (int)gameManager.end_time + "second";
     }
 }

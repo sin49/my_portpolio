@@ -18,7 +18,7 @@ public class disconnectbutton : MonoBehaviour//서버 연결을 끊는 버튼
     }
     public void disconnect()//연결 끊기
     {
-        
+        //서버의 연결을 끊고 정보를 초기화한다
         PhotonNetwork.Disconnect();
         PhotonNetwork.player.SetScore(0);
         PhotonNetwork.player.SetTeam(PunTeams.Team.none);

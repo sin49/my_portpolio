@@ -16,11 +16,12 @@ public class expitemspawner : MonoBehaviour//경험치 아이템 생성기
     // Update is called once per frame
     void Update()
     {
-        if (PhotonNetwork.isMasterClient)
+        if (PhotonNetwork.isMasterClient)//서버의 호스트가 존재할 때
         {
             if (!itemspawnstate)//생성이 안되있으면
             {
                 itemspawntime += Time.deltaTime;
+                //25처 간격으로 리스폰위치에 생성
                 if (itemspawntime >= 25)
                 {
                     GameObject item = PhotonNetwork.Instantiate(expitem.name, this.transform.position, this.transform.rotation, 0);
@@ -29,7 +30,7 @@ public class expitemspawner : MonoBehaviour//경험치 아이템 생성기
                     itemspawnstate = true;//생성
                 }
             }
-            else
+            else//생성이 되어있다면
             {
                 return;
             }

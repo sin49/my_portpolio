@@ -22,6 +22,7 @@ public class playerlv : MonoBehaviour//플레이어 레벨 경험치 능력치
     // Update is called once per frame
     public void Update()
     {
+        //일정 경험치가 되면 레벨업
         if (lv <= 5 && exp >= 100)
         {
             lv_up();

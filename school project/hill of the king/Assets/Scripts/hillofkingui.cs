@@ -30,6 +30,7 @@ public class hillofkingui : MonoBehaviour//거점 관련 ui
 
         red_conquer_text.text = ((int)hok.red_hill_time).ToString();
         blue_conquer_text.text = ((int)hok.blue_hill_time).ToString();
+        //점령 상태를 텍스트로 표시
         if (hok.hillstate == 1)
         {
             red_text.gameObject.SetActive(true);

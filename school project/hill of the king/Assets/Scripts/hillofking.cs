@@ -36,13 +36,13 @@ public class hillofking : MonoBehaviour//거점
     {
         if (gameManager != null)
         {
-            if (gameManager.game_set)
+            if (gameManager.game_set)//게임이 마무리되었다면 거점ui 비활성화
             {
                 hok_ui.gameObject.SetActive(false);
                 game_set_ui.gameObject.SetActive(true);
                 return;
             }
-            else
+            else//아닐시 거점ui 활성화
             {
                 hok_ui.gameObject.SetActive(true);
             }
@@ -65,6 +65,7 @@ public class hillofking : MonoBehaviour//거점
         }
         if (hillstate == 1)//빨강팀이 점령 중일 때
         {
+            //거점을 빨갛게
             GetComponent<MeshRenderer>().material = red_material;
             floor.GetComponent<MeshRenderer>().material = floor_red;
             red_hill_time -= Time.deltaTime;
@@ -76,6 +77,7 @@ public class hillofking : MonoBehaviour//거점
             }
         }else if (hillstate == 2)//파랑팀이 점령 중일 때
         {
+            //거점을 파랗게
             GetComponent<MeshRenderer>().material = blue_material;
             floor.GetComponent<MeshRenderer>().material = floor_blue;
             blue_hill_time -= Time.deltaTime;
@@ -93,6 +95,7 @@ public class hillofking : MonoBehaviour//거점
             floor.GetComponent<MeshRenderer>().material = floor_normal;
         }
         /////////////////////////
+        ///hillstate->0 :중립 1:빨간팀이 점령 중 2:파란팀이 점령 중
         if (red_conquer_state && blue_conquer_state)//빨강팀과 파랑팀 둘다 밟고 있을 때
         {
             if (red_hill_time <= 1&&hillstate==1)
@@ -109,7 +112,7 @@ public class hillofking : MonoBehaviour//거점
         {
             if (hillstate == 0)//중립이라면
             {
-                if (blue_conquer_time <= 0)
+                if (blue_conquer_time <= 0)//점령 시작
                 {
                     red_conquer_time += Time.deltaTime;
                     if (red_conquer_time >= conquer_time)
@@ -143,7 +146,7 @@ public class hillofking : MonoBehaviour//거점
             {
                 if (red_conquer_time <= 0)
                 {
-                    
+                    //점령 시ㅏㄱ
                     blue_conquer_time += Time.deltaTime;
                     if (blue_conquer_time >= conquer_time)
                     {
@@ -196,7 +199,7 @@ public class hillofking : MonoBehaviour//거점
             }
         }
     }
-    void OnTriggerStay(Collider col)//밟고있는 중인지 체크
+    void OnTriggerStay(Collider col)//플레이어가 밟고있는 중인지 체크
     {
         if (col.CompareTag("Player"))
         {
@@ -211,7 +214,7 @@ public class hillofking : MonoBehaviour//거점
             }
         }
     }
-    void OnTriggerExit(Collider col)//벗어났는지 체크
+    void OnTriggerExit(Collider col)//플레이어가 벗어났는지 체크
     {
         if (col.CompareTag("Player"))
         {
@@ -226,7 +229,7 @@ public class hillofking : MonoBehaviour//거점
             }
         }
     }
-    [PunRPC]
+    [PunRPC]//PunRPC = 모든 클라이언트 대상으로 함수 실행
     public void red_conquer_state_false()//플레이어가 점령지점 안에 죽었을 때 점령 상태를 벗어난 것으로 바꾼다
     {
         red_conquer_state = false;

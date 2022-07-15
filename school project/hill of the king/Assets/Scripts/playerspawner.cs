@@ -52,50 +52,27 @@ public class playerspawner : MonoBehaviour//플레이어 팀 배정,플레이어
             PhotonNetwork.player.SetTeam(PunTeams.Team.red);
             teamcheck = true;
         }
-       /* if (PhotonNetwork.player.IsMasterClient)
-        {
-            Debug.Log("i'm red!");
-            PhotonNetwork.player.SetTeam(PunTeams.Team.red);
-        }
-        else
-        {
-            Debug.Log("i'm blue!");
-            PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
-        }*/
-
-        /*for (int i = 0; i < PhotonNetwork.playerList.Length; i++)
-        {
-            if (PhotonNetwork.playerList[i] == PhotonNetwork.player)
-            {
-                Debug.Log("i am" + i);
-            }
-            else
-            {
-                Debug.Log(i);
-            }
-            if (i % 2 == 0)
-                PhotonNetwork.playerList[i].SetTeam(red_);
-            else
-                PhotonNetwork.playerList[i].SetTeam(blue_);
-        }*/
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        player_hp = default_hp + (playerlv.heart * 20) - (playerlv.blade * 5)-(playerlv.wing*5);//능력치에 맞춰서 값 정하기
+        player_hp = default_hp + (playerlv.heart * 20) - (playerlv.blade * 5)-(playerlv.wing*5);//플레이어의 능력치에 맞춰서 값 정하기
         player_speed = default_speed + (playerlv.wing * 2) - (playerlv.heart);
         bullet_damage = default_damage + (playerlv.blade * 2) - (playerlv.heart);
         firedelay = default_firedelay - (playerlv.storm * 0.1f) + (playerlv.blade * 0.05f);
         bullet_speed = default_bulletspeed + (playerlv.blade * 4) - (playerlv.storm*2);
         reloadtime = default_reloadtime - (playerlv.wing * 0.25f) + (playerlv.storm * 0.125f);
         magazine = default_magazine + (playerlv.storm * 2) - (playerlv.wing);
+        //레벨이 5이하 일시 특수 능력 비활성화
         if (playerlv.lv < 5)
         {
             s_ability_number = 0;
         }
         else
         {
+            //레벨이 5이상일시 특수 능력활성화+능력치 수치가 레벨의 절반보다 많을 때 능력치의 종류에 따라 특수능력의 능럭이 정햊진다
             if (playerlv.heart > (float)playerlv.lv / 2)
             {
                 s_ability_number = 1;
@@ -119,10 +96,12 @@ public class playerspawner : MonoBehaviour//플레이어 팀 배정,플레이어
                 return;
             }
         }
+        //팀정하기
         teamPlayers_red = PunTeams.PlayersPerTeam[PunTeams.Team.red];
         teamPlayers_blue = PunTeams.PlayersPerTeam[PunTeams.Team.blue];
         if(!teamcheck)
             player_team();
+        //플레이어가 생성이 안되있다면 생성
         if (!playerspawned)
         {
 
@@ -136,7 +115,7 @@ public class playerspawner : MonoBehaviour//플레이어 팀 배정,플레이어
                 death_ui.gameObject.SetActive(false);
 
             }
-            else
+            else//사망 후 재생성기간을 기다리는 중
             {
                 death_ui.gameObject.SetActive(true);
                 death_ui.text = ("can respawn in " + Mathf.Floor((max_respawn_time - respawn_time) * 10) / 10 + "seconds");
@@ -151,7 +130,7 @@ public class playerspawner : MonoBehaviour//플레이어 팀 배정,플레이어
             player_spawn();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))//esc로 매뉴 열기
+        if (Input.GetKeyDown(KeyCode.Escape))//esc로 매뉴 열기&닫기
         {
             if (esccheck == false)
             {
@@ -186,17 +165,20 @@ public class playerspawner : MonoBehaviour//플레이어 팀 배정,플레이어
         Debug.Log(r + " " + b);
         if (r > b)
         {
+            //빨강팀이 파랑팀보다 많을경우 파랑팀
             Debug.Log("i'm blue!");
             PhotonNetwork.player.SetTeam(PunTeams.Team.blue);
 
         }
         else if(b>r)
         {
+            //파랑팀이 빨강팀보다 많을경우 파랑팀
             Debug.Log("i'm red!");
             PhotonNetwork.player.SetTeam(PunTeams.Team.red);
         }
         else
         {
+            //같을 경우 원하는 팀을 선택 가능
             Debug.Log("ummmm");
             return;
         }
@@ -210,16 +192,17 @@ public class playerspawner : MonoBehaviour//플레이어 팀 배정,플레이어
             return;
         }
         respawn_cam.gameObject.SetActive(false);
-        if (PhotonNetwork.player.GetTeam() == PunTeams.Team.red)
+        if (PhotonNetwork.player.GetTeam() == PunTeams.Team.red)//빨간 팀일때 빨간팀 재생성지점에 생성
         {
             GameObject player = PhotonNetwork.Instantiate(Playerprefab.name, spawn_point_red.transform.position, spawn_point_red.transform.rotation, 0);
-            int team = 0;//채력,대미지,스피드,총알스피드,딜레이,재장전,장탄수
+            int team = 0;
+            //채력,대미지,스피드,총알스피드,딜레이,재장전,장탄수
             player.GetComponent<PhotonView>().RPC("player_team_set", PhotonTargets.All, team, player_hp, bullet_damage, player_speed, bullet_speed, firedelay, reloadtime, magazine,s_ability_number);
             playerspawned = true;
             respawn_time = 0;
             can_respawn = false;
         }
-        else if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)
+        else if (PhotonNetwork.player.GetTeam() == PunTeams.Team.blue)//파란팀일때 파란팀 재생성지점에 생성
         {
             GameObject player = PhotonNetwork.Instantiate(Playerprefab.name, spawn_point_blue.transform.position, spawn_point_blue.transform.rotation, 0);
             int team = 1;

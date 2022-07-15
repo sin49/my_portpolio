@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class deathboard : MonoBehaviour//누가 누구를 죽였는지 알림
+public class deathboard : MonoBehaviour//킬로그(누가 누구를 죽였는지 알림)
 {
    public Text[] death_text = new Text[5];//저장용 배열
     public float time;
@@ -16,17 +16,19 @@ public class deathboard : MonoBehaviour//누가 누구를 죽였는지 알림
     // Update is called once per frame
     void Update()
     {
+        
         for(int i = 0; i < death_text.Length; i++)
         {
+            //텍스트의 위치를 조정한다
             if(death_text[i]!=null)
             death_text[i].transform.position = this.transform.position + new Vector3(0, 50 - (i * 20), 0);//위치 조정
             
         }
-        if (death_text[0] == null)
+        if (death_text[0] == null)//없을시 비활성화
         {
             this.gameObject.SetActive(false);
         }
-        else
+        else//있을시
         {
             time += Time.deltaTime;
             if (time >= 5)

@@ -18,7 +18,7 @@ public class s_ability_UI : MonoBehaviour//특수능력의 사용중과 재사�
     // Update is called once per frame
     void Update()
     {
-        if (p_controler.s_ability[index].ability_use)
+        if (p_controler.s_ability[index].ability_use)//사용중
         {
             use.gameObject.SetActive(true);
             use.rectTransform.sizeDelta=new Vector2(use.rectTransform.sizeDelta.x,y * (p_controler.s_ability[index].effect_time - p_controler.abilitty_time) / p_controler.s_ability[index].effect_time);
@@ -27,7 +27,7 @@ public class s_ability_UI : MonoBehaviour//특수능력의 사용중과 재사�
         {
             use.gameObject.SetActive(false);
         }
-        if (p_controler.ability_cool_down)
+        if (p_controler.ability_cool_down)//쿨다운 상태
         {
             cool.gameObject.SetActive(true);
             cool.rectTransform.sizeDelta = new Vector2(use.rectTransform.sizeDelta.x, y * (p_controler.s_ability[index].cool_time - p_controler.abilitty_time) / p_controler.s_ability[index].cool_time);

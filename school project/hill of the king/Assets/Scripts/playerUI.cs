@@ -30,6 +30,7 @@ public class playerUI : MonoBehaviour//플레이어 인게임 ui
     // Update is called once per frame
     void Update()
     {
+        //레벨업에 필요한 요구 경험치 갱신
         if (_target.lv <= 5)
             exp_ = "/100";
         else if (_target.lv <= 10)
@@ -43,6 +44,7 @@ public class playerUI : MonoBehaviour//플레이어 인게임 ui
         float width = Screen.width / 2;
         float height = Screen.height / 2;
         //crosshair.transform.position = new Vector2(width, height);
+        //플레이어 ui정보 갱신
         if (playerhealthText!=null)
             playerhealthText.text=_target.health.ToString();
         if(playergreenhealthbar!=null)
@@ -50,11 +52,13 @@ public class playerUI : MonoBehaviour//플레이어 인게임 ui
         if (playermagazineText != null)
             playermagazineText.text = _target.magazine.ToString()+"/"+_target.return_max_magazine().ToString();
         leveltext.text = "lv: " + _target.lv + " exp: " + _target.exp+exp_;
+        //플레이어가 죽었다면 ui 제거
         if (_target == null)
         {
             Destroy(this.gameObject);
             return;
         }
+        //특수 능력의 종류 표시
         switch (_target.s_ability_number)
         {
             case 0:
