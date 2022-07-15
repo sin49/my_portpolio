@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //타이머
         time += Time.deltaTime;
         timetext.text = ("time: " + Mathf.FloorToInt(time));
         

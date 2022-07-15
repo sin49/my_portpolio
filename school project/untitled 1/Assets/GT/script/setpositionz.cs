@@ -7,6 +7,7 @@ public class setpositionz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //z값 고정
         Vector3 pos = transform.position;
         pos.z = 0.5f;
         transform.position = pos;

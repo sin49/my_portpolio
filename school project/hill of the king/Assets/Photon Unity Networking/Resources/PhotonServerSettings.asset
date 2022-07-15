@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f3758f8f58fdef43803eb9be1df0608, type: 3}
+  m_Name: PhotonServerSettings
+  m_EditorClassIdentifier: 
+  AppID: b3c147e5-ee74-4e1d-b063-36389f964603
+  VoiceAppID: 
+  ChatAppID: fea9900f-f708-497d-a415-112b87fcec06
+  HostType: 1
+  PreferredRegion: 0
+  EnabledRegions: -1
+  Protocol: 0
+  ServerAddress: 
+  ServerPort: 5055
+  VoiceServerPort: 5055
+  JoinLobby: 0
+  EnableLobbyStatistics: 0
+  PunLogging: 0
+  NetworkLogging: 1
+  RunInBackground: 1
+  RpcList:
+  - Chat
+  - ColorRpc
+  - DestroyRpc
+  - DoJump
+  - Flash
+  - InstantiateRpc
+  - Marco
+  - PickupItemInit
+  - Polo
+  - PunPickup
+  - PunPickupSimple
+  - PunRespawn
+  - RequestForPickupItems
+  - RequestForPickupTimes
+  - TaggedPlayer
+  - player_hitting
+  - player_team_set
+  - set_damage
+  - set_player
+  - set_speed
+  - player_lv
+  - gun_sound
+  - blue_conquerstate_off
+  - blue_conquerstate_on
+  - red_conquerstate_off
+  - red_conquerstate_on
+  - blue_conquer_state_false
+  - red_conquer_state_false
+  - set_nickname
+  - player_healthup
+  - player_death_board
+  DisableAutoOpenWizard: 1
