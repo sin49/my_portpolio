@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_07_range : MonoBehaviour
+public class E_07_range : MonoBehaviour//7번 적 공격 범위
 {
     public bool on_player;
     Quaternion q;

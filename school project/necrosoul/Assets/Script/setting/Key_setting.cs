@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.UI.Button;
 
-public class Key_setting : MonoBehaviour
+public class Key_setting : MonoBehaviour//키설정 클레스
 {
     public List<Button> key = new List<Button>();
     public List<Button> key_set_but = new List<Button>();//0:up 1:down 2:left 3:right  4:attack 5:jump 6:dash 7:inventory 8:pause
@@ -22,15 +22,12 @@ public class Key_setting : MonoBehaviour
         delay_check = 0.25f;
     }
   
-    public void keychange_off()
+    public void keychange_off()//키설정 상태 해제
     {
      
         select = 0;
         setting_manager.s_manger.Key_setting(km);
-       /* for (int i = 0; i < key_set_but.Count; i++)
-        {
-            key_set_but[i].transform.parent.GetChild(0).gameObject.SetActive(false);
-        }*/
+       
     }
 
     // Update is called once per frame
@@ -46,14 +43,16 @@ public class Key_setting : MonoBehaviour
         }
         else
         {
+            //키설정 버튼 조작
             BtnSystem(key_set_but);
+            //키설정 ui 닫기
             if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.PAUSE]) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.JUMP]))
             {
                 exit_setting();
             }
         }
     }
-  
+  //키설정을 초기값으로 되돌린다
     public void key_load_original()
     {
         setting_manager.s_manger.S.Keys[0] = KeyCode.UpArrow;
@@ -68,7 +67,8 @@ public class Key_setting : MonoBehaviour
         setting_manager.s_manger.Key_setting(km);
         load_key_text();
 
-    }//ㅇ원래 키값 복귀
+    }
+    //조작 text를 현재 설정된 키와 일치하도록 하다
     void load_key_text()
     {
         for(int i = 0; i < key_set_but_num; i++)
@@ -105,7 +105,7 @@ public class Key_setting : MonoBehaviour
                     s= Key_manager.Keys[Key_manager.KeyAction.PAUSE].ToString();
                     break;
             }
-            switch (s)
+            switch (s)//특정키의 text는 예외로 처리한다
             {
                 case "UpArrow":
                     s = "↑";
@@ -130,7 +130,8 @@ public class Key_setting : MonoBehaviour
             key_set_but[i].transform.GetChild(0).GetComponent<Text>().text = s;
         }
     }
-    public void exit_setting()
+
+    public void exit_setting()//키 설정 ui를 종료한다
     {
         if (timer <= 0)
         {
@@ -144,14 +145,14 @@ public class Key_setting : MonoBehaviour
     {
         w.selected = true;
     }
-    void BtnSystem(List<Button> a)
+    void BtnSystem(List<Button> a)//키보드로 ui를 조작할 수 있게 만든다
     {
         for (int i = 0; i < a.Count; i++)
         {
 
           
-                if (i == select)
-                {
+                if (i == select)//선택됐을 때 버튼으이 그래픽 요소가 없어서 interactable을 활성화/비활성화 하는  방법으로 그래픽 활성화
+                {//버튼이 현재 선택됐는지 안됐는지
 
                     if (a[i].IsInteractable() == true)
                     {
@@ -170,7 +171,7 @@ public class Key_setting : MonoBehaviour
         }
       
             float vr = Input.GetAxis("Vertical");
-            if (Input.GetButtonDown("Vertical"))
+            if (Input.GetButtonDown("Vertical"))//위 아래 키로 버튼을 선택한다
             {
                 if (vr > 0)
                 {
@@ -188,7 +189,7 @@ public class Key_setting : MonoBehaviour
             AudioManage_Main.instance.UI_Page();
         }
        
-
+//버튼을 활성화 시키는 키를 눌려 버튼의 onclick 함수를 활성화 시킨다
         if ((Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.ATTACK])|| Input.GetKeyDown(KeyCode.KeypadEnter)|| Input.GetKeyDown(KeyCode.Space)|| Input.GetKeyDown(KeyCode.Z))&&!setting_mode&&timer<=0)
         {
             AudioManage_Main.instance.UI_Click();
@@ -196,6 +197,7 @@ public class Key_setting : MonoBehaviour
             btn.Invoke();
         }
     }
+    //버튼과 관련된 키 설정을 시작한다
     public void setting_on_click()
     {
         setting_mode = true;
@@ -205,8 +207,12 @@ public class Key_setting : MonoBehaviour
     }
     private void OnGUI()
     {
+        //키설정을 시작하고 특정 키를 누르면 그 특저키로 조작이 변한다
         if (setting_mode)
         {
+            //delay_check에 대해
+            //delay_check로 짧은 시간동안의 딜레이없이 실행키 키를 눌렸을 때 담긴 키 버퍼가 키를 사용하는 모든 함수를 다 활성화 시킨다
+            //이 문제를 해결하기위해 delay_check가 지나야 함수를 실행시키고 다시 delay_check로 딜레이을ㄹ 걸어서 함수를 순차적으로 실행시키도록 유도한다
             if (delay_check > 0)
             {
                 delay_check -= Time.deltaTime;
@@ -214,9 +220,9 @@ public class Key_setting : MonoBehaviour
             else
             {
                 Event e = Event.current;
-                if (e.isKey)
+                if (e.isKey)//키를 눌렸을 때
                 {
-                    if (setting_manager.s_manger.S.Keys.Contains(e.keyCode)&& setting_manager.s_manger.S.Keys.IndexOf(e.keyCode) != select)
+                    if (setting_manager.s_manger.S.Keys.Contains(e.keyCode)&& setting_manager.s_manger.S.Keys.IndexOf(e.keyCode) != select)//다른 키와 중복돼는 것을 막는다
                     {
                         
                             Debug.Log("중복키 에러!");
@@ -224,9 +230,9 @@ public class Key_setting : MonoBehaviour
 
                     }
                     else {
-                        if (e.keyCode != KeyCode.None)
+                        if (e.keyCode != KeyCode.None)//키코드가 공백으로 들어오는 걸 막는다
                         {
-                            switch (select)
+                            switch (select)//키설정을 실행한다
                             {
                                 case 0:
                                     setting_manager.s_manger.S.Keys[0] = e.keyCode;
@@ -260,7 +266,7 @@ public class Key_setting : MonoBehaviour
 
                             setting_manager.s_manger.Key_setting(km);
                             load_key_text();
-                            setting_mode = false;
+                            setting_mode = false;//키설정 종료
                             delay_check = 0.25f;
                             timer = 0.2f;
                         }

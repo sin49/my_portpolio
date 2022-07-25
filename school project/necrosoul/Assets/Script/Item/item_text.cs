@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
     using UnityEngine.UI;
 
-public class item_text : MonoBehaviour
+public class item_text : MonoBehaviour//아이템 흭득,돈,남은 적 등의 정보 관련 ui 처리 클레스
 {
     Animator ani;
     public GameObject last_enemy_ui;
@@ -27,8 +27,8 @@ public class item_text : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ani.SetInteger("loot_count", Gamemanager.GM.loot_box.Count);
-        ani.SetBool("inventory", get_item_chk);
+        ani.SetInteger("loot_count", Gamemanager.GM.loot_box.Count);//흭득 아이템의 개수
+        ani.SetBool("inventory", get_item_chk);//아이템 흭득 여부
         if (get_item_chk)
         {
             inventory.SetActive(true);
@@ -37,7 +37,7 @@ public class item_text : MonoBehaviour
         {
             inventory.SetActive(false);
         }
-        if (Key_manager.Keys[Key_manager.KeyAction.PAUSE] == KeyCode.Escape)
+        if (Key_manager.Keys[Key_manager.KeyAction.PAUSE] == KeyCode.Escape)//일시정지 키
         {
             pause_key_text.text = "ESC";
         }
@@ -45,7 +45,7 @@ public class item_text : MonoBehaviour
         {
             pause_key_text.text = Key_manager.Keys[Key_manager.KeyAction.PAUSE].ToString();
         }
-        if (Gamemanager.GM.last_enemy > 0)
+        if (Gamemanager.GM.last_enemy > 0)//방에서 남은 적
         {
             last_enemy_ui.SetActive(true);
             last_enemy.text = Gamemanager.GM.last_enemy.ToString();
@@ -55,7 +55,7 @@ public class item_text : MonoBehaviour
             last_enemy_ui.SetActive(false);
         }
     }
-    void get_loot_box()
+    void get_loot_box()//흭득  아이템의 정보를 ui에 적용 시킨다
     {
         i = Gamemanager.GM.loot_box[0].CreateItem();
         item_name_text.text = i.Name;
@@ -68,7 +68,7 @@ public class item_text : MonoBehaviour
     {
         reset_ani();
     }
-    public void reset_ani()
+    public void reset_ani()//에니메이션 설정을 초기화 시킨다
     {
         for (int i = 0; i < Gamemanager.GM.loot_box.Count; i++)
         {
@@ -81,7 +81,7 @@ public class item_text : MonoBehaviour
 
        
     }
-   public void reset_trigger()
+   public void reset_trigger()//에니메이션 리셋을 실행시킨다
     {
         ani.ResetTrigger("skip");
     }

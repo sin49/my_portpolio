@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class money_text_2 : MonoBehaviour
+public class money_text_2 : MonoBehaviour//µ· Å‰µæ ÅØ½ºÆ®
 {
     Text t;
     Color c;
@@ -25,7 +25,7 @@ public class money_text_2 : MonoBehaviour
         }
         c.a = 1 - (1 * (Timer/a));
         t.color = c;
-        t.text = "+"+Gamemanager.GM.lastest_get_money.ToString()+"G";
+        t.text = "+"+Gamemanager.GM.lastest_get_money.ToString()+"G";//¸¶Áö¸·À¸·Î Å‰µæÇÑ µ·ÀÇ ¼öÄ¡
         if (c.a == 0)
         {
             this.gameObject.SetActive(false);

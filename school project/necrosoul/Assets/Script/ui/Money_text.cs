@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Money_text : MonoBehaviour
+public class Money_text : MonoBehaviour//µ· Ç¥½Ã ÅØ½ºÆ®(ÇöÀç,Å‰µæ,¼Ò¸ð)
 {
-    Text t;
-    Text get_T;
-    Text lose_T;
+    Text t;//ÇöÀç µ·
+    Text get_T;//Å‰µæ µ·
+    Text lose_T;//µ· ¼Ò¸ð
     void Start()
     {
         t = GetComponent<Text>();

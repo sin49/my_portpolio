@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class node
+public class node//a*알고리즘의 노드(위치 값과 이동 가능 여부 등의 정보 값을 가짐)
 {
     enum status
     {

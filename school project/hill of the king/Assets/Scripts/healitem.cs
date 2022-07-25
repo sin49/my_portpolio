@@ -32,6 +32,7 @@ public class healitem : MonoBehaviour//회복 아이템
                 Debug.Log("check");
                 if (!check)
                 {
+                    //  PhotonTargets.All =모든 클라이언트가 같은 정보를 가ㅣ게 함
                     col.GetComponent<PhotonView>().RPC("player_healthup", PhotonTargets.All, player.max_health*healthper/100);//체력을 회복
                     check = true;
                 }

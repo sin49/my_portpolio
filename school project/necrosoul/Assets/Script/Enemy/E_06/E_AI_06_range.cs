@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_AI_06_range : MonoBehaviour
+public class E_AI_06_range : MonoBehaviour//6번 적 공격 범위
 {
     public bool on_player;
     public Transform E;

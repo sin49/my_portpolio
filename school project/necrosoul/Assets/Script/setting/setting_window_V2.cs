@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.UI.Button;
 
-public class setting_window_V2 : MonoBehaviour
+public class setting_window_V2 : MonoBehaviour//설정 ui
 {
     int select;
     public bool selected;
@@ -16,10 +16,7 @@ public class setting_window_V2 : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        /*a.Add(scren_reol_but.GetComponent<Button>());
-        a.Add(key_setting_but.GetComponent<Button>());
-        a.Add(audio_but.GetComponent<Button>());*/
-
+        
     }
     void Start()
     {
@@ -33,15 +30,15 @@ public class setting_window_V2 : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-        if (!selected)
+        if (!selected)//키보드로 버튼 관리
         {
             BtnSystem(a);
         }
-        if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.PAUSE])&&timer<=0)
+        if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.PAUSE])&&timer<=0)//취소 키로 설정을 선택중일경우 취소 아닐경우 설정 ui닫기
         {
             if (!key_setting_UI.activeSelf)
             {
-                if (selected)
+                if (selected)//selected=설정을 선택 중인지 확인
                     but_unselected();
                 else
                 {
@@ -52,7 +49,7 @@ public class setting_window_V2 : MonoBehaviour
        
     }
 
-        void BtnSystem(List<Button> a)
+        void BtnSystem(List<Button> a)//키보드로 버튼 관리(btnsystem.cs 구조)
         {
             for (int i = 0; i < a.Count; i++)
             {

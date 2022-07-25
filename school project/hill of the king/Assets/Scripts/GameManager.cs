@@ -48,7 +48,7 @@ public class GameManager : Photon.PunBehaviour//게임을 끝내는 이벤트와
     public override void OnPhotonPlayerConnected(PhotonPlayer otherPlayer)//다른 플레이어가 룸에 연결 되었을 때
     {
         Debug.Log("aaaa");
-        if (PhotonNetwork.isMasterClient)
+        if (PhotonNetwork.isMasterClient)//게임 시작
         {
             if(PhotonNetwork.countOfPlayers>=1)
                 loadArena();
@@ -63,9 +63,9 @@ public class GameManager : Photon.PunBehaviour//게임을 끝내는 이벤트와
         distext.transform.position = canvas.transform.position+new Vector3(0,100,0);
         if (PhotonNetwork.isMasterClient)
         {
-            if (PhotonNetwork.room.PlayerCount < 2)
+            if (PhotonNetwork.room.PlayerCount < 2)//플레이어가 연결이 끊기고 룸의 플레이어 수가 1명일때
             {
-                if (!game_set)
+                if (!game_set)//게임이 끝나지않았다면 강제 중지
                 {
                     PhotonNetwork.LoadLevel(1);
                     Cursor.visible = true;//커서 숨기기
@@ -73,7 +73,7 @@ public class GameManager : Photon.PunBehaviour//게임을 끝내는 이벤트와
                     Cursor.lockState = CursorLockMode.None;//커서 고정
                     returncheck = true;
                 }
-                else
+                else//게임이 끝난 상태일 경우 게임 마무리
                 {
                     PhotonNetwork.player.SetScore(0);
                     Cursor.visible = true;//커서 숨기기
@@ -98,8 +98,10 @@ public class GameManager : Photon.PunBehaviour//게임을 끝내는 이벤트와
     }
     public void red_win()//빨강 팀이 이겼을 때
     {
+        //team_win=1 ->빨강 팀 우승
         team_win = 1;
         var a= PunTeams.PlayersPerTeam[PunTeams.Team.red];
+        //빨강 팀 중 점수가 제일 높은 사람이 mvp 서넝
         for(int i = 0; i < a.Count; i++)
         {
             int score = a[i].GetScore();
@@ -108,6 +110,7 @@ public class GameManager : Photon.PunBehaviour//게임을 끝내는 이벤트와
                 mvp = i;
             }
         }
+        //게임 마무리
         PhotonPlayer p = a[mvp];
         Debug.Log("red team win");
         Debug.Log("mvp is" + p.NickName + " score: "+ p.GetScore());
@@ -117,8 +120,10 @@ public class GameManager : Photon.PunBehaviour//게임을 끝내는 이벤트와
     }
     public void blue_win()//파랑팀이 이겼을 때
     {
+        //team_win=2 ->파랑 팀 우승
         team_win = 2;
         var a = PunTeams.PlayersPerTeam[PunTeams.Team.blue];
+        //파랑 팀 중 점수가 제일 높은 사람이 mvp 서넝
         for (int i = 0; i < a.Count; i++)
         {
             int score = a[i].GetScore();
@@ -127,6 +132,7 @@ public class GameManager : Photon.PunBehaviour//게임을 끝내는 이벤트와
                 mvp = i;
             }
         }
+        //게임 마무리
         mvp_player = a[mvp];
         Debug.Log("blue team win");
         Debug.Log("mvp is" + mvp_player.NickName + " score: " + mvp_player.GetScore());
@@ -143,9 +149,9 @@ public class GameManager : Photon.PunBehaviour//게임을 끝내는 이벤트와
             PhotonNetwork.player.SetScore(0);
             Cursor.visible = true;//커서 숨기기
             Cursor.lockState = CursorLockMode.None;//커서 고정
-            PhotonNetwork.LoadLevel(0);
+            PhotonNetwork.LoadLevel(0);//메인 화면으로 이동
             PhotonNetwork.player.SetTeam(PunTeams.Team.none);
-            PhotonNetwork.Disconnect();
+            PhotonNetwork.Disconnect();//현재 연결된 룸과의 연결을 종료한다
             
         }
         

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class portal : MonoBehaviour
+public class portal : MonoBehaviour//문(현재 사용 안함)
 {
     public door door_;
     public float force;
@@ -23,7 +23,7 @@ public class portal : MonoBehaviour
             GameObject player = collision.gameObject;
             Rigidbody2D rgd2D;
             //player.SetActive(false);
-            switch (door_.direct)
+            /*switch (door_.direct)
             {
                 case 0:
                     door_.link.transform.parent.gameObject.GetComponent<room>().on_player=true;
@@ -91,7 +91,7 @@ public class portal : MonoBehaviour
                 default:
                     Debug.Log("error");
                     break;
-            }
+            }*/
             
             
         }

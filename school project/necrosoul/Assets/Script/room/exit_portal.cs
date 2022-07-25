@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class exit_portal : MonoBehaviour
+public class exit_portal : MonoBehaviour//¹æ ÀÔ±¸ Æ÷Å»
 {
     public Animator m_ani;
     // Start is called before the first frame update

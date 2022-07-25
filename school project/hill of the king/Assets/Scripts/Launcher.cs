@@ -35,7 +35,7 @@ public class Launcher : Photon.PunBehaviour//서버에서 설정을하고 시작
             Destroy(ga.gameObject);
         }
     }
-    public void Connect()//서버 연결
+    public void Connect()//서버에 연결
     {
         AudioSource button_sound = GetComponent<AudioSource>();
         button_sound.Play();

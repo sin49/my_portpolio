@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class setting_manager : MonoBehaviour
+public class setting_manager : MonoBehaviour//설정을 불려오고 그 값대로 게임을 설정하는 클레스
 {
     public Setting S;
     AudioMixer am;
@@ -12,6 +12,7 @@ public class setting_manager : MonoBehaviour
     public bool key_Make_chk;
     private void Awake()
     {
+        //설정을 불려오기(없다면 생성)
         s_manger = this;
         if (S == null)
         {
@@ -33,17 +34,17 @@ public class setting_manager : MonoBehaviour
     {
       
     }
-    public void set_setting()
+    public void set_setting()//저장된 설정 값에 따라 구성
     {
         screen_resol(S.screen_resolution_size_X, S.screen_resolution_size_Y, S.full_scren);
         Key_setting(k);
         sound_manager();
     }
-    public void screen_resol(int a, int b, bool ful)
+    public void screen_resol(int a, int b, bool ful)//화면 설정
     {
         Screen.SetResolution(a, b, ful);
     }
-    public void new_setting()
+    public void new_setting()//새로운 설정 파일 생성
     {
         Setting s_new = new Setting();
         s_new.initialize_setting();
@@ -51,11 +52,11 @@ public class setting_manager : MonoBehaviour
         S = s_new;
         set_setting();
     }
-    public void Key_setting(Key_manager k)
+    public void Key_setting(Key_manager k)//키세팅 설정
     {
-        if (!key_Make_chk)
+        if (!key_Make_chk)//첫 키 설정 체크
         {
-    
+    ///add
 
             Key_manager.Keys.Add(Key_manager.KeyAction.UP, S.Keys[0]);
             Key_manager.Keys.Add(Key_manager.KeyAction.DOWN, S.Keys[1]);
@@ -69,9 +70,9 @@ public class setting_manager : MonoBehaviour
             Debug.Log("ssss"+Key_manager.Keys[Key_manager.KeyAction.UP]);
             key_Make_chk = true;
         }
-        else
+        else//두번ㄴ째 부터
         {
-
+            //값 변경
 
             Key_manager.Keys[Key_manager.KeyAction.UP] = S.Keys[0];
             Key_manager.Keys[Key_manager.KeyAction.DOWN] = S.Keys[1];
@@ -84,7 +85,7 @@ public class setting_manager : MonoBehaviour
             Key_manager.Keys[Key_manager.KeyAction.PAUSE] = S.Keys[8];
         }
     }
-    public void sound_manager()
+    public void sound_manager()//사운드 설정값 적용(사운드를 audiomanager로 실제로 적용하는 것은 자신이 작업하지 않아서 주석처리)
     {
         //am.SetFloat("bgm", S.full_volume * S.bgm_volume);
         //am.SetFloat("SFX", S.full_volume * S.sfx_volume);

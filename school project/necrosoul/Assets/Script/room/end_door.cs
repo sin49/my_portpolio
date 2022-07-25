@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class end_door : MonoBehaviour
+public class end_door : MonoBehaviour//현재 스테이지를 마무라
 {
 
 

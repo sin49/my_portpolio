@@ -27,5 +27,24 @@ MonoBehaviour:
   PunLogging: 0
   NetworkLogging: 1
   RunInBackground: 1
-  RpcList: []
+  RpcList:
+  - blue_conquer_state_false
+  - Chat
+  - DestroyRpc
+  - gun_sound
+  - InstantiateRpc
+  - PickupItemInit
+  - player_death_board
+  - player_healthup
+  - player_hitting
+  - player_lv
+  - player_team_set
+  - PunPickup
+  - PunPickupSimple
+  - PunRespawn
+  - red_conquer_state_false
+  - RequestForPickupItems
+  - RequestForPickupTimes
+  - set_damage
+  - set_speed
   DisableAutoOpenWizard: 1

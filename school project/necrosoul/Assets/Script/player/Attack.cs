@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Attack : MonoBehaviour//플레이어의 공격 클레스
 {
     PlayerCharacter p_chr;
     public GameObject prefab;
@@ -36,6 +36,7 @@ public class Attack : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        //인벤토리가 안 열려있고 공격 가능한 상태라면
         if (OpenDownInventory.check==false || p_chr.can_attack) 
         {
            //S mouse_point();
@@ -47,6 +48,7 @@ public class Attack : MonoBehaviour
             }
         }
     }
+    // 플레이어의 마우스 좌표 받기 (사용 안함)
     void mouse_point()
     {
         direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -56,12 +58,12 @@ public class Attack : MonoBehaviour
         MouseAttack();
     }
 
-
-    void MouseAttack()  //공격 버튼 처리
+    //마우스 좌클릭을 사용해 마우스의 좌표 방향으로 공격 (사용 안함)
+    void MouseAttack()  
     {
         Vector3 rotation_num=new Vector3(0,180,0);
         Quaternion rotation__=Quaternion.AngleAxis(180, Vector3.up);
-        if (Player_status.p_status.get_volly())
+        if (Player_status.p_status.get_volly())//단발식(클릭 한번=공격 한번)
         {
             if (FireState&&!Gamemanager.GM.map_mode)
             {
@@ -77,7 +79,7 @@ public class Attack : MonoBehaviour
                     {
                         direct = -1;
                     }
-
+                    //플레이어가 바라보는 방향과 공격방향이 반대일 경우 플레이어의 스프라이트를 회전시킨다
                     if (direct != p_chr.direction)
                     {
                         if (p_chr.onground)
@@ -96,7 +98,7 @@ public class Attack : MonoBehaviour
                 
             }
         }
-        else
+        else//연발식(클릭하는동안 공격)
         {
             if (FireState)
             {
@@ -131,12 +133,12 @@ public class Attack : MonoBehaviour
             }
         }
     }
-    void ShootBullet(GameObject Gun,GameObject Shoot,int damage,float speed,Vector2 direction)    //총 발사
+    void ShootBullet(GameObject Gun,GameObject Shoot,int damage,float speed,Vector2 direction)    //총 발사 (사용 안함)
     {
         Gun.transform.rotation = Gun.transform.rotation;
         var myInstance = ObjectPool.GetObject(Gun.transform,Shoot.transform,damage,speed,direction);
     }
-    void ShootBullet( GameObject Shoot, int damage, float speed)    //총 발사
+    void ShootBullet( GameObject Shoot, int damage, float speed)    //총 발사 (사용 안함)
     {
         Gun.transform.rotation = Gun.transform.rotation;
         Vector2 v = new Vector2(1, 0);
@@ -162,7 +164,7 @@ public class Attack : MonoBehaviour
         yield return wait; //FireState를 true로 만든다.
         FireState = true;
     }*/
-    void melee_attack()
+    void melee_attack()//근접 공격 키를 눌려서 에니메이션과 함깨 근접공격 판정을 가진 오브젝트 활성화
     {
         if (Input.GetKey(Key_manager.Keys[Key_manager.KeyAction.ATTACK]))
         {
@@ -190,98 +192,5 @@ public class Attack : MonoBehaviour
             attack_buffer_timer = 0;
         }
     }
-    void X_attack()
-    {
-        
-            if (Player_status.p_status.get_volly())
-        {
-            Debug.Log("aa");
-            if (FireState && !Gamemanager.GM.map_mode)
-            {
-
-                Debug.Log("aaa");
-                if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.ATTACK]))
-                {
-                    Debug.Log("aaaa");
-                    //StartCoroutine(FireCycleControl());
-                    //ShootBullet(Shoot, Player_status.p_status.get_atk(), Player_status.p_status.get_bullet_speed());
-
-                    if (p_chr.onground)
-                        p_anim.sword_attack_anim();
-                    else if (!p_chr.onground && Player_status.p_status.air_attack_num > 0)
-                    {
-                        p_anim.air_attack_anim();
-                        Player_status.p_status.air_attack_num--;
-                    }
-                    /*  if (direction.x >= 0)
-                      {
-                          direct = 1;
-                      }
-                      else
-                      {
-                          direct = -1;
-                      }
-
-                      if (direct != p_chr.direction)
-                      {
-                          if (p_chr.onground)
-                              p_anim.attack_anim_mirror();
-                          else
-                              p_anim.air_attack_anim_mirror();
-                      }
-                      else
-                      {
-                          if (p_chr.onground)
-                              p_anim.attack_anim();
-                          else
-                              p_anim.air_attack_anim();
-                      }*/
-                }
-
-            }
-        }
-        else
-        {
-            //Debug.Log("aa");
-            if (FireState && !Gamemanager.GM.map_mode)
-            {
-                //Debug.Log("aa");
-                if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.ATTACK]))
-                {
-                   // StartCoroutine(FireCycleControl());
-                    //ShootBullet( Shoot, Player_status.p_status.get_atk(), Player_status.p_status.get_bullet_speed());
-                    if (p_chr.onground)
-                        p_anim.sword_attack_anim();
-                    else if (!p_chr.onground && Player_status.p_status.air_attack_num > 0)
-                    {
-                        p_anim.air_attack_anim();
-                        Player_status.p_status.air_attack_num--;
-                    }
-                    /* if (direction.x >= 0)
-                     {
-                         direct = 1;
-                     }
-                     else
-                     {
-                         direct = -1;
-                     }
-                     if (direct != p_chr.direction)
-                     {
-                         if (p_chr.onground)
-                             p_anim.attack_anim_mirror();
-                         else
-                             p_anim.air_attack_anim_mirror();
-                     }
-                     else
-                     {
-                         if (p_chr.onground)
-                             p_anim.attack_anim();
-                         else
-                             p_anim.air_attack_anim();
-                     }*/
-                }
-
-            }
-        }
-    }
+  
 }

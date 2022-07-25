@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy_melee : MonoBehaviour
+public class enemy_melee : MonoBehaviour//적의 근접공격
 {
     public bool hitted;
     public Vector2 hitted_force;

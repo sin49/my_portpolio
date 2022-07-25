@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class breakable_obj : MonoBehaviour
+public class breakable_obj : MonoBehaviour//플레이어의 공격에 파괴가능한 물체
 {
     public int breakable_num;
     // Start is called before the first frame update

@@ -20,12 +20,12 @@ public class shop_item : MonoBehaviour
 
     public element item_element;
 
-    //모든 종류에 대응할수있게?
+
     public Item i;
 
 
 
-    public void set_item()
+    public void set_item()//지정된 타입에 따라 특정 종류의 랜덤한 아이템을 생성한다
     {
         ItemDatabase.itemDatabase.rarity_list_initialize();
         switch (item_element)
@@ -45,7 +45,7 @@ public class shop_item : MonoBehaviour
        
 
     }
-    public void set_price(Item i)
+    public void set_price(Item i)//생성된 아이템의 희귀도를 확인하고 그에 따라 가격을 정한다
     {
         if (item_element == element.consumable|| item_element == element.special)
         {
@@ -72,7 +72,7 @@ public class shop_item : MonoBehaviour
         }
     }
 
-    public bool discount_chk()
+    public bool discount_chk()//이 품목을 활인할지를 난수로 정한다
     {
         int rand = Random.Range(0, 100) ;
         if (rand < 20)
@@ -86,33 +86,33 @@ public class shop_item : MonoBehaviour
             return false;
         }
     }
-    public void refresh_item()
+    public void refresh_item()//아이템을 새로고침 한다(아이템을 새로 생성,판매 ,활인 상태 초기화)
     {
         set_item();
-        //price?
+       
         sold = false;
         discount = false;
     }
-    public void buy_item()
+    public void buy_item()//아이템 구매
     {
-        if (Player_status.p_status.Money >= price && !sold)
+        if (Player_status.p_status.Money >= price && !sold)//판매되지않았고 플레이어가 돈을 충분히 가지고 있을 때
         {
             m_audio.purchase();
-            switch (i.ItemType)
+            switch (i.ItemType)//구매한 품목의 종류에 따라 효과 적용
             {
-                case 1:
+                case 1://아이템
                     Gamemanager.GM.get_item(i);
                     break;
-                case 2:
+                case 2://특수 아이템
                     i.special_effect();
                     break;
-                case 3:
+                case 3://소모품
                     i.consumable_effect();
                     break;
             }
-            Gamemanager.GM.game_ev.when_lose_money(price);
-            sold = true;
-            if (buy_particle == null)
+            Gamemanager.GM.game_ev.when_lose_money(price);//돈 소비
+            sold = true;//이 오브젝트를 판매된 상태로 만든다
+            if (buy_particle == null)//구매 이펙트 파티클 생성
             {
                 GameObject a = Instantiate(Gamemanager.GM.money_used_particle.gameObject, this.transform);
                 buy_particle = a;
@@ -174,7 +174,7 @@ public class shop_item : MonoBehaviour
         {
             set_price(i);
 
-            if (i != null)
+            if (i != null)//판매 됐다면 이 오브젝트의 스프라이트를 변경한다
                 item_image = i.Sprite;
             if(item_image!=null)
                 s_r.sprite = item_image;

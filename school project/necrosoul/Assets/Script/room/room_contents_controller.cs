@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class room_contents_controller : MonoBehaviour
-{
+public class room_contents_controller : MonoBehaviour//방의 종류를 정하는 클레스
+    //정해진 방의 구성요소를 방을 불려올 때 생성시켜서 불려온다
+{//현재는 프리팹 내부에 방의 구성요소를 다 집어넣어서 쓰이지 않음
     public GameObject[] spawn_contents;
     public GameObject[] normal_contents;
     public GameObject[] event_contents;
@@ -13,21 +14,15 @@ public class room_contents_controller : MonoBehaviour
     public GameObject content;
     public room this_room;
     public bool check_room_contents;
-    public List<GameObject> enemy = new List<GameObject>();//적이 확인되면 집어 넣기
+
 
     // Start is called before the first frame update
     void Start()
     {
         this_room = gameObject.GetComponentInParent<room>();
-        //this_room = this.GetComponent<room>();
+       
     }
-    private void Awake()
-    {
-       /* if (!check_room_contents)
-        {
-            active_contents();
-        }*/
-    }
+  
     // Update is called once per frame
     void Update()
     {
@@ -43,8 +38,7 @@ public class room_contents_controller : MonoBehaviour
         {
             case 1:
                 random = Random.Range(0, spawn_contents.Length);
-               // Debug.Log("난수:" + random);
-               // Debug.Log("길이:" + spawn_contents.Length);
+              
                 GameObject a = Instantiate(spawn_contents[random], this.transform.position, Quaternion.identity);
                 a.transform.SetParent(this.transform);
                 check_room_contents = true;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class money_text_3 : MonoBehaviour
+public class money_text_3 : MonoBehaviour//돈 소모 텍스트
 {
     Text t;
     Color c;
@@ -24,7 +24,7 @@ public class money_text_3 : MonoBehaviour
         }
         c.a = 1 - (1 * (Timer / a));
         t.color = c;
-        t.text = "-" + Gamemanager.GM.lastest_lose_money.ToString() + "G";
+        t.text = "-" + Gamemanager.GM.lastest_lose_money.ToString() + "G";//마지막으로 소모한 돈의 수치
         if (c.a == 0)
         {
             this.gameObject.SetActive(false);

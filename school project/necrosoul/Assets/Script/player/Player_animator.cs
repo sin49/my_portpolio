@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_animator : MonoBehaviour
+public class Player_animator : MonoBehaviour//플레이어의 에니메이션을 관리하고 실행하는 함수
 {
     
     private Animator m_animator;
@@ -22,17 +22,17 @@ public class Player_animator : MonoBehaviour
     public bool sword_delay;
     Material m;
 
-    public void resurrection()
+    public void resurrection()//부활 에니메이션 실행
     {
         m_animator.SetTrigger("resurrection");
     }
-    public void dash()
+    public void dash()//대쉬 에니메이션 실행
     {
-        m_animator.SetBool("mustbeing", true);
+        m_animator.SetBool("mustbeing", true);//다른 에니메이션을 무시하고 강제 실행
         m_animator.SetBool("dash", true);
-        melee_initialize();
+        melee_initialize();//근접 콤보 초기화
     }
-    public void dash_end()
+    public void dash_end()//대쉬 종료
     {
         m_animator.SetBool("mustbeing", false);
         m_animator.SetBool("dash", false);
@@ -45,7 +45,9 @@ public class Player_animator : MonoBehaviour
     }
     private void Update()
     {
-        if (rgd.velocity.y < -9)
+
+
+        if (rgd.velocity.y < -9)//착지시 흙먼지 발생 여부(일정 높이일 때 발새)
         {
             ground_anim_chk = true;
         }
@@ -53,25 +55,14 @@ public class Player_animator : MonoBehaviour
         m_animator.SetInteger("HP", Player_status.p_status.get_hp());
         m_animator.SetFloat("move_speed", Player_status.p_status.get_speed() * 0.1f);
         m_animator.SetFloat("Attackspeed", Player_status.p_status.get_firedelay());
+
+        //플레이어의 에니메이션의 우선 순위를 결정한다(죽음>피격>이동>idle)
         if (death_state)
         {
             death_anim();
         }else if (Hit_state)
         {
             Hit_anim();
-        }
-        else if (jump_state)
-        {
-            jump_anim();
-        }
-        else if (crouch_state)
-        {
-            crouch_anim();
-            m_crouch = true;
-       
-        }else if (m_crouch==true&&!crouch_state)
-        {
-            crouch_anim_2();
         }
         else if (move_state)
         {
@@ -82,32 +73,32 @@ public class Player_animator : MonoBehaviour
             idle_anim();
         }
     }
-    public void melee_initialize()
+    public void melee_initialize()//근접 3타 콤보를 멈추고 초기화 한다
     {
         this.GetComponent<Player_anim_event>().Melee_1_off();
         this.GetComponent<Player_anim_event>().Melee_2_off();
         this.GetComponent<Player_anim_event>().Melee_3_off();
         this.GetComponent<Player_anim_event>().air_Melee_off();
     }
-    public void hitted_intialize(){
+    public void hitted_intialize(){//피격 에니메이션을 마무라한다
 
         melee_initialize();
         this.transform.parent.GetComponent<PlayerCharacter>().can_move = true;
         sword_delay = false;
         m_currentAttack_2 = 0;
     }
-    public void mustbeing_false()
+    public void mustbeing_false()//set
     {
         m_animator.SetBool("mustbeing", false);
     }
-  public void sword_delay_on()
+  public void sword_delay_on()//근접공격의 딜레이를 준다
     {
         this.transform.parent.GetComponent<PlayerCharacter>().can_move = false;
        
        sword_delay = true;
        // rgd.velocity = Vector3.zero;
     }
-    public void sword_delay_off()
+    public void sword_delay_off()//근접 공격의 딜레이를 끝낸다
     {
        
         m_currentAttack_2++;
@@ -115,22 +106,22 @@ public class Player_animator : MonoBehaviour
             m_currentAttack_2 = 0;
         sword_delay = false;
     }
-    public void idle_anim()
+    public void idle_anim()//idle 애니
     {
         m_animator.SetInteger("AnimState", 0);
 
     }
-    public void move_anim()
+    public void move_anim()//이동 애니
     {
         m_animator.SetInteger("AnimState", 1);
 
     }
-    public void jump_anim()
+    public void jump_anim()//점프 애니
     {
         m_animator.SetTrigger("Jump");
         m_animator.SetBool("Grounded", false);
     }
-    public void sword_attack_anim()
+    public void sword_attack_anim()//근접 공격 애니
     {
         if (!sword_delay)
         {
@@ -145,72 +136,49 @@ public class Player_animator : MonoBehaviour
 
 
     }
-    public void sword_anim_start()
-    { this.transform.parent.GetComponent<PlayerCharacter>().can_move = true;
-        m_animator.SetInteger("sword_count", 0);
+    public void sword_anim_start()//근접 공격 에니메이션 진행 중 변경된 설정을 초기화 한다(콤보 도중 끊기는 경우에 대응)
+    { this.transform.parent.GetComponent<PlayerCharacter>().can_move = true;//이동을 조작 가능하게
+        m_animator.SetInteger("sword_count", 0);//몇번째 타격 에니메이션인지를 초기화
         m_currentAttack_2 = 0;
-        sword_delay = false;
+        sword_delay = false;//공격 딜레이
     }
   
-    public void set_ground(bool a)
+    public void set_ground(bool a)//플레이어가 땅에 닿았음을 에니메이터에게 알린다
     {
-        if (!a)
+        if (!a)//공중에 있을 때
         {
             if(rgd.velocity.y > 3 || rgd.velocity.y < -3)
                 m_animator.SetBool("Grounded", a);
         }
-        else
+        else//땅에 있는 상태일 때
         {
             m_animator.SetBool("Grounded", a);
         }
+        //점프를 시작할 때와 공중에 있을 때를 구분짓기
     }
-    public void crouch_anim()
-    {
-        m_animator.SetBool("Crouching", true);
-    }
-    public void crouch_anim_2()
-    {
-        m_animator.SetBool("Crouching", false);
-    }
-    public void set_airspeed()
+
+    public void set_airspeed()//추락 속도를 받는다(빠르게 추락한다->높은 곳에서 떨어진다->흙먼지를 일으킬지 판단한다)
     {
         m_animator.SetFloat("AirSpeedY", rgd.velocity.y);
     }
-    public void death_anim()
+    public void death_anim()//사망에니메이션을 진행한다
     {
-        m_animator.SetBool("noBlood", true);
+        m_animator.SetBool("noBlood", true);//에셋 관련
         m_animator.SetTrigger("Death");
         death_state = false;
     }
-    public void Hit_anim()
+    public void Hit_anim()//피격 에니메이션을 진행한다
     {
-        m_animator.SetBool("mustbeing", true);
+        m_animator.SetBool("mustbeing", true);//현재 행동을 취소하고 강제 진행
         m_animator.SetTrigger("Hurt");
        
     }
-    public void Up_attack_anim()
-    {
-        m_currentAttack++;
-
-        // Loop back to one after second attack
-        if (m_currentAttack > 2)
-            m_currentAttack = 1;
-        if (m_currentAttack == 0)
-        {
-            m_animator.SetTrigger("UpAttack");
-        }
-        else
-        {
-            m_animator.SetTrigger("UpAttack2");
-        }
-    }
-    public void air_attack_anim()
+  
+    public void air_attack_anim()//공중 공격 에니메이션을 진행한다(오른쪽 방향)
     {
     
 
 
-            if (m_currentAttack > 2)
-                m_currentAttack = 1;
            
                 m_animator.SetTrigger("AirAttack");
            
@@ -218,30 +186,29 @@ public class Player_animator : MonoBehaviour
 
 
     }
-    public void air_attack_anim_mirror()
+    public void air_attack_anim_mirror()//공중 공격 에니메이션을 진행한다(왼쪽 방향)
     {
       
-            if (m_currentAttack > 2)
-                m_currentAttack = 1;
+        
 
             m_animator.SetTrigger("AirAttack_mirror");
           
         
 
     }
-    public void attack_anim()
+    public void attack_anim()//공격 에니메이션을 진행한다(오른쪽 방향)
     {
         
         {
-            m_currentAttack++;
+            m_currentAttack++;//현재 진행해야할 타수 에니메이션
 
-            // Loop back to one after second attack
-            if (m_currentAttack > 2)
+   
+            if (m_currentAttack > 2)//3타 콤보로 이루어짐
                 m_currentAttack = 1;
-            m_animator.SetTrigger("Attack" + m_currentAttack);
+            m_animator.SetTrigger("Attack" + m_currentAttack);//그 타수에 맞는 에니메이션을 진행한다
         }
     }
-    public void attack_anim_mirror()
+    public void attack_anim_mirror()//공격 에니메이션을 진행한다(왼쪽 방향)
     {
         m_currentAttack++;
 

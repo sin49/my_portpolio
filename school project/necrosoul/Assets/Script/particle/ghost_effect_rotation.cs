@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ghost_effect_rotation : MonoBehaviour
+public class ghost_effect_rotation : MonoBehaviour//대쉬 잔상 특수효과
 {
     ParticleSystem ps;
     public Material dash_ghost;
@@ -22,7 +22,7 @@ public class ghost_effect_rotation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void FixedUpdate()//일정시간이 지나면 비활성화
     {
         if (dash_ghost_effect_timer > 0)
         {
@@ -32,11 +32,9 @@ public class ghost_effect_rotation : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-        //ParticleSystem.MainModule m=ps.main;
-
-        //m.startRotation =-1* Gamemanager.GM.Player_obj.transform.eulerAngles.z*Mathf.Deg2Rad;
+        
     }
-    public void OnEnable()
+    public void OnEnable()//플레이어가 바라보는 방향에 맞도록 파티클 메터리얼을 변경한다(방향이 일치하도록)
     {
         ps = this.GetComponent<ParticleSystem>();
         ParticleSystemRenderer r = this.GetComponent<ParticleSystemRenderer>();

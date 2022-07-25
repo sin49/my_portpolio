@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class Item
+public class Item//아이템 클레스
 {
-    //아이템 구조
+    //consumable_effect() ,special_effect() 외에는 다른 사람이 작업
 
     public int Foreignkey;    //아이템코드
     public int ItemType;     //아이템 타입   1:아이템 2:sp아이템 3:소모품
@@ -59,7 +59,7 @@ public class Item
     }
 
     ////consumable
-    public void consumable_effect()
+    public void consumable_effect()//회복 아이템 효과 적용
     {
         if (ItemType == 3)
         {
@@ -81,7 +81,7 @@ public class Item
         }
     }
     ///special
-    public void special_effect()
+    public void special_effect()//특수 아이템을 얻을 수 있는  찬스 아이템 효과
     {
         if (ItemType == 2)
         {

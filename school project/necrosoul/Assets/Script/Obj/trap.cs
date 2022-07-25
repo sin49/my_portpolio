@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class trap : MonoBehaviour
+public class trap : MonoBehaviour//닿을시 플레이어가 피해를 받는 함정
 {
     int damage;
     private void OnCollisionStay2D(Collision2D collision)

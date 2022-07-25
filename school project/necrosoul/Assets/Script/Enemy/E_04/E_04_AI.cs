@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_04_AI : MonoBehaviour
+public class E_04_AI : MonoBehaviour//플레이어를 향해 돌진하는 적
 {
     //돌진
     Vector2 dir;
@@ -72,12 +72,12 @@ public class E_04_AI : MonoBehaviour
         unit.move_speed = E_Status.get_speed();
         unit.Attack_point = E_Status.get_atk();
     }
-    void ray_to_player()
+    //
+    void ray_to_player()//플레이어가 공격범위 안에 들어왔는지 감지
     {
         float length = Mathf.Log(Mathf.Pow(18, 2) + Mathf.Pow(28, 2)) * 2;
 
-        //Debug.DrawLine(transform.position, Player.transform.position.normalized * range_distance, Color.red);
-        
+        //attack_range를 통해 공격범위 안의 플레이어를 감지한다
         if ( attack_range.on_attack&&unit.manner_time>0)
         {
 
@@ -99,63 +99,61 @@ public class E_04_AI : MonoBehaviour
        
         if (unit.Health_point > 0)
         {
-           
+           //플레이어 감지
             dir = player_transform_buffer - this.transform.position;
             
             ray_to_player();
 
 
-            if (attack_delay > 0)
+            if (attack_delay > 0)//공격 후 딜레이
             {
                 attack_delay -= Time.deltaTime;
                   attack_speed= attack_speed_num;
             }
-            if (rancer_delay_timer > 0)
+            if (rancer_delay_timer > 0)//돌진 후 경직
             {
                 rancer_delay_timer -= Time.deltaTime;
             }
-            if (level == 1)
+            if (level == 1)//스테이지 2:돌진 공격 존재
             {
                 if (!hitted_chk)
                 {
-                    if (unit.can_attack || on_attack)
+                    if (unit.can_attack || on_attack)//플레이어가 공격 범위 안에 있을 때
                     {
-
-
-                        if (attack_delay <= 0)
+                        if (attack_delay <= 0)//공격
                         {
                             attack_ai_0();
                             StopCoroutine("idle");
                         }
-                        else
+                        else//공격 후 대기(딜레이)
                         {
                             if (rancer_delay_timer > 0)
                             {
                                 StartCoroutine("idle");//대기  상태
                             }
-                            else
+                            else//
                             {
                                 move_ai_0();
                             }
                         }
                     }
-                    else
+                    else//공격 조건을 달성핮지 못하면 이동
                     {
                         if (rancer_delay_timer > 0)
                         {
                             StartCoroutine("idle");//대기  상태
                         }
                         else
-                        {
+                        {//이동
                             StopCoroutine("idle");
                             move_ai_0();
                         }
                     }
                 }
             }
-            else if(level==0)
+            else if(level==0)//스테이지 1:공격 없음
             {
-                if (!hitted_chk)
+                if (!hitted_chk)//피격외에는 계속 이동
                 {
                     move_ai_0();
                 }
@@ -188,23 +186,13 @@ public class E_04_AI : MonoBehaviour
 
 
 
-    IEnumerator attack()
-    { // 처음에 FireState를 false로 만들고
-        var wait = new WaitForSeconds(attack_time - (float)(0.2 * Gamemanager.GM.stage - 1) + attack_weight);
-        attack_status = false;
-        e_ani.SetBool("move", false);
-        e_ani.SetTrigger("attack");
-        yield return wait;
-        attack_speed_num = attack_speed;
-        attack_status = true;
-        attack_weight = Random.Range(-1, 1);
-
-    }
+   
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(this.transform.position, new Vector2(enemy_size_x, enemy_size_y));
     }
+    //벽에 닿거나 낭떠러지 앞까지 계속 이동한다
     void move_ai_0()
     {
         if (unit.can_move)
@@ -220,7 +208,7 @@ public class E_04_AI : MonoBehaviour
             Debug.DrawLine((transform.position- Vector3.up * enemy_size_y * 0.1f), (transform.position - Vector3.up * enemy_size_y * 0.1f) - (new Vector3(enemy_size_x * 0.5f + 0.4f, 0, 0)) * unit.direction, Color.green);
             var wall_ray = Physics2D.Raycast(transform.position + Vector3.up * enemy_size_y * 0.1f, Vector3.left * unit.direction, enemy_size_x * 0.5f + 0.4f, LayerMask.GetMask("platform_can't_pass"));
             var wall_ray2 = Physics2D.Raycast(transform.position - Vector3.up * enemy_size_y * 0.1f, Vector3.left * unit.direction, enemy_size_x * 0.5f + 0.4f, LayerMask.GetMask("platform_can't_pass"));
-            if (wall_ray.collider != null|| wall_ray2.collider != null)
+            if (wall_ray.collider != null|| wall_ray2.collider != null)//벽에 닿을시 반대 방향
             {
                 Debug.Log("벽에의해");
                 unit.direction_change_spr();
@@ -239,6 +227,7 @@ public class E_04_AI : MonoBehaviour
             }
         }
     }
+    //공격:속도를 순간적으로 높여 돌진한다
     void attack_ai_0()
     {
         if (unit.can_move)
@@ -248,11 +237,12 @@ public class E_04_AI : MonoBehaviour
             if (attack_speed > 0)
             {
                 on_attack = true;
+                //돌진에니메이션으로 변경
                 e_ani.SetBool("Walk", false);
                 e_ani.SetBool("Attack 0", true);
-                transform.Translate(Vector3.left * unit.direction * (unit.move_speed + attack_speed) * Time.deltaTime);//정면으로 움직임
+                transform.Translate(Vector3.left * unit.direction * (unit.move_speed + attack_speed) * Time.deltaTime);//정면으로 움직임+attack_speed로 가속
 
-
+                //벽에 닿으면 반대 방향으로
                 var wall_ray = Physics2D.Raycast(transform.position, Vector3.left * unit.direction, enemy_size_x / 2 + 0.2f, LayerMask.GetMask("platform_can't_pass"));
                 if (wall_ray.collider != null)
                 {
@@ -260,17 +250,18 @@ public class E_04_AI : MonoBehaviour
                     unit.direction_change_spr();
                     move_distance = 0;
                 }
-               
+               //피격 당해도 밀려나지 않음
                 unit.can_forced = false;
+                //서서히 감속
                 attack_speed -= rance_speed_down;
             }
-            else
+            else//돌진이 끝나면 돌진 공격 중 변경된 값을 초기화 하고 딜레이
             {
-                unit.can_forced = true;
+                unit.can_forced = true;//넉백 여부
                 unit.can_hitted_ani = true;
-               rancer_delay_timer = rancer_delay_time;
+               rancer_delay_timer = rancer_delay_time;//딜레이
                 on_attack = false;
-                e_ani.SetBool("Walk", true);
+                e_ani.SetBool("Walk", true);//이동에니메이션으로 복구
                 e_ani.SetBool("Attack 0", false);
                 attack_delay = 2f;
             }
@@ -280,17 +271,7 @@ public class E_04_AI : MonoBehaviour
     
 
     
-    IEnumerator move()
-    {
-        var wait = new WaitForSeconds(moving_buffer + moving_weight);
-        e_ani.SetBool("Walk", true);
-        moving_status = true;
-        yield return wait;
-        e_ani.SetBool("Walk", false);
-        move_corutine_check = false;
-        moving_status = false;
-        moving_weight = Random.Range(-1, 1);
-    }
+    
     IEnumerator idle()
     {
         var wait = new WaitForSeconds(idle_time);

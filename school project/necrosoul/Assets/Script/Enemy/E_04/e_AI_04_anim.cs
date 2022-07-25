@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class e_AI_04_anim : MonoBehaviour
+public class e_AI_04_anim : MonoBehaviour//돌진 적의 에니메이션 이벤트
 {
     E_04_AI e_04;
     // Start is called before the first frame update
@@ -10,6 +10,7 @@ public class e_AI_04_anim : MonoBehaviour
     {
         e_04 = this.transform.parent.GetComponent<E_04_AI>();
     }
+    
     public void hitted()
     {
         e_04.hitted_chk = true;

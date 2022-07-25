@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class normal_contents : MonoBehaviour
+public class normal_contents : MonoBehaviour//적이 나오는 방 클래스
 {
+    //노말 콘텐츠<-사이클<-그룹<-적
     public List<enemy_cycle> cycle = new List<enemy_cycle>();
     public List<enemy_cycle> index_cycle = new List<enemy_cycle>();
     
@@ -20,6 +21,7 @@ public class normal_contents : MonoBehaviour
     }
     void Start()
     {
+        //스테이지에 따라 작동할 사이클 변경(index=난이도와 같은 개념)
         if (Gamemanager.GM.stage == 2)
         {
             index = 2;
@@ -28,7 +30,7 @@ public class normal_contents : MonoBehaviour
         {
             index = 1;
         }
-
+        //cycle 탐색
         set_cycle_index(index);
         for (int i = 0; i < cycle.Count; i++)
         {
@@ -37,9 +39,10 @@ public class normal_contents : MonoBehaviour
        
 
     }
-    public void set_cycle_index(int i)
+    //index에 맞는 cycle을 방에 존재하는 cycle리스트에서 모두 탐색한 다음 그중에서 임의로 선택된 cycle을 방에서 생성할 적 패턴으로 정한다
+    public void set_cycle_index(int i)///index에 맞는 cycle 탐색
     {
-        
+
         int n = i;
         Debug.Log(n);
         for (int a = 0; a < cycle.Count; a++)
@@ -47,7 +50,7 @@ public class normal_contents : MonoBehaviour
             Debug.Log("Level:"+cycle[a].Level);
             if (cycle[a].Level == n)
             {
-                index_cycle.Add(cycle[a]);
+                index_cycle.Add(cycle[a]);//index값의 cycle 리스트
             }
         }
         index_chk = true;
@@ -63,8 +66,8 @@ public class normal_contents : MonoBehaviour
         {
            
                 rand = Random.Range(0, index_cycle.Count);
-
-                choose_cycle = index_cycle[rand];
+            //index_cycle 중에서 임의의 cycle을 적 스폰 패턴으로 정한다
+            choose_cycle = index_cycle[rand];
  
                 cycle_chk = true;
                 index_chk = false;
@@ -74,12 +77,12 @@ public class normal_contents : MonoBehaviour
         
     }
     
-    public void acitve_enemy()
+    public void acitve_enemy()//cycle을 활성화시키고 적을 생성한다
     {
-        if (choose_cycle.choose_group == null && choose_cycle.enemy_group.Count != 0)
+        if (choose_cycle.choose_group == null && choose_cycle.enemy_group.Count != 0)//사이클에서 현재 선택된 그룹이 없다면
         {
-            choose_cycle.gameObject.SetActive(true);
-            choose_cycle.acitve_enemy();
+            choose_cycle.gameObject.SetActive(true);//사이클 활성화
+            choose_cycle.acitve_enemy();//적 생성(그룹 활성화)
         }
         
 

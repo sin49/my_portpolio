@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStarter : MonoBehaviour
+public class GameStarter : MonoBehaviour//게임메니저 생성
 {
     public GameObject g;
     public GameObject[] gm;

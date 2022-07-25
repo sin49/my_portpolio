@@ -2,10 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class room_controller : MonoBehaviour
+
+
+
+/*방생성 방식
+ * V1 방식->방 하나 만들고 랜덤 돌려서 정하고 그러다 보면 충돌체크로 알아서 연결
+ * 문제점: 방을 만들면 랜덤이라서 서로 연결이 안되는 경우가 생김,일자로 이어지는 느낌이 너무 강함
+ *
+ * V2 방식-> 방 만들고 그 방의 모든 문에 방을 만들고 그 방이 또 새로운 방을 만들고....
+ *방 연결은 충돌체크가 아니라 생성할 때 연결
+ * 문은 연결되어있다면 랜덤으로 가지 않고 무조건 열린 문
+ * V3 방식->리스트에 방의 정보를 생성한 후 저장한다
+ * 이 리스트의 방들은 층으로 구성되어 있다
+ * 생성이 완료 되었다면 리스트를 읽고 그 정보를 토대로 층을 단위로 방을 생성
+ * 그 층의 방을 지정해 다음 층의 방을 임의로 지정시켜 연결->한 층의 방을 이런식으로 다연결시켰다면 다음층으로 가서 반복....
+ * 모든 방이 연결  되었다면 방생성을 마무리(트리구조와 유사?)
+ * 
+ * ...V1,V2는 일반적인 로그 스타일의 맵과 비슷한 방식을 지향 방과 방사이의 양방향,V3는 방 사이의 양방향 연결이 아닌 단방향 연결
+ * 
+ * 현재는 V3를 쓰고 있으며 V1 방식은 삭제 V2방식은 주석으로 잔재가 남아있음
+ */
+
+
+public class room_controller : MonoBehaviour//스테이지에 쓸 방을 생성하는 스크립트
 {
     public int room_create_number;//방생성갯수
-   
+
     int a;
     public GameObject[] start_room;
     public GameObject[] room_database;//방
@@ -19,7 +41,7 @@ public class room_controller : MonoBehaviour
     public int event_room_percent;
     public List<GameObject> room = new List<GameObject>();
     public List<Vector2> room_pos = new List<Vector2>();
-    public List <room> room_database_V3 =new List<room>();
+    public List<room> room_database_V3 = new List<room>();
     public List<List<room>> room_database_V4 = new List<List<room>>();
     private int r_count;
     public bool make_wall_check;
@@ -46,52 +68,58 @@ public class room_controller : MonoBehaviour
     public List<room> r_List_n2 = new List<room>();//연결시킬 방(연결됨);
     public Item item = new Item();  //아이템
     public ItemDatabase ItemDatabase;
-    public List<int> r_length_count=new List<int>();
+    public List<int> r_length_count = new List<int>();
     //List<Dictionary<string, object>> m_Data = CSVReader.Read("map_making");
     // Start is called before the first frame update
-    public void make_room_V3()//room 리스트를 만들고 룸리스트의 문 개수를 읽어서 그에 맞춰서 불러넣기
+    public void make_room_V3()//방생성 V3
     {
-        
-        int make_room_num = room_create_number + 1;
-        event_room_num = 1;
-        int num = 0;
-        for(int i = 0; i < make_room_num; i++)
+
+        int make_room_num = room_create_number + 1;//시작 층+만들려는 층
+ 
+
+        for (int i = 0; i < make_room_num; i++)
         {
             Debug.Log(i);
-            if (i == 0)
+            if (i == 0)//시작 층(전투 없음 + 튜토리얼)
             {
                 r_length_count.Add(1);
                 room r = new room();
-                int r_door_num = 1;
+                int r_door_num = 1;//방을 하나만 만든다
                 r.set_connect_num(r_door_num);
                 room_database_V3.Add(r);
                 List<room> r_list = new List<room>();
-               r_list.Add(r);
-               room_database_V4.Add(r_list);
+                r_list.Add(r);
+                room_database_V4.Add(r_list);
                 r_length_count.Add(r_door_num);
-                
-            }else if(i== 1)
+                //room_database_V4: 층 구분이 들어가 이중리스트
+                //room_database_V3:층 구분 없이 구성된 리스트
+
+                //r_length_count:각 층의 방의 갯수를 저장한 리스트
+                //room_database_V4 만으로도 구성은 가능하나 가시성+디버그 용도로 생성
+            }
+            else if (i == 1)//두번째 층:전투 있음+방 하나만
             {
                 List<room> r_list = new List<room>();
-                for (int o = 0; o <r_length_count[1]; o++)
+                for (int o = 0; o < r_length_count[1]; o++)//하나만 생성
                 {
                     room r = new room(2, i, r_length_count[1]);
-                    
+
                     room_database_V3.Add(r);
                     r_list.Add(r);
                 }
                 room_database_V4.Add(r_list);
-                
+
             }
-            else if (i == make_room_num - 1)
+            else if (i == make_room_num - 1)//마지막 층은 방 하나만+상점으로 고정
             {
                 List<room> r_list = new List<room>();
                 room r = new room(3, i, 0);
-      
+
                 r_list.Add(r);
                 room_database_V4.Add(r_list);
                 r_length_count.Add(1);
-            }else if(i== (make_room_num - 1) * 0.5f)
+            }
+            else if (i == (make_room_num - 1) * 0.5f)//각 스테이지의 층의 절반은 상점으로 고정
             {
                 int r_door_num;
 
@@ -102,161 +130,115 @@ public class room_controller : MonoBehaviour
                 room_database_V4.Add(r_list);
                 r_length_count.Add(1);
             }
-            
-            else
+
+            else//그 이외의 층은 3~5 의 방으로 구성
             {
                 int r_door_num;
-               
-                    r_door_num = Random.Range(3,6);
+
+                r_door_num = Random.Range(3, 6);//3~5
                 int e_num = 0;
-               List<room> r_list = new List<room>();
-                
-                for (int o=0;o< r_door_num; o++)
+                List<room> r_list = new List<room>();
+
+                for (int o = 0; o < r_door_num; o++)
                 {
-                    int rand=100;
-                    if (event_count < event_num && e_num < floor_event_num)
+                    //이벤트 방 생성
+                    int rand = 100;
+                    if (event_count < event_num && e_num < floor_event_num)//이벤트 방이 스테이지의 최대 생성 갯수에 도달하지 않았을 때
                     {
-                        rand = Random.Range(0, 100);
+                        rand = Random.Range(0, 100);//확률 생성
                     }
-                        room r;
-                    
-                    if (rand < event_room_percent&&event_count<event_num&&e_num<floor_event_num)
+                    room r;
+
+                    if (rand < event_room_percent && event_count < event_num && e_num < floor_event_num)//이벤트 생성 확률의 조건 달성시
                     {
-                        r = new room(4, i, r_door_num);
-                        event_count++;
+                        r = new room(4, i, r_door_num);//이벤트 방을 생성한다
+                        event_count++;//event_count가 event_num 과 같은 숫자일 때 이벤트 방 생성을 멈춘다
                         e_num++;
                     }
-                    else
+                    else//일반 방
                     {
-
+                        
                         r = new room(2, i, r_door_num);
                     }
-                        room_database_V3.Add(r);
-                        r_list.Add(r);
-                    
-                   //r.set_door(r_door_num);
-                    
+                    room_database_V3.Add(r);
+                    r_list.Add(r);
+
+                   
+
                 }
                 room_database_V4.Add(r_list);
 
-                    r_length_count.Add(r_door_num);
+                r_length_count.Add(r_door_num);
 
-               // num += room_database_V3[num].connect_num;
-               
+        ;
+
             }
-            
+
         }
-       make_room_V3_2(room_database_V4);
+        //room_database_V4를 기반으로 방 오브젝트를 실제로 생성한다
+        make_room_V3_2(room_database_V4);
         connect_room_V3(room_database_V4);
-       set_room_pos(room_database_V4);
+        set_room_pos(room_database_V4);
         map_making_complete = true;
     }
-   //생성->연결->재배치
-    public void connect_room_V3(List<List<room>> r)
+    //scene에 들어올 때 room의 정보를 불려오는 방식을 할수도 있었지만
+    //scene->scene으로 이동할 때 로딩씬을 계속 거쳐줘야 하는 문제로 한 scene에 모든 방을 생성하는 방법으로
+    //생성->연결->재배치
+    public void connect_room_V3(List<List<room>> r)//방과 바을 연결
     {
-        Debug.Log(r.Count - 1);
-        for (int i = 0;i< r.Count-1; i++)
+        for (int i = 0; i < r.Count - 1; i++)//층단위
         {
-            r_List_n = r[i + 1];//연결시킬 방(연결 안됨)
-            r_List_n2 = new List<room>();//연결시킬 방(연결됨);
-                                         // Debug.Log(r[i].Count);
-                                         // Debug.Log(r[i+1].Count);
-            for (int n = 0; n < r[i].Count; n++)
+            r_List_n = r[i + 1];//연결시킬 방(방이 어디에도 연결 안됨)
+            r_List_n2 = new List<room>();//r_List_n의 리스트를 순환시키기 위한 용도
+                                         //하나도 연결이 되어있지않은 방이 생기는 경우는 일어나지 않도록 하고(r_List_n)
+                                         //r_List_n2를 이용해 정해진 횟수의 연결을 실행시켜 연결안된 포탈이 없도록
+            for (int n = 0; n < r[i].Count; n++)//방단위
             {
 
-                List<int> r_no_multiple = new List<int>();
-               
+
                 for (int a = 0; a < r[i][n].connect_num; a++)
                 {
                     if (r_List_n.Count != 0)
                     {
-                       
-                        r[i][n].r_connect.Add(r_List_n[0]);
+
+                        r[i][n].r_connect.Add(r_List_n[0]);//현재 층의 방과 다음층의 방을 연결 시킨다
                         r_List_n[0].r_connected.Add(r[i][n]);
-                        r_List_n2.Add(r_List_n[0]);
+                        r_List_n2.Add(r_List_n[0]);//r_List_n의 0번 구성요소를 r_List_n2에 넣고 리스트에서 제거한다
                         r_List_n.RemoveAt(0);
                     }
+
                     
-                   /* else
-                    {
-                        Debug.Log("LLLK");
-                        int r_num = Random.Range(0, r_List_n2.Count + 1);
-                        int num = 0;
-                        while (r_no_multiple.Contains(r_num))
-                        {
-
-                            r_num = Random.Range(0, r_List_n2.Count + 1);
-                            num++;
-                            if (num == 100)
-                            {
-                                Debug.Log("무한루프");
-                                break;
-                            }
-                        }
-                            r_no_multiple.Add(r_num);
-                            r[i][n].r_connect.Add(r_List_n2[r_num]);
-                            r_List_n2[r_num].r_connected.Add(r[i][n]);
-
-                        
-
-                    }*/
                 }
-                Debug.Log("r_list2:" + r_List_n2.Count);
-                for (int ab = r_List_n2.Count; ab > 0; ab--)
+         
+                for (int ab = r_List_n2.Count; ab > 0; ab--)//r_List_n2의 구성요소를 다시 r_List_n에 임의로 넣는다
                 {
                     int r_num = Random.Range(0, ab - 1);
                     r_List_n.Add(r_List_n2[r_num]);
                     r_List_n2.RemoveAt(r_num);
                 }
-              
-                
+                //r_list와 r_list_2가 서로 순환되면서 r_list의 구성요소가 임의로 구성되고 그걸 기반으로 방 연결을 실행
+                //(처음 연결은 리스트에 추가된 순으로 시작하여 방연결이 안되는 방이 생기는 경우를 방지
 
             }
-//int mugen= 0;
-       /*      while(r_List.Count != 0)
-            {
-                
-                int r_num=Random.Range(0, r[i].Count+1);
-                Debug.Log(r_num);
-                r[i][r_num].r_connect.Add(r_List[0]);
-                r_List2.Add(r_List[0]);
-                r_List.RemoveAt(0);
-                mugen++;
-                if (mugen == 100)
-                {
-                    Debug.Log("무한루프2");
-                    break;
-                }
-            }
-            mugen = 0;
-            while (r[i + 1].Count == 0)
-            {
-                r[i + 1].RemoveAt(0);
-                mugen++;
-                if (mugen == 100)
-                {
-                    Debug.Log("무한루프3");
-                    break;
-                }
-            }
-            r[i + 1] = r_List2;*/
-
+            
 
 
         }
-        
-            
+
+
     }
-    public void set_room_pos(List<List<room>> r)
+    public void set_room_pos(List<List<room>> r)//방의 위치(position)을 정한다
     {
         int ac = 0;
+        //방이 겹치는 경우 방지+테슽트 할 때 층의 구성으로 육안으로 확인하기 위해 방의 위치를 층에 맞게 이동한다
         for (int i = 0; i < r.Count; i++)
         {
-            for(int n = 0; n < r[i].Count; n++)
+            for (int n = 0; n < r[i].Count; n++)
             {
+                //방의 길이와 높이를 확인한다
                 room a = r[i][n];
                 float r_x = a.room_width * a.r_length;
-                float r_y = a.room_height / (r_length_count[a.r_length] +1);
+                float r_y = a.room_height / (r_length_count[a.r_length] + 1);
                 if (ac == 0)
                 {
                     ac = r_length_count[r[i][n].r_length] - 1;
@@ -267,176 +249,115 @@ public class room_controller : MonoBehaviour
                     ac--;
                 }
                 a.transform.SetParent(this.transform);
-               
-                    a.transform.position = new Vector3(r_x,r_y*(ac+1),this.transform.position.z);
+                //방을 길이와 높이에 맞게 층 단위로 이동시킨다
+                a.transform.position = new Vector3(r_x, r_y * (ac + 1), this.transform.position.z);
                 if (i != 0)
                 {
                     a.gameObject.SetActive(false);
                 }
-                
-                
+
+
             }
         }
 
     }
-    public void make_room_V3_2(List<List<room>> r)
+    public void make_room_V3_2(List<List<room>> r)//room_database 의 정보에 맞게 방을 생성한다
     {
-        int ac = 0;
-        int num = 0;
+  
         int r_num = r.Count;
-        for (int i = 0; i < r_num; i++)
+        for (int i = 0; i < r_num; i++)//층
         {
             int r_r_num = r[i].Count;
-            for (int n = 0; n < r_r_num; n++)
+            for (int n = 0; n < r_r_num; n++)//방
             {
                 int random_number;
                 GameObject a = null;
-                if (r[i][n].room_element == 1)
+                if (r[i][n].room_element == 1)//시작 방
                 {
                     if (Gamemanager.GM.stage == 1)
                     {
-                        a = Instantiate(start_room[0]);
+                        a = Instantiate(start_room[0]);//스테이지 1(튜토리얼)
                     }
                     else
                     {
-                        a = Instantiate(start_room[1]);
+                        a = Instantiate(start_room[1]);//스테이지 2부터(튜토리얼 없음)
                     }
                 }
-                else if (r[i][n].room_element == 2)
+                else if (r[i][n].room_element == 2)//일반방
                 {
-                    random_number = Random.Range(0, room_database.Length);
+                    random_number = Random.Range(0, room_database.Length);//랜덤한 방을 불려온다
                     a = Instantiate(room_database[random_number]);
                 }
-                    if (i == 0 && n == 0)
-                {
-                    random_number = 0;
-                }
-                else if(r[i][n].room_element==3)
+               
+                else if (r[i][n].room_element == 3)//상점
                 {
                     a = Instantiate(shop_room[0]);
-                }else  if(r[i][n].room_element == 4)
+                }
+                else if (r[i][n].room_element == 4)//이벤트
                 {
                     a = Instantiate(event_room[0]);
                 }
 
-                 
 
-                    a.GetComponent<room>().set_door(r[i][n].connect_num, r[i][n].room_element, r[i][n].r_length);
+                //방의 정보를 리스트의 정보와 일치시킨다
+                a.GetComponent<room>().set_door(r[i][n].connect_num, r[i][n].room_element, r[i][n].r_length);
+
+
                 
-              
-                /* while (r[i].Count == 0)
-                 {
-                     r[i + 1].RemoveAt(0);
-                     mugen++;
-                     if (mugen == 100)
-                     {
-                         Debug.Log("무한루프3");
-                         break;
-                     }
-                 }*/
-                
+                //객체 없이 정보만 들어있는 리스트 구성요소를 쩨거하고 객체로 생성된 방의 정보를 다시 리스트에 추가한다
                 room_database_V3.RemoveAt(0);
                 r[i].Add(a.GetComponent<room>());
                 room_database_V3.Add(a.GetComponent<room>());
-                float r_x = a.GetComponent<room>().room_width * r[i][n].r_length;
-                //float r_y = a.GetComponent<room>().room_height / (r_length_count[r[i].r_length] +1);
-                if (ac == 0)
-                {
-                    ac = r_length_count[r[i][n].r_length] - 1;
-                    //num++;
-                }
-                else
-                {
-                    ac--;
-                }
+
+
+                
                 a.transform.SetParent(this.transform);
-                //a.transform.position = new Vector2(r_x, 0);
-
-                //a.GetComponent<room>().on_player = true;
-
-               // Debug.Log("ac=" + ac + "i:" + i + "num:" + num);
+              
             }
+            //생성하는데 사용된 리스트 (room_database_V4)의 값을 제거하여 초기화 시킨다
             for (int b = r_r_num; b > 0; b--)
             {
                 if (r[i].Count != 0)
                     r[i].RemoveAt(0);
             }
-            
+
 
 
         }
     }
     private void Awake()
     {
-       // m_map = this.GetComponent<minimap>();
+
 
     }
     void Start()
     {
-        if (shop_room_num != 0)
-        {
-            shop_room_int = (room_create_number - 3) / shop_room_num;
-        }
+        
 
-       
-        //make_all_link(room);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!map_making_complete&& !Gamemanager.GM.boss)
+        if (!map_making_complete && !Gamemanager.GM.boss)//보스 스테이지가 아니고 방이 생성되지 않았다면 방 생성
         {
             make_room_V3();
         }
-       /* if (!map_making_complete)
-        {
-            if (room.Count == room_create_number && !make_wall_check)
-            {
-                room[room.Count - 1].GetComponent<room>().room_element = 4;
-                close_no_link_door(room);
-                make_wall_check = true;
-
-            }
-            else
-            {
-                if (!Gamemanager.GM.boss)
-                    create_room_V2();
-            }
-        
-            if (make_wall_check)
-            {
-                map_making_complete = true;
-               // m_map.get_map_data();
-            }
-        }*/
-        /*if (!map_making_complete)
-        {
-            if (room.Count == room_create_number && !make_wall_check)
-            {
-                room[room.Count - 1].GetComponent<room>().room_element = 4;
-                close_no_link_door(room);
-                make_wall_check = true;
-
-            }
-            else
-            {
-                if (!Gamemanager.GM.boss)
-                {
-                    make_room_V3();
-                }
-            }
-        
-            if (make_wall_check)
-            {
-                map_making_complete = true;
-               // m_map.get_map_data();
-            }
-        }*/
 
     }
+}
 
-    public void make_map_element(room a)
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////쓰이지 않음///////////////
+    /*public void make_map_element(room a)
     {
 
           
@@ -487,16 +408,14 @@ public class room_controller : MonoBehaviour
         mini_map = new int[x, y];
         int random_number = Random.Range(0, room_database.Length);
         GameObject a = Instantiate(room_database[random_number]);
-        a.GetComponent<room>().set_XY(x / 2 , y / 2 );
+
         room.Add(a);
         a.GetComponent<room>().room_element = 1;
         a.GetComponent<room>().on_player = true;
         a.transform.SetParent(this.transform);
         mini_map[x /2, y /2] = 2;
    
-        room_pos.Add(a.GetComponent<room>().get_XY());
-        //a.GetComponent<room>().open_check_door();
-        //a.gameObject.transform.position = new Vector3(0, 0, 0);
+      
         return a;
     }
 
@@ -518,12 +437,10 @@ public class room_controller : MonoBehaviour
     public GameObject make_room_V2(GameObject r)//아무 방을 생성해 이어붙인다
     {
         room room_ = r.GetComponent<room>();
-        room_.random_door();
-        Vector2 r_XY = room_.get_XY();
+
         bool destroy=false;
         List<door> open_door = new List<door>();
-        int room_x = room_.get_XY_x();
-        int room_y = room_.get_XY_y();
+
         for (int i = 0; i < room_.door.Length; i++)
         {
             if (room_.door[i].door_active && room_.door[i].link == null) {
@@ -549,7 +466,7 @@ public class room_controller : MonoBehaviour
                 {
                     case 0:
 
-                        a_room.set_XY(r_XY[0] - 3, r_XY[1]);
+             
                         b = find_door(a.GetComponent<room>().door, 1);
                         a.gameObject.transform.position = new Vector3(pos1.x - r.GetComponent<room>().room_width, pos1.y, pos1.z);
                         for (int p = 0; p < room_pos.Count; p++)
@@ -821,36 +738,7 @@ public class room_controller : MonoBehaviour
         }
     }
 
-   /* public void make_wall_to_minimap(int x,int y,int dir)//x,y=방의 좌표 dir=바꿀 문의 방향
-    {
-        switch (dir)
-        {
-            case 0:
-                mini_map[x+x_weight-2, y+y_weight] = 0;
-                mini_map[x + x_weight - 1, y + y_weight] = 0;
-                break;
-            case 1:
-                mini_map[x + x_weight , y + y_weight+2] = 0;
-                mini_map[x + x_weight , y + y_weight+1] = 0;
-                break;
-            case 2:
-                mini_map[x + x_weight + 2, y + y_weight] = 0;
-                mini_map[x + x_weight + 1, y + y_weight] = 0;
-                break;
-            case 0:
-                mini_map[x + x_weight , y + y_weight-2] = 0;
-                mini_map[x + x_weight , y + y_weight-1] = 0;
-                break;
-        }
-    }*/
+ 
 
 }
-/*방식을 또 바꾼다
- * 이전 방식->방 하나 만들고 랜덤 돌려서 정하고 그러다 보면 충돌체크로 알아서 연결
- * 문제점 만들고 랜덤이라서 서로 연결이 안되는 경우가 생김,일자로 이어지는 느낌이 너무 강함
- *
- * 새 방식-> 방 만들고 그 방의 모든 문에 방을 만들고 그 방이 또 새로운 방을 만들고....
- *방 연결은 충돌체크가 아니라 생성할 때 연결
- * 문은 연결되어있다면 랜덤으로 가지 않고 무조건 열린 문
- * 
- */
+*/

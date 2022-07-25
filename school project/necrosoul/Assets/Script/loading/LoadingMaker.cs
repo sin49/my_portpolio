@@ -1,8 +1,8 @@
-using System.Collections;
+  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadingMaker : MonoBehaviour
+public class LoadingMaker : MonoBehaviour//로딩 화면을 관리하는 객체 생성
 {
     public GameObject l;
     public GameObject[] lm;

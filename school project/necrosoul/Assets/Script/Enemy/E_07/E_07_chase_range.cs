@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_07_chase_range : MonoBehaviour
+public class E_07_chase_range : MonoBehaviour//7번적 플레이어 인식범위
 {
     public Transform E;
     public bool on_player;

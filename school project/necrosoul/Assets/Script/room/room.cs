@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class room : MonoBehaviour
+public class room : MonoBehaviour//방의 정보 상호작용 등
 {
     public GameObject end_portal;
     public int enemy_count;
@@ -50,9 +50,11 @@ public class room : MonoBehaviour
     AudioManage_Main m_audio;
     float clear_slow_timer = 1.5f;
     float clear_slow_time;
+    //생성자로 방의 종류 문의 갯수 를 정한다
     public room()
     {
-        room_element = 1;
+        room_element = 1;//방의 종류 
+        //1 시작방 2 일반 방 3:상점 4:이벤트 방
     }
     public room(int a)
     {
@@ -62,11 +64,12 @@ public class room : MonoBehaviour
     {
         room_element = a;
         r_length = b;
-        connect_num = Random.Range(1, c+1);
+        connect_num = Random.Range(1, c+1);//문의 갯수
         if (connect_num == c + 1)
             connect_num = c;
        
     }
+    //방이 클리어 되면 문의 갯수만큼 포탈을 활성화 일정한 위치로 시킨다
     public void make_clear_room()
     {
         if (r_connect.Count != 0)
@@ -87,94 +90,58 @@ public class room : MonoBehaviour
             Instantiate(end_portal, spawn_door_pos[0].position, Quaternion.identity);
         }
     }
-    public room(room a)
-    {
-        room b = this;
-        b = a;
-    }
-    public void set_room(room r)
-    {
-
-    }
+   
+  //문의 갯수를 정한다
     public void set_connect_num(int a)
     {
         connect_num = a;
     }
-    public void set_door(List<room> a, List<room> d,int b,int c)
-    {
-        r_connect = a;
-        r_connected = d;
-        room_element = b;
-        r_length = c;
-    }
+   //방의 종류와 문의 갯수 ,층을 설정한다
     public void set_door(int a, int b, int c)
     {
         connect_num = a;
         room_element = b;
         r_length = c;
     }
-    public void set_XY(float x, float y)
-    {
-        XY.x=x;
-        XY.y=y;
-    }
-    public Vector2 get_XY()
-    {
-        return XY;
-    }
-    public int get_XY_x()
-    {
-        return (int)XY.x;
-    }
-    public int get_XY_y()
-    {
-        return (int)XY.y;
-    }
+    
 
     void Start()
     {
         tim = 1.2f;
         clear_slow_timer = 0.5f;
         clear_slow_time = Time.deltaTime;
-        if (room_element == 1)
+        if (room_element == 1)//시작방이라면 초기부터 플레이어가 있다
         {
             on_player = true;
             move_chk = true;
         }
-       // exit_portal.SetActive(false);
+
         delaytimer = delaytime;
         open_check = true;
-       if (room_element == 2)
-        {
-            
-
-           
-     
-        }
-        else
-        {
-            //Itemsprite.SetActive(false);
-        }
+      
     }
     private void Awake()
     {
         m_audio = AudioManage_Main.instance;
 
     }
-    public void active_room_element()
+    
+  /*  public void active_room_element()//사용 안함
     {
         room_contents_controller r = this.gameObject.GetComponent<room_contents_controller>();
         r.content.SetActive(true);
-    }
+    }*/
     void Update()
     {
-        make_wall();
+        //make_wall();//사용 안함
    
-        if (on_player)
+        if (on_player)//플레이어가 방에 있을 때
         {
             if (room_element == 2)//일반 전투 방
             {
-                Gamemanager.GM.last_enemy = enemy_count;
+                Gamemanager.GM.last_enemy = enemy_count;//방에 남은 적의 수를 저장
+
+                //화면이 완전히 페이드 아웃 될 때까지 대기
                 if (move_chk &&! Gamemanager.GM.fade_init.activeSelf)
                 {
                     move_chk2 = true;
@@ -184,36 +151,35 @@ public class room : MonoBehaviour
                 {
                     active_timer-=Time.deltaTime;
                 }
+
+                //페이드 아웃 이후 약간의 시간 이후 전투를 시작하고 적을 활성화
                 if (active_timer<=0)
                 {
                     active_timer = 0;
-                    if (!room_cleared)
+                    if (!room_cleared)//전투 시작
                     {
-                        // if (collision_door_to_player_check())
-                        //{
+
                         Gamemanager.GM.Onbattle = true;
                         battle_mode();
-
-                        //}
                     }
-                    else
+                    else//전투 종료
                     {
-                        if (Gamemanager.GM.Onbattle)
+                        if (Gamemanager.GM.Onbattle)//전투 종료 후 포탈 생성
                         {
                             Gamemanager.GM.Onbattle = false;
                             make_clear_room();
                         }
 
-                        //Gamemanager.GM.room_num--;
-                        if (!item_given_check)
+                        if (!item_given_check)//플레이어에게 아이템을 보상으로
                         {
                             int rand = Random.Range(0, 100);
-                            if (rand < 40)
+                            if (rand < 40)//40%확률로 체력을 회복시켜주는 소모 아이템을 생성한다
                             {
-                                
-                               var a= Instantiate(Gamemanager.GM.drop_consumable_item,Gamemanager.GM.lastest_enemy_point, Quaternion.identity);
+                                //생성 위치는 마지막으로 처치된 적의 위치
+                                var a = Instantiate(Gamemanager.GM.drop_consumable_item, Gamemanager.GM.lastest_enemy_point, Quaternion.identity);
                                 a.transform.parent = this.transform;
                             }
+                            //랜덤 아이템을 방보상으로 얻는다
                             Gamemanager.GM.get_item();
                         }
 
@@ -224,15 +190,15 @@ public class room : MonoBehaviour
                 }
                 
             }
-            else if (room_element==4)
+            else if (room_element==4)//이벤트 방이라면
             {
-                if (event_clear)
+                if (event_clear)//이벤트를 클리어할 때 방을 클리어
                 {
                     make_clear_room();
                     event_clear = false;
                 }
             }
-            else
+            else//아닐시 입장 직후 바로 클리어
             {
                 if (!room_cleared)
                 {
@@ -242,25 +208,19 @@ public class room : MonoBehaviour
                 
 
             }
-            /*if (!link_check)
-            {
-                check_door();
-            }*/
+          
         }
 
-        if (!on_player && !room_cleared)
-        {
-            //this.gameObject.SetActive(false);
-        }
+        
     }
 
-   void battle_mode()
+   void battle_mode()//전투 상태
     {
         
         
         normal_contents a = n_contents.GetComponent<normal_contents>();
      
-        if (a.room_cleared)
+        if (a.room_cleared)//방의 전투가 끝났을 때 시간이 살짝 느려지는 연출
         {
 
             if (clear_slow_timer > 0)
@@ -283,12 +243,12 @@ public class room : MonoBehaviour
             }
             else
             {
-                if (a.choose_cycle != null && a.choose_cycle.choose_group != null)
+                if (a.choose_cycle != null && a.choose_cycle.choose_group != null)//사이클과 그룹이 선택 되어 있다면 그룹의 적이 enemy_count는 그룹의 적의 수
                 {
                     enemy_count = a.choose_cycle.choose_group.GetComponent<Enemy_group>().enemy.Count;
                    
                 }
-                if (a.cycle_chk && a.start_chk&&tim<=0)
+                if (a.cycle_chk && a.start_chk&&tim<=0)//사이클이 선택 되있고 방에 입장한 후 시간이 좀 흘렸다면 적을 활성화
                 {
                     a.acitve_enemy();
              
@@ -296,25 +256,36 @@ public class room : MonoBehaviour
             }
            
         }
-          /*  if (delay_check)
-            {
-            enemy = GameObject.FindGameObjectsWithTag("Enemy");
-                //적생성한번만
-                if (enemy.Length == 0)
-                {
-                room_cleared = true;
-
-                }
-            }
-            else
-            {
-                delaytimer -= Time.deltaTime;
-                if (delaytimer <= 0)
-                    delay_check = true;
-            }*/
+      
         
     }
-    
+    public void move_player()//플레이어가 이 방으로 이동했을 때 
+    { 
+        GameObject p = Gamemanager.GM.Player_obj;
+        p.transform.position = this.exit_portal.transform.position;// 플레이어의 위치를 조정
+        Gamemanager.GM.fade_in();//페이드 인
+        m_audio.portalExit();
+        if (Gamemanager.GM.fade_Outit.activeSelf)//페이드 아웃 종료
+            Gamemanager.GM.fade_Outit.SetActive(false);
+        Gamemanager.GM.game_ev.when_room_enter();//플레이어가 방에 들어갔을 때의 이벤트 작동
+        Gamemanager.GM.can_handle = true;//플레이어가 조작을 할수있게
+        move_chk = true;
+
+    }
+    private void OnDrawGizmos()//방 안의 카메라의 이동범위를 시각화
+    {
+        Gizmos.color = Color.yellow;
+        if (camera_point != null)
+        {
+            Gizmos.DrawWireCube(camera_point.transform.position, size);
+        }
+        else
+        {
+            Gizmos.DrawWireCube(this.gameObject.transform.position, size);
+        }
+
+    }
+    /* 지금 사용하지 않음
     bool collision_door_to_player_check()
     {
         int count = 0;
@@ -384,10 +355,10 @@ public class room : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        /*if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             enemy.Add(other.gameObject);
-        }*/
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -412,32 +383,6 @@ public class room : MonoBehaviour
         {
            // enemy.Remove(collision.gameObject);
         }
-    }
-    public void move_player()
-    {
-        GameObject p = Gamemanager.GM.Player_obj;
-        p.transform.position = this.exit_portal.transform.position;
-        Gamemanager.GM.fade_in();
-        m_audio.portalExit();
-        if (
-        Gamemanager.GM.fade_Outit.activeSelf)
-            Gamemanager.GM.fade_Outit.SetActive(false);
-        Gamemanager.GM.game_ev.when_room_enter();
-        Gamemanager.GM.can_handle=true;
-        move_chk = true;
-        
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        if (camera_point!=null)
-        {
-            Gizmos.DrawWireCube(camera_point.transform.position, size);
-        }
-        else
-        {
-            Gizmos.DrawWireCube(this.gameObject.transform.position, size);
-        }
-      
-    }
+    }*/
+
 }

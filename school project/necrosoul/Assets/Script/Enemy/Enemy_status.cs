@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy_status : MonoBehaviour
 {
-    //레이아웃 숫자
+    //적의 능력치를 정하는 클레스
+    //능력치는 엑셀 데이터베이스로 가져온다
+    //구성은 player_status와 동일
 
     [SerializeField]
     public int original_MaX_HP;//최대 체력 원본
@@ -41,8 +43,7 @@ public class Enemy_status : MonoBehaviour
 
     int money;
 
-    //List<Dictionary<string, object>> Data = CSVReader.Read("playerStatus");
-    //csv로  original 값 정하면 될듯?
+  
     public void set_layout(int i)
     {
         List<Dictionary<string, object>> Data = CSVReader.Read("Enemy");

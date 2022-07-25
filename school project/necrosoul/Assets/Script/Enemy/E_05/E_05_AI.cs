@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_05_AI : MonoBehaviour
+public class E_05_AI : MonoBehaviour//공중에서 좌우로 왕복하는 적
 {
     Vector2 dir;
     private Quaternion rotation;
@@ -32,7 +32,7 @@ public class E_05_AI : MonoBehaviour
     private Collider2D sensitive;
     public int upvector = 1;
     Animator e_ani;
-    public int wall_bound = 1;
+   
     float t;
     // Start is called before the first frame update
     void Start()
@@ -53,30 +53,7 @@ public class E_05_AI : MonoBehaviour
         unit.move_speed = E_Status.get_speed();
         unit.Attack_point = E_Status.get_atk();
     }
-    void ray_to_player()
-    {
-
-        float length = Mathf.Log(Mathf.Pow(18, 2) + Mathf.Pow(28, 2)) * 2;
-        var dir_dist = Mathf.Log(Mathf.Pow(dir.x, 2) + (Mathf.Pow(dir.y, 2)));
-        if (Player != null)
-            Debug.DrawLine(transform.position, Player.transform.position.normalized * dir_dist, Color.red);
-        // Debug.DrawLine(transform.position - Vector3.up * (bullet_size / 2), Player.transform.position.normalized * range_distance, Color.red);
-        // var ray1= Physics2D.Raycast(transform.position+Vector3.up*(bullet_size/2), dir, length, LayerMask.GetMask("platform_can't_pass"));
-        // var ray2 = Physics2D.Raycast(transform.position - Vector3.up * (bullet_size / 2), dir, length, LayerMask.GetMask("platform_can't_pass"));
-        var ray = Physics2D.Raycast(transform.position, dir, length, LayerMask.GetMask("platform_can't_pass"));
-        var ray2 = Physics2D.Raycast(transform.position, dir, length, LayerMask.GetMask("platform_can_pass"));
-        if (ray.collider != null)
-        {
-    
-            can_attack = false;
-        }
-        else
-        {
    
-            can_attack = true;
-        }
-    }
-    // Update is called once per frame
     void FixedUpdate()
     {
         brain();
@@ -93,24 +70,16 @@ public class E_05_AI : MonoBehaviour
 
             Player = this.transform.GetComponent<Unit>().Player;
             
-            if(Player!=null)
-                dir = Player.transform.position - this.transform.position;
-            var dir_dist = Mathf.Log(Mathf.Pow(dir.x, 2) + (Mathf.Pow(dir.y, 2)));
-            ray_to_player();
+          
+          
             
 
-            /*if (dir_dist<range_distance||unit.sentinal)//벽에 안막힘+사정거리안
-            {
-                attack_ai_0();
-            }
-            else
-            {*/
 
                
-               
+               //계속 이동
                     move_ai_0();
                 
-           // }
+       
         }
         else
         {
@@ -141,24 +110,7 @@ public class E_05_AI : MonoBehaviour
     {
 
 
-        /* if (random_num > 0.5)
-         {
-             if (unit.direction == -1)
-             {
-
-                 unit.direction_change_spr();
-             }
-
-
-         }
-         else
-         {
-             if (unit.direction == 1)
-             {
-                 unit.direction_change_spr();
-             }
-
-         }*/
+       
         if (unit.can_move)
         {
           
@@ -168,61 +120,29 @@ public class E_05_AI : MonoBehaviour
 
             e_ani.SetBool("move", true);
 
-            //move_distance += unit.move_speed * Time.deltaTime;
+           
             //정면에 레이캐스트로 벽감지
             Debug.DrawLine(transform.position, transform.position - (new Vector3(0.2f, 0, 0) + new Vector3(enemy_size_x / 2, 0, 0)) * unit.direction, Color.blue);
-            //Debug.DrawLine(transform.position, transform.position - (new Vector3(0, 0,2, 0) + new Vector3(enemy_size_y / 2, 0, 0)) * unit.direction*, Color.blue);
-            //Debug.DrawLine(transform.position, transform.position - (new Vector3(0.2f, 0, 0) + new Vector3(enemy_size_y / 2, 0, 0)) * unit.direction, Color.blue);
+           
             var wall_ray = Physics2D.Raycast(transform.position + Vector3.up * enemy_size_y * 0.5f, Vector3.left * unit.direction, enemy_size_x / 1.5f + 0.4f, LayerMask.GetMask("platform_can't_pass"));
             var wall_ray2 = Physics2D.Raycast(transform.position - Vector3.up * enemy_size_y * 0.5f, Vector3.left * unit.direction, enemy_size_x / 1.5f + 0.4f, LayerMask.GetMask("platform_can't_pass"));
-            
+            //벽에 닿을시 반대 방향으로
             if (wall_ray.collider != null||wall_ray2.collider!=null)
             {
-                Debug.Log("벼게 닿음");
+               
                 unit.direction_change_spr();
                 Debug.Log("col");
             }
           
         }
         }
-    void attack_ai_0()
-    {
-        e_ani.SetBool("move", true);
-        transform.Translate(dir.normalized * unit.move_speed * Time.deltaTime);
-    }
+  
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(this.transform.position, new Vector2(enemy_size_x,enemy_size_y));
     }
-    IEnumerator move()
-    {
-        var wait = new WaitForSeconds(moving_buffer + moving_weight);
-        e_ani.SetBool("move", true);
-        moving_status = true;
-        yield return wait;
-        move_corutine_check = false;
-        e_ani.SetBool("move", false);
-        moving_status = false;
-        moving_weight = Random.Range(-1, 1);
-    }
-    IEnumerator idle()
-    {
-       
-        var wait = new WaitForSeconds(idle_time);
-        e_ani.SetBool("move", false);
-
-        idle_corutine_check = true;
-        yield return wait;
-        move_corutine_check = true;
-        idle_corutine_check = false;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == 12)
-        {
-            wall_bound *= -1;
-        }
-    }
+  
+   
 }

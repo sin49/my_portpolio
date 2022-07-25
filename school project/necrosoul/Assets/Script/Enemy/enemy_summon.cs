@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy_summon : MonoBehaviour
+public class enemy_summon : MonoBehaviour//적을 소환하는 연출 이펙트
 {
     public GameObject Enemy;
     public GameObject end_effect;
@@ -23,7 +23,7 @@ public class enemy_summon : MonoBehaviour
     {
         
     }
-    public void summon_enemy()
+    public void summon_enemy()//이펙트가 끝나면 적 활성화
     {
         /*i++;
         if (n == i)

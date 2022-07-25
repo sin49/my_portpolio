@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Setting_starter : MonoBehaviour
+public class Setting_starter : MonoBehaviour//技泼 皋聪历 积己
 {
     public GameObject setting;
     List<GameObject> gm=new List<GameObject>();

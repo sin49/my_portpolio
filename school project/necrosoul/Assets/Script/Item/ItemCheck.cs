@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class ItemCheck : MonoBehaviour
+public class ItemCheck : MonoBehaviour//플레이어의 상호작용 처리 클레스
 {
     public GameObject Inven;
     public Transform Pos;
@@ -32,7 +32,7 @@ public class ItemCheck : MonoBehaviour
     {
         if (Gamemanager.GM.can_handle)
         {
-            if (Item_chk)
+            if (Item_chk)//상점 아이템의 정보를 툴팁에 적용 시킨다
             {
                 tooltip.SetActive(true);
                 tooltip.transform.position = Camera.main.WorldToScreenPoint(tr.position + Vector3.up * tool_tip_pos_y);
@@ -40,7 +40,7 @@ public class ItemCheck : MonoBehaviour
                 desc_T.text = i.Description;
                 price_T.text = "＄" + price.ToString();
             }
-            else if (refresh_chk)
+            else if (refresh_chk)//새로고침의 정보를 툴팁에 적용시킨다
             {
                 tooltip.SetActive(true);
                 tooltip.transform.position = Camera.main.WorldToScreenPoint(tr.position + Vector3.up * tool_tip_pos_y);
@@ -52,55 +52,42 @@ public class ItemCheck : MonoBehaviour
             {
                 tooltip.SetActive(false);
             }
-            if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.UP]))
+            if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.UP]))//상호작용을 시도했을 때
             {
-                Collider2D[] Hits = Physics2D.OverlapBoxAll(Pos.position, boxSize, 0);
+                Collider2D[] Hits = Physics2D.OverlapBoxAll(Pos.position, boxSize, 0);//접촉한 오브젝트를 처리
                 foreach (Collider2D Item in Hits)
                 {
-                    if (Item.gameObject.CompareTag("TreasureBox"))      //아이템 체크
+                  if (Item.gameObject.CompareTag("door"))//포탈
                     {
-                        Debug.Log("상자 충돌중");
-                        Item.GetComponent<chest>().set_open();
-                    }
-                    else if (Item.gameObject.CompareTag("Item"))
-                    {
-                        if (Inventory.Item_InvenData.Count < Inven.GetComponent<Inventory>().Item_InvenDataCount)  //인벤 자리가 있을 때
-                        {
-                            Inventory.Item_InvenData.Add(Item.GetComponent<ItemProduce>().item);    //아이템 추가
-                            Inven.GetComponent<Inventory>().Refresh();      //빈슬롯에 아이템 넣기
-                            Destroy(Item.gameObject);
-                        }
-                        else
-                        {
-                            Debug.Log("꽉 찼습니다.");
-                        }
-                    }
-                    else if (Item.gameObject.CompareTag("door"))
-                    {
+                        //다음 방으로 이동
                         if (Item.GetComponent<portallV2>().anim_check)
                         {
                             Item.GetComponent<portallV2>().move_player();
                             i_t.reset_ani();
                         }
                     }
-                    else if (Item.gameObject.CompareTag("shop_item"))
+                    else if (Item.gameObject.CompareTag("shop_item"))//상점 아이템
                     {
+                        //아이템의 구매를 시도
                         var a = Item.GetComponent<shop_item>();
                         a.buy_item();
                     }
-                    else if (Item.gameObject.CompareTag("shoprefresh"))
+                    else if (Item.gameObject.CompareTag("shoprefresh"))//상점 새로고침
                     {
+                        //상점의 새로고침을 시도
                         var a = Item.transform.parent.parent.GetComponent<new_shop>();
                         a.refresh();
                     }
-                    else if (Item.gameObject.CompareTag("event"))
+                    else if (Item.gameObject.CompareTag("event"))//이벤트
                     {
+                        //이벤트를 활성화
                         var a = Item.transform.GetComponent<Event_obj>();
 
                         a.Event_start();
                     }
-                    else if (Item.gameObject.CompareTag("end_portal"))
+                    else if (Item.gameObject.CompareTag("end_portal"))//다음 스테이지 포탈
                     {
+                        //스테이지를 마무리
                         var a = Item.transform.GetComponent<end_door>();
                         i_t.reset_ani();
                         a.End_portal();
@@ -113,6 +100,7 @@ public class ItemCheck : MonoBehaviour
             tooltip.SetActive(false);
         }
     }
+    //상점아이템<새로고침에 접촉했을 때 아이템 이름+효과+가격 등을 알리는 툴팁을 활성화 한다
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("shop_item"))
@@ -131,19 +119,20 @@ public class ItemCheck : MonoBehaviour
                 Item_chk = false;
             }
         }
-        if(collision.gameObject.CompareTag("shoprefresh"))
+        if (collision.gameObject.CompareTag("shoprefresh"))
         {
             var a = collision.transform.parent.parent.GetComponent<new_shop>();
-          
-                refresh_chk = true;
 
-                
-                tr = collision.transform;
+            refresh_chk = true;
+
+
+            tr = collision.transform;
             price = a.curren_re_price;
-            
-          
+
+
         }
     }
+    //툴팁을 비활성화 한다
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("shop_item"))
@@ -155,7 +144,7 @@ public class ItemCheck : MonoBehaviour
         }
         if (other.gameObject.CompareTag("shoprefresh"))
         {
-           
+
 
             refresh_chk = false;
 
@@ -165,110 +154,5 @@ public class ItemCheck : MonoBehaviour
 
         }
     }
-    private void OnDrawGizmos()     //임시로 볼수있게하는 함수
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(Pos.position, boxSize);
-    }
-    /*private void OnTriggerStay2D(Collider2D Item)
-    {
-
-        if (Item.gameObject.CompareTag("TreasureBox"))      //아이템 체크
-        {
-            Debug.Log("상자 충돌중");
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Item.GetComponent<chest>().set_open();
-            }
-        }
-
-        if (Item.gameObject.CompareTag("Item"))      //아이템 체크
-        {
-            Debug.Log("아이템 충돌중");
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                //if (!Inventory.CheckItem(Item.GetComponent<ItemProduce>().item)) 
-                //{
-                    if (Inventory.Item_InvenData.Count < Inven.GetComponent<Inventory>().Item_InvenDataCount)  //인벤 자리가 있을 때
-                    {
-                        Inventory.Item_InvenData.Add(Item.GetComponent<ItemProduce>().item);    //아이템 추가
-                        Inven.GetComponent<Inventory>().Refresh();      //빈슬롯에 아이템 넣기
-                        Destroy(Item.gameObject);
-                    }
-                    else
-                    {
-                        Debug.Log("꽉 찼습니다.");
-                    }
-            }
-                //}
-                //else
-                //{
-                //    Inventory.Money += 10;
-                //    Destroy(Item.gameObject);
-                //    Debug.Log("중복! 돈 획득");
-                //}
-            
-        
-
-
-        
-    }}*/
+    
 }
-
-//if (Item.gameObject.CompareTag("TreasureBox"))      //아이템 체크
-//{
-//    if (Input.GetKeyDown(KeyCode.E))
-//    {
-//        GameObject Item_D = Instantiate(prefab, new Vector3(Item.transform.position.x, Item.transform.position.y, Item.transform.position.z), Quaternion.identity);
-//        int Ran = Random.Range(1, 6);
-//        if (1 <= Ran && 3 >= Ran)
-//        {
-//            Item_D.GetComponent<Item>().ItemType = 1;
-//        }
-//        else if (4 <= Ran && 6 >= Ran)
-//        {
-//            Item_D.GetComponent<Item>().ItemType = 2;
-//        }
-//        Destroy(Item.gameObject);
-//    }
-//private void OnTriggerStay2D(Collider2D Item)
-//{
-//    if (Item.gameObject.CompareTag("Item"))      //아이템 체크
-//    {
-
-//        if (Input.GetKeyDown(KeyCode.E))
-//        {
-
-//            Debug.Log("인벤 갯수:" + Inventory.Item_InvenData.Count + " 총 갯수 : " + Inven.GetComponent<Inventory>().Item_InvenDataCount);
-//            if (Inventory.Item_InvenData.Count < Inven.GetComponent<Inventory>().Item_InvenDataCount)  //인벤 자리가 있을 때
-//            {
-//                for (int i = 0; i < Inven.GetComponent<Inventory>().Item_InvenDataCount; i++)    //빈슬롯 찾기
-//                {
-//                    if (Inven.GetComponent<Inventory>().InvenSlot[i].SlotCheck)      //만약 빈슬롯이면
-//                    {
-//                        Debug.Log("??");
-//                        Item.GetComponent<ItemProduce>().item.SlotNumber = i;
-//                        Inventory.Item_InvenData.Add(Item.GetComponent<ItemProduce>().item);    //아이템 추가
-//                        break;
-//                    }
-//                }
-
-
-//                Inven.GetComponent<Inventory>().Refresh();
-//                Destroy(Item.gameObject);
-//            }
-//            else
-//            {
-//                Debug.Log("꽉 찼습니다.");
-//            }
-//        }
-//    }
-//    if (Item.gameObject.CompareTag("TreasureBox"))      //아이템 체크
-//    {
-
-//        if (Input.GetKeyDown(KeyCode.E))
-//        {
-//            Item.GetComponent<chest>().set_open();
-//        }
-//    }
-//}

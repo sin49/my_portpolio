@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_AI_01_range : MonoBehaviour
+public class E_AI_01_range : MonoBehaviour//플레이어의 감지범위
 {
     public bool on_player;
     public Transform E;

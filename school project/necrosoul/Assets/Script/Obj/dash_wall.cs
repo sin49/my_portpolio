@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dash_wall : MonoBehaviour
+public class dash_wall : MonoBehaviour//플레이어가 대쉬를 통해서만 통과할수있는 장애물
 {
     PlayerCharacter p;
     Vector2 dir;

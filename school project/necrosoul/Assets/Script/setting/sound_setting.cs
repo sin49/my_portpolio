@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
-public class sound_setting : MonoBehaviour
+public class sound_setting : MonoBehaviour//사운드 설정
 {
     public float main_voulume;
     public float bgm_volume;
@@ -29,7 +29,7 @@ public class sound_setting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!chk)
+        if (!chk)//설정된 값으로 설정 ui 변경
         {
            main_voulume  = setting_manager.s_manger.S.full_volume;
             bgm_volume = setting_manager.s_manger.S.bgm_volume;
@@ -37,16 +37,20 @@ public class sound_setting : MonoBehaviour
            
             chk = true;
         }
-        if (!Main_button.interactable)
-            set_main();
-        if (!bgm_button.interactable)
-            set_bgm();
-        if (!sfx_button.interactable)
-            set_sfx();
         main_slider.value = main_voulume;
         bgm_slider.value = bgm_volume;
         sfx_slider.value = sfx_volume;
+        //볼륨 설정
         set_sound();
+        //설정 선택시 설정과 관련된 볼륨 조절
+        if (!Main_button.interactable)//마스터볼륨
+            set_main();
+        if (!bgm_button.interactable)//배경볼륨
+            set_bgm();
+        if (!sfx_button.interactable)//효과음볼륨
+            set_sfx();
+
+      //최대 볼륨 수치 조절(ui 오류 방지)
         if (main_voulume < -40)
             main_voulume = -40;
         if (main_voulume > 0)
@@ -60,15 +64,15 @@ public class sound_setting : MonoBehaviour
         if (sfx_volume > 0)
             sfx_volume = 0;
     }
-    public void set_main()
+    public void set_main()//마스터 볼륨 선택
     {
         selected = 1;
     }
-    public void set_bgm()
+    public void set_bgm()//배경 선택
     {
         selected = 2;
     }
-    public void set_sfx()
+    public void set_sfx()//효과음 선택
     {
         selected = 3;
     }

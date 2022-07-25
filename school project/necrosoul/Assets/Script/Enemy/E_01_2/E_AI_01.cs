@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_AI_01 : MonoBehaviour
+public class E_AI_01 : MonoBehaviour//투사체를 던지는 적 인공지능
 {
     //해골
     Enemy_status E_Status;
@@ -60,6 +60,7 @@ public class E_AI_01 : MonoBehaviour
             a.SetActive(false);
         }
     }
+    //적 투사체를 리스트에서 비활성화된 오브젝트를 탐색하여 반환하는 방식으로 풀링한다
     GameObject pulling_bullet()
     {
         for(int i = 0; i < enemy_pulling.Count; i++)
@@ -71,24 +72,22 @@ public class E_AI_01 : MonoBehaviour
         }
         return null;
     }
-    void ray_to_player()
+    void ray_to_player()//플레이어 방향으로 ray를 쏴서 플레이어의 방향으로 방해물이 없는지 체크한다
     {
   
             Player= this.transform.GetComponent<Unit>().Player;
         
         float length = Mathf.Log(Mathf.Pow(18, 2) + Mathf.Pow(28, 2)) * 2;
-        //Debug.DrawLine(transform.position+ Vector3.up * (bullet_size / 2), Player.transform.position.normalized * range_distance, Color.red);
+        
         if (Player != null)
             Debug.DrawLine(transform.position, Player.transform.position, Color.blue);
-       // Debug.DrawLine(transform.position - Vector3.up * (bullet_size / 2), Player.transform.position.normalized * range_distance, Color.red);
-       // var ray1= Physics2D.Raycast(transform.position+Vector3.up*(bullet_size/2), dir, length, LayerMask.GetMask("platform_can't_pass"));
-       // var ray2 = Physics2D.Raycast(transform.position - Vector3.up * (bullet_size / 2), dir, length, LayerMask.GetMask("platform_can't_pass"));
+      
         var ray= Physics2D.Raycast(transform.position, dir.normalized, dir.magnitude, LayerMask.GetMask("platform_can't_pass"));
-       // var ray2 = Physics2D.Raycast(transform.position, dir.normalized*-1, length, LayerMask.GetMask("platform_can't_pass"));
+      
         if (ray.collider == null&&E_range.on_player)
         {
             unit.can_attack = true;
-            //Debug.Log("???");
+
        
         }
         else
@@ -106,13 +105,13 @@ public class E_AI_01 : MonoBehaviour
     {
         if (unit.Health_point > 0)
         {
-           
+           //플레이어 탐색
             ray_to_player();
             if (Player != null)
                 dir = Player.transform.position - this.transform.position;
 
             
-            if (unit.can_attack)//벽에 안막힘+사정거리안
+            if (unit.can_attack)//벽에 안막힘+사정거리 안쪽일 때 플레이어 공격
             {
                 if (dir.x > 0&&unit.direction==1)
                 {
@@ -124,36 +123,23 @@ public class E_AI_01 : MonoBehaviour
                     if (attack_status)
                 StartCoroutine("attack");
             }
-            else
+            else//아닐시 
             {
                 StartCoroutine("idle");//대기  상태
-                //if (move_corutine_check)
-                /*{
-                    if (!moving_status)
-                        StartCoroutine("move");//이동상태
-                }
-                else*/
-                //{
-                   // if (!idle_corutine_check)
-                      //  StartCoroutine("idle");//대기  상태
-                //}
-                //if (moving_status)
-                //{
-                    //move_ai_0();
-                //}
+                
             }
         }
-        else
+        else//사망
         {
             die();
         }
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmos()//적의 사이즈 체크
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(this.transform.position, new Vector2(enemy_size_x, enemy_size_y));
     }
-    void die()
+    void die()//적이 생성한 투사체를 제거하고 파괴
     {
         unit.HpCheack();
         e_ani.SetTrigger("death");
@@ -162,7 +148,7 @@ public class E_AI_01 : MonoBehaviour
             Destroy(created_object[i]);
         }
     }
-
+    //투사체를 활성화하고 투사체가 플레이어 방향으로 날아가도록 설정한다
     public void create_bullet()
     {
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -191,37 +177,8 @@ public class E_AI_01 : MonoBehaviour
 
 
 
-    void move_ai_0()
-    {
-        transform.Translate(Vector3.left*unit.direction *unit.move_speed * Time.deltaTime);//정면으로 움직임
-  
-        move_distance +=  unit.move_speed* Time.deltaTime;
-        //정면에 레이캐스트로 벽감지
-        Debug.DrawLine(transform.position,transform.position- (new Vector3(0.2f,0,0)+ new Vector3(enemy_size_x/2,0,0)) * unit.direction, Color.green);
-        var wall_ray = Physics2D.Raycast(transform.position, Vector3.left * unit.direction, enemy_size_x / 2 + 0.2f, LayerMask.GetMask("platform_can't_pass"));
-        if (wall_ray.collider != null)
-        {
-            unit.direction_change_spr();
-            move_distance = 0;
-        }
-        //일정 거리 이상이면 방향 바꿈
-        if (move_distance >= move_distance_max)
-        {
-            unit.direction_change_spr();
-            move_distance = 0;
-        }
-        //앞에 플랫폼이 없으면 방향 바꿈
-        var bottom_ray = Physics2D.Raycast(transform.position + Vector3.left * (enemy_size_x / 2) * unit.direction, Vector3.down, enemy_size_y / 2 + 0.4f, LayerMask.GetMask("platform_can't_pass"));
-        var bottom_ray_2 = Physics2D.Raycast(transform.position + Vector3.left * (enemy_size_x / 2) * unit.direction, Vector3.down, enemy_size_y / 2 + 0.4f, LayerMask.GetMask("platform_can_pass"));
-        Debug.DrawLine(transform.position+Vector3.left * (enemy_size_x / 2) * unit.direction, transform.position + Vector3.left * (enemy_size_x / 2) * unit.direction+(Vector3.down*(enemy_size_y/2)+new Vector3(0,0.4f)), Color.blue);
-        if (bottom_ray.collider == null&&bottom_ray_2.collider==null)
-        {
-            unit.direction_change_spr();
-            move_distance = 0;
-        }
-        
-    }
    
+   //일정간격으로 공격행동을 실행하는 코루틴
     IEnumerator attack()
     { // 처음에 FireState를 false로 만들고
         var wait = new WaitForSeconds(attack_time-(float)(0.2*Gamemanager.GM.stage-1) + attack_weight);
@@ -236,18 +193,7 @@ public class E_AI_01 : MonoBehaviour
         attack_weight = Random.Range(-1, 1);
 
     }
-    IEnumerator move()
-    { 
-        var wait = new WaitForSeconds(moving_buffer+moving_weight);
-
-        moving_status = true;
-        e_ani.SetBool("move", true);
-        yield return wait;
-        move_corutine_check = false;
-        moving_status = false;
-        e_ani.SetBool("move", false);
-        moving_weight = Random.Range(-1, 1);
-    }
+   //대기 코루틴 
     IEnumerator idle()
     {
         var wait = new WaitForSeconds(idle_time);

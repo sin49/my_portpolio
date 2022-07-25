@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class consumable_item : MonoBehaviour
+public class consumable_item : MonoBehaviour//회복 아이템
 {
     Item i;
     SpriteRenderer s;
@@ -27,7 +27,7 @@ public class consumable_item : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))//플레이어와 닿을시 지정된 아이템 효과( i.consumable_effect())를 발동하고 제거
         {
             
             i.consumable_effect();

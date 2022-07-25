@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class boss_stage : MonoBehaviour
+public class boss_stage : MonoBehaviour//보스가 죽으면 특수 아이템을 생성하고 다음 스테이지로 이동시킨다
 {
     public GameObject End_door;
     public bool room_cleared;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_AI_06_anim : MonoBehaviour
+public class E_AI_06_anim : MonoBehaviour//6번 적 에니메이션 이벤트
 {
     E_AI_06 e_01;
     // Start is called before the first frame update
@@ -16,7 +16,7 @@ public class E_AI_06_anim : MonoBehaviour
     {
 
     }
-    void e_throw_anim()
+    void e_throw_anim()//공격 생성
     {
         e_01.create_bullet();
     }

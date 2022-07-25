@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class boss_map_system : MonoBehaviour
+public class boss_map_system : MonoBehaviour//보스전용 스테이지를 생성한다
 {
     public GameObject[] boss_room_prefab;
     public bool map_making_complete;

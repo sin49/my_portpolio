@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.UI.Button;
 
-public class btn_system : MonoBehaviour
+public class btn_system : MonoBehaviour//키보드로 작동시키는 ui 양식
 {
     public List<Button> a = new List<Button>();
     int select;
@@ -14,17 +14,16 @@ public class btn_system : MonoBehaviour
     {
         
     }
-
-    // Update is called once per frame
+    //select로 리스트에 들어간 버튼을 순차적으로 지정한다
     void Update()
     {
         BtnSystem(a);
     }
     void BtnSystem(List<Button> a)
     {
-        for (int i = 0; i < a.Count; i++)
+        for (int i = 0; i < a.Count; i++)//현재 선택중인 버튼을 그래픽 표시
         {
-            if (i == select)
+            if (i == select)//그래픽 요소가 없어서 interactable을 활용하여 그래픽 표시
             {
                 if (a[i].IsInteractable() == true)
                 {
@@ -40,25 +39,25 @@ public class btn_system : MonoBehaviour
                 }
             }
         }
-        float vr = Input.GetAxis("Horizontal");
+        float vr = Input.GetAxis("Horizontal");//키로 버튼 선택
         if (Input.GetButtonDown("Horizontal"))
         {
-            if (vr > 0)
+            if (vr > 0)//위로 이동
             {
 
                 select--;
-                if (select < 0)
+                if (select < 0)//리스트 맨 위에서 위로 이동시 맨밑으로
                     select = a.Count - 1;
             }
-            else
+            else//아래로 이동
             {
                 select++;
-                if (select > a.Count - 1)
+                if (select > a.Count - 1)//리스트 맨 밑에서 아래로 이동시 맨위로
                     select = 0;
             }
         }
        
-        if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.ATTACK]))
+        if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.ATTACK]))//공격키로 버튼의 onClick 활성화
         {
 
             ButtonClickedEvent btn = a[select].onClick;

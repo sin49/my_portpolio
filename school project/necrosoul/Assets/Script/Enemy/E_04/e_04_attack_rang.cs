@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class e_04_attack_rang : MonoBehaviour
+public class e_04_attack_rang : MonoBehaviour//돌진 적의 공격 범위
 {
     public Transform t;
     public bool on_attack;

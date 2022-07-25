@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_status : MonoBehaviour
+public class Player_status : MonoBehaviour//플레이어의 능력치를 가지는 클레스
 {
+    //싱글톤패턴
     public static Player_status p_status;
+
     public int layout_num;//레이아웃 숫자
     
     [SerializeField]
@@ -51,8 +53,10 @@ public class Player_status : MonoBehaviour
 
     int attack_num=1;
     int attack_num_bonus;
+
     public bool spawn_check;
     bool created_hp_chk;
+    //치명타
     float original_critical_rate;
     float critical_rate_bonus;
     float critical_damage;
@@ -60,14 +64,14 @@ public class Player_status : MonoBehaviour
 
     float critical_rate;
     float critical_rate_num;
-
+    //공중 공격
     public int air_attack_num;
     public int air_attack_num_orignal;
     public int air_attack_num_bonus;
-
+    //대쉬회복
     float dash_recover_timer_check = 1f;
     float dash_recover_time_bouns;
-
+    //특수능력 보유 여부
     public int used_effct_def_effect_check;//0,1,2,3
     public bool used_effct_def_effect;
     public int used_effct_HP_effect_check;//0,1,2
@@ -75,27 +79,29 @@ public class Player_status : MonoBehaviour
     public int used_effct_A_SPEED_effect_check;//0,1,2
     public bool used_effct_A_SPEED_effect;
 
-
-    public float get_critical_damage()
+    //능력치의 값을 get,set을 통해 받고 설정한다
+    //크리티컬 관련 get()
+    public float get_critical_damage()// 종합 크리티컬 데미지
     {
         return critical_damage+ critical_damage_bonus;
     }
-    public float get_critical_damage_bonus()
+    public float get_critical_damage_bonus()//크리티컬 데미지 보너스
     {
         return critical_damage_bonus;
     }
-    public float get_origin_critical_rate()
+    public float get_origin_critical_rate()//종합 크리티컬 확률
     {
         return original_critical_rate + critical_rate_bonus;
     }
-    public float get_critical_rate()
+    public float get_critical_rate()//크리티컬 확률
     {
         return critical_rate;
     }
-    public float get_critical_rate_bonus()
+    public float get_critical_rate_bonus()////크리티컬 확률 보너스
     {
         return critical_rate_bonus;
     }
+    //크리티컬 관련 set
     public void set_critical_rate(float a=0)
     {
         critical_rate_bonus = a;
@@ -104,42 +110,46 @@ public class Player_status : MonoBehaviour
     {
         critical_damage_bonus = a;
     }
-    public void critical_rate_plus()
+
+    public void critical_rate_plus()//크리티컬 확률 보정이 점점 높아진다
     {
         critical_rate_num = critical_rate / 2;
         critical_rate += critical_rate_num;
     }
-    public void reset_critical_rate()
+    public void reset_critical_rate()//크리티컬 보정을 초기화한다
     {
         critical_rate = get_origin_critical_rate();
     }
-    public bool critical()
+    public bool critical()//크리티컬 시스템
     {
         float crit = critical_rate;
         Debug.Log(critical_rate);
-        float rand = Random.Range(0.00f, 1.00f);
+        float rand = Random.Range(0.00f, 1.00f);//(0~1)
+        //크리티컬 확률이 랜덤값보다 높을 때 크리티컬
         if (crit >= rand)
         {
+            //크리티컬이 발생하면 크리티컬 보정을 초기화
             reset_critical_rate();
             Debug.Log("크리티컬!" + crit + "," + rand);
+            //반환값 true
             return true;
         }
         else
         {
+            //크리티컬이 발생하지않으면 확률에 보정을 넣어 점점 크리티컬이 터지기 쉽게 만든다
             critical_rate_plus();
             Debug.Log("크리티컬! 이 아니었다?"+crit+","+rand);
             return false;
         }
     }
-    //List<Dictionary<string, object>> Data = CSVReader.Read("playerStatus");
-    //csv로  original 값 정하면 될듯?
-    public void set_layout()
+
+    public void set_layout()//플레이어의 초기 능력치를 설정한다
     {
+        //resources 파일의 엑셀을 데이터베이스로 사용
+        //데이터베이스 구축+ 연결은 자신이 아닌 같은 팀의 다른 프로그래머가 담당
         air_attack_num_orignal = 1;
         air_attack_num = air_attack_num_orignal;
         List<Dictionary<string, object>> Data = CSVReader.Read("Player");
-        //Debug.Log("아니 ㅓ임" + Data[0]["Max_Hp"]);
-
         original_MaX_HP = int.Parse(Data[0]["Max_Hp"].ToString());
         if (!created_hp_chk)
         {
@@ -166,107 +176,88 @@ public class Player_status : MonoBehaviour
         critical_rate = original_critical_rate;
         critical_damage= float.Parse(Data[0]["Critical_Damage"].ToString());
         spawn_check = true;
-        //original_MaX_HP = 100;
-        //HP = get_max_hp();
-        //original_Defense = 0;
-        //original_untouchable_time = 1;
-        //original_jump_force = 20;
-        //original_max_jump_count = 1;
-        //original_firedelay = 0.2f;
-        //original_Gun_Atk = 10;
-        //original_bullet_speed = 10;
-        //volly = true;
-        //original_dash_force = 20;
-        //original_max_dash_count = 1;
-        //original_speed = 10;
+       
 
         
     }
-    public void make_barrier()
+    //체력 보호막 구현
+    public void make_barrier()//베리어의 최종 수치를 정하고 베리어 생성
     {
         Barrier = original_Barrier + Barrier_Bouns;
     }
-    public void set_barrier(int a)
+    public void set_barrier(int a)//베리어의 수치 보너스 조정( set)
     {
          Barrier_Bouns=a;
     }
     
-    public int get_present_barrier()
+    public int get_present_barrier()//현재 베리어의 수치를 가져온다
     {
         return Barrier;
     }
-    public int get_barrier()
+    public int get_barrier()//최대 베리어의 수치를 가져온다
     {
         return original_Barrier + Barrier_Bouns;
     }
-    public int get_barrier_bonus()
+    public int get_barrier_bonus()//베리어의 수치 보너스의 값을 가져옴(get)
     {
         return  Barrier_Bouns;
-    }
-    public int get_attack_num()
-    {
-        return attack_num+attack_num_bonus;
-    }
-    public void set_attack_num(int a)
-    {
-        attack_num_bonus = a;
     }
     
 
     //공격력
-    public int get_atk()       
+    //get
+    public int get_atk()  //최종 공격력     
     {
         return original_Gun_Atk + Gun_Atk_bonus+AchievementsManage.achievementsManage.Ach_Damge+Gun_Atk_spbonus;
     }
-    public int get_atk_bonus()
+    public int get_atk_bonus()// 공격력  보너스
     {
         return Gun_Atk_bonus;
     }
-    public int get_original_atk()
+    public int get_original_atk()//초기 공격력 
     {
         return original_Gun_Atk;
     }
-    public int get_atk_no_sp()
-    {
-         return  original_Gun_Atk + Gun_Atk_bonus+AchievementsManage.achievementsManage.Ach_Damge;
-    }
-    public void set_atk(int p=0)    
-    {
-        Gun_Atk_bonus = p;
-    }
-
-    public void set_spatk(int p = 0)
-    {
-        Gun_Atk_spbonus = p;
-    }
-
-    public int get_spatk()
+    public int get_spatk()//특수능력을 통한 공격력 보너스
     {
         return Gun_Atk_spbonus;
     }
 
-    //총 관련
-    public float get_bullet_speed()
+    //set
+    public void set_atk(int p=0)   //공격력 보너스 
+    {
+        Gun_Atk_bonus = p;
+    }
+
+    public void set_spatk(int p = 0)//특수능력을 통한 공격력 보너스
+    {
+        Gun_Atk_spbonus = p;
+    }
+
+  
+    //총 관련(공격 기획이 원거리->근거리로 변경됨으로써 사용안함)
+    public float get_bullet_speed()// 총알 속도
     {
         return original_bullet_speed + bullet_speed_bonus;
     }
-    public float get_bullet_speed_bonus()
+    public float get_bullet_speed_bonus()// 총알 속도 보너스
     {
         return bullet_speed_bonus;
     }
-    public void set_bullet_speed(float i=0)
+    public void set_bullet_speed(float i=0)// 총알 속도 보너스 값 조정
     {
         bullet_speed_bonus=i;
     }
-    public float get_firedelay()
+    //공격 속도
+    public float get_firedelay()//종합 공속
     {
         return original_firedelay + firedelay_bonus;
     }
-    public float get_firedelay_bonus()
+    public float get_firedelay_bonus()//보너스
     {
         return firedelay_bonus;
     }
-    public void set_firedelay(float i=0)
+    public void set_firedelay(float i=0)//공격속도 조정
     {
         firedelay_bonus=i;
     }
@@ -278,43 +269,44 @@ public class Player_status : MonoBehaviour
         return volly;
     }
 
-    //테스트
+    //데미지 테스트
     public void DamgeTest(int i)
     {
         HP -= i;
     }
 
     //이동관련
-    public void set_speed(float p=0)
+    public void set_speed(float p=0)//이동속도 조정
     {
         speed_bonus = p;
     }
-    public float get_speed()
+    public float get_speed()//최종 속도 값
     {
         return original_speed + speed_bonus+ AchievementsManage.achievementsManage.Ach_Speed;
     }
-    public float get_speed_bonus()
+    public float get_speed_bonus()//속도 보너스 값
     {
         return speed_bonus;
     }
-
-    public float get_dash_force()
+    //대쉬관련
+    public float get_dash_force()//대쉬시 받는 힘 
     {
         return original_dash_force + dash_force_bonus;
     }
-    public void set_dassh_recover_time(float a)
+    //대쉬 다시 대쉬할 수 있기까지의 회복시간
+    public void set_dassh_recover_time(float a)//회복시간 설정
     {
         dash_recover_time_bouns = a;
     }
-    public float get_dash_recover_time()
+    public float get_dash_recover_time()//회복시간 받기
     {
         return dash_recover_timer_check - dash_recover_time_bouns;
     }
-    public float get_dash_recover_time_bonus()
+    public float get_dash_recover_time_bonus()//회복시간 보너스
     {
         return dash_recover_time_bouns;
     }
-    public float get_dash_recover_time_original()
+    public float get_dash_recover_time_original()//원본 회복시간
     {
         return dash_recover_timer_check;
     }
@@ -326,15 +318,15 @@ public class Player_status : MonoBehaviour
     }
 
     //체력
-    public int get_max_hp()
+    public int get_max_hp()//최대 체력
     {
         return original_MaX_HP+MaX_HP_bonus+ AchievementsManage.achievementsManage.Ach_MaxHp+MaX_HP_spbonus;
     }
-    public int get_hp()
+    public int get_hp()//현재 체력
     {
         return HP;
     }
-    public int get_max_Hp_bonus()
+    public int get_max_Hp_bonus()//최대채력 보너스
     {
         return MaX_HP_bonus;
     }
@@ -346,12 +338,12 @@ public class Player_status : MonoBehaviour
     {
         MaX_HP_spbonus = i;
     }
-    public void set_hp(int i)
+    public void set_hp(int i)//현재 채력을 회복한다
     {
         HP += i;
         int n = get_max_hp() / i;
-        Gamemanager.GM.Player_obj.GetComponent<PlayerCharacter>().Player_heal_cross_particle(n);
-        if(HP>get_max_hp())
+        Gamemanager.GM.Player_obj.GetComponent<PlayerCharacter>().Player_heal_cross_particle(n);//회복 이펙트 파티클 생성
+        if(HP>get_max_hp())//최대 체력 이상이면 최대채력으로
         {
             HP = get_max_hp();
         }
@@ -359,12 +351,12 @@ public class Player_status : MonoBehaviour
 
 
   
-    public float get_untouchable_time()
+    public float get_untouchable_time()//무적시간
     {
         return original_untouchable_time + untouchable_time_bonus;
     }
 
-    //캐릭터 움직임
+//한번에 대쉬가능한 횟수
     public int get_dash_count()
     {
         return original_max_dash_count+max_dash_count_bonus;
@@ -377,6 +369,7 @@ public class Player_status : MonoBehaviour
     {
         max_dash_count_bonus=a;
     }
+    //점프 횟수
     public int get_jump_count()
     {
         return original_max_jump_count + max_jump_count_bonus;
@@ -404,40 +397,42 @@ public class Player_status : MonoBehaviour
         Defense_bonus = def;
     }
    
+    //보호막이 있을시 데미지 계산식
     public void damage_present_barrier(int a, GameObject DNP, Transform Tr)
     {
-        float damage_lose = get_defense_point() / 100;
+        float damage_lose = get_defense_point() / 100;//방어력을 통해 대미지 감소
         int damage = Mathf.RoundToInt(a * (1.0f - damage_lose));//데미지 계산식
-        if (used_effct_def_effect_check > 0)
+        if (used_effct_def_effect_check > 0)//특수 능력 활성화시
         {
-            damage = damage - 1;
+            damage = damage - 1;//데미지 -1
         }
-        if (damage <= 0)
+        if (damage <= 0)//데미지가 0이하 일때
         {
-            damage = 1;
+            damage = 1;//무조건 1로
         }
-        Barrier -= damage;
+        Barrier -= damage;//베리어에 데미지 값을 빼기
        
         
-        if (Barrier < 0)
+        if (Barrier < 0)//배리어의 값이 음수일때(배리어 초과 데미지)
         {
-            Font_manager.DN.SpawnNumber(1, Barrier+damage, Tr);
+            //초과 데미지를 HP에다가 준다
+            Font_manager.DN.SpawnNumber(1, Barrier+damage, Tr);//데미지 폰트 생성(데미지 폰트는 에셋)
             damage_hp(-1 * Barrier, Gamemanager.GM.Player_obj.GetComponent<PlayerCharacter>().DNP, Gamemanager.GM.Player_obj.transform);
-            Barrier = 0;
+            Barrier = 0;//베리어는 파괴
         }
         else
         {
-            Font_manager.DN.SpawnNumber(1, damage, Tr);
+            Font_manager.DN.SpawnNumber(1, damage, Tr);//데미지 폰트 생성(데미지 폰트는 에셋)
 
         }
     }
-    public void lose_hp(int i)//계산식 아님
+    public void lose_hp(int i)//계산식을 거치지 않고 피해를 줌
     {
         HP -= i;
     }
-    public void damage_hp(int i, GameObject DNP, Transform Tr)
+    public void damage_hp(int i, GameObject DNP, Transform Tr)//체력에 피해를 주기
     {
-        float damage_lose = get_defense_point() / 100;
+        float damage_lose = get_defense_point() / 100;//방어력을 통해 대미지 감소
         int damage = Mathf.RoundToInt(i * (1.0f - damage_lose));//데미지 계산식
         if (used_effct_def_effect_check > 0)
         {
@@ -447,11 +442,12 @@ public class Player_status : MonoBehaviour
         {
             damage = 1;
         }
-        Debug.Log(damage);
-        //HP -= i-i*get_defense_point();
+
+   
         Font_manager.DN.SpawnNumber(6, damage, Tr);
+        //체력을 데미지만큼 뺀다
         HP -= damage;
-        if (HP < 0)
+        if (HP < 0)//체력이 음수가 된다면 0으로 만든다
         {
             HP = 0;
         }

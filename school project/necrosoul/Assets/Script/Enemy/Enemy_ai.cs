@@ -242,17 +242,5 @@ public class Enemy_ai : MonoBehaviour
             }
         }
     }
-    /* public bool attack_condition(int i)//공격에 조건이 있는가?
-     {
-         switch (i)
-         {
-             case 0://없다
-                 return true;
-             case 1:
-                 return false;
-             default:
-                 return false;
-         }
-
-     }*/
+   
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Gamemanager : MonoBehaviour
+public class Gamemanager : MonoBehaviour//게임 메니저
 {
     
     public GameObject Enemy_destroy_effect;
@@ -73,7 +73,8 @@ public class Gamemanager : MonoBehaviour
     float combo_duration;
     public ItemDatabase itemDB;
     public int last_enemy;
-    public bool get_sp_item()
+
+    public bool get_sp_item()//특수 아이템을 생성
     {
         if (!sp_item_frame.activeSelf)
         {
@@ -118,7 +119,7 @@ public class Gamemanager : MonoBehaviour
         get_item_chk = true;
     }
 
-    public void get_item_SP(Item i)
+    public void get_item_SP(Item i)// 아이템 흭득시 특수 효과 처리용
     {
         if (itemDB == null)
         {
@@ -126,8 +127,8 @@ public class Gamemanager : MonoBehaviour
             ;
         }
 
-        itemDB.Make_Get_item(i);
-        //ItemEffect0.item0to10.uneffect(itemDB.item_list[n]);      뭔지몰라 일단 주석처리
+        itemDB.Make_Get_item(i);//itemDB에서 지정된 아이템을 흭득
+
     }
     private void Awake()
     {
@@ -135,21 +136,21 @@ public class Gamemanager : MonoBehaviour
         GM = this;
         
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         can_handle = true;
         
         DontDestroyOnLoad(this.gameObject);
-        DonDestoryManage.DDM.DDM_List.Add(this.gameObject);
-        for(int i = 0; i < 5; i++)
+        DonDestoryManage.DDM.DDM_List.Add(this.gameObject);//자신이 추가하지 않음(DontDestroyOnLoad 설정을 특정 타이밍에 파괴하는 리스트)
+        for (int i = 0; i < 5; i++)//파괴 파티클을 풀링용으로 생성
         {
             var a = Instantiate(destroy_particle.gameObject, this.transform);
             destroy_particle_instansi.Add(a);
             a.SetActive(false);
         }
     }
-    public GameObject destroy_particle_pulling()
+    public GameObject destroy_particle_pulling()//파괴 효과 풀링(리스트에서 비활성화된 오브젝트 탐색)
     {
         int index = 0;
         for(int i = 0; i < destroy_particle_instansi.Count;i++)
@@ -161,9 +162,10 @@ public class Gamemanager : MonoBehaviour
         }
         return destroy_particle_instansi[index];
     }
+    //콤보 시스템(사용 안됨)
     void combo_system()
     {
-        if (combo > 0)
+        if (combo > 0)//콤보가 존재할 때 일정시간똥안 콤보를 얻지못하면 초기화
         {
 
             combo_duration -= Time.deltaTime;
@@ -173,40 +175,43 @@ public class Gamemanager : MonoBehaviour
             }
         }
     }
-    public void get_combo()
+    public void get_combo()//콤보를 쌓는다
     {
         combo++;
         combo_duration = combo_duration_max;
     }
-    public void stop_combo()
+    public void stop_combo()///콤보를 초기화 한다
     {
         combo = 0;
         combo_duration = 0;
     }
+
+    //메인 화면으로 돌아간다(로딩씬을 거침)
     void loadMain2()
     {
         if (fade_out_complete)
         {
             LoadingSceneManager.l_scenemanager.LoadMain();
-            //Destroy(this.gameObject);
+      
         }
     }
     // Update is called once per frame
     void Update()
     {
+        //펭이드 인,아웃관련 변수 처리
         if (!fade_init.activeSelf)
             fade_in_complete = false;
         if (!fade_Outit.activeSelf)
             fade_out_complete = false;
-        if (stage == 0) {
+        if (stage == 0) {//게임 중이 아닐 때 ui,관련 오브젝트 비활성화
             for(int i = 0; i < Game_ui.Count; i++)
             {
                 Game_ui[i].SetActive(false);
             }
             Game_sys.SetActive(false);
         }
-        else {
-            if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.PAUSE]))
+        else {//게임중일때
+            if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.PAUSE]))//정지 키를 누르면 일싲정지 창이 나타난다
                 {
                 if (Totalbook.activeSelf)
                 {
@@ -218,42 +223,34 @@ public class Gamemanager : MonoBehaviour
                 }
 
             }
-
+            //게임 관련 ui, 오브젝트 활성화
             for (int i = 0; i < Game_ui.Count; i++)
             {
                 Game_ui[i].SetActive(true); 
             }
             Game_sys.SetActive(true);
+
+            //메인으로 돌아가기
             if (back_to_main)
                 {
                     loadMain2();
                 }
-            //if (stage != 0)
-            // {
+           
+            //보스스테이지가 아닐 때
             if (!boss)
             {
                 on_game();
-                if (Onbattle)
-                {
-                    //mapui.SetActive(false);
               
-                }
-                else
-                {
-          
-
-
-                  
-                }
+                
             }
-            else
+            else//보스 스테이지 일 때
             {
                 on_game_b();
             }
         }
         //}
     }
-    void on_game_b()
+    void on_game_b()//보스 스테이지일 때  스테이지를 시작할 준비를 하는 함수
     {
         if (b_room_controller == null)
         {
@@ -261,18 +258,17 @@ public class Gamemanager : MonoBehaviour
         }
         else
         {
-            if (b_room_controller.map_making_complete && !initializing)
+            if (b_room_controller.map_making_complete && !initializing)//맵 생성이 끝났을 때
             {
                 
-                if (Player_spawn == null && !initializing)
+                if (Player_spawn == null && !initializing)//플레이어를 스폰 찌점으로 생성
                 {
-                    //Debug.Log("ez");
-                    //Player_spawn = GameObject.Find("Player spawner");
+                   
                     Player_spawn = GameObject.FindGameObjectWithTag("Spawner");
                 }
                 if (Player_create == null&&!spawn_check && !initializing)
                 {
-                   
+                   //생성 후 페이드 인+쪼작 가능
                     fade_in();
 
                     fade_Outit.SetActive(false);
@@ -286,54 +282,59 @@ public class Gamemanager : MonoBehaviour
                 if (!spawn_check && Player_create != null && Player_spawn != null&& !initializing)
                 {
                     
-               
+               //생성이 마무리 됨
                    
                     Player_obj.SetActive(true);
                     spawn_check = true;
                 }
             }
-            
+            //스테이지 종료 조건을달성하고 페이드 아웃이 끝났을 때
             if (room_end&&fade_out_complete)
             {
                 room_end = false;
                 if(!initializing)
-                    GM_initialize();
+                    GM_initialize();//관련 변수 초기화+다음 스테이지로
             }
-            if (stage == stage_end_line&&boss_clear)
+            if (stage == stage_end_line&&boss_clear)//마지막 스테이지의 보스를 처치할 경우
             {
+                //게임이 끝내고 결과창을 표시
                 End_panel.SetActive(true);
             }
         }
     }
-    public void GM_initialize()
+    public void GM_initialize()//변수 초기화 +다음 스테이지or보스로 이동
     {
         initializing = true;
-            Destroy(Player_spawn);
+            Destroy(Player_spawn);//생성한 플레이어 파괴
         
-            if (!Gamemanager.GM.boss)
+            if (!Gamemanager.GM.boss)//보스 스테이지가 아니라면
             {
                 int a = room_controller.room.Count;
-                for (int i = a - 1; i == 0; i--)
+                for (int i = a - 1; i == 0; i--)//방 설정 초기화
                 {
                     Destroy(room_controller.room[i]);
                     room_controller.room.RemoveAt(i);
                 }
             room_controller.map_making_complete = false;
-            LoadingSceneManager.l_scenemanager.Loadboss();
-            boss = true;
+
+            LoadingSceneManager.l_scenemanager.Loadboss();//로딩 씬을 통해 보스 씬 이동
+            boss = true;//보스 스테이지임을 알림
                 
             }
-            else
+            else//보스스테이지라면
             {
+            //보스방 설정 초기화
             int b = b_room_controller.boss_room_prefab.Length;
             for(int i = b - 1; i == 0; i--)
             {
                 Destroy(b_room_controller.boss_room_prefab[i]);
             }
-            LoadingSceneManager.l_scenemanager.LoadStage();
+            //다음 스테이지로 이동
+            LoadingSceneManager.l_scenemanager.LoadStage();//로딩 씬
                 boss = false;
                
             }
+            //게임메니저의 플레이어 생성,스테이지 달성도 관련 변수 초기화
         room_num = 5;
             room_controller = null;
             b_room_controller = null;
@@ -346,29 +347,22 @@ public class Gamemanager : MonoBehaviour
         Player_status.p_status.spawn_check = false;
         t = 0;
     }
-    public void loadMain()
-    {
-
-        fade_out();
-        back_to_main = true;
-        
-       
-    }
    
-    void on_game()
+    
+   
+    void on_game()//일반 스테이지
     {
 
         if (room_controller == null&& GameObject.Find("map_system")!=null)
             room_controller = GameObject.Find("map_system").GetComponent<room_controller>();
         else
         {
-            if (room_controller.map_making_complete && !initializing)
+            if (room_controller.map_making_complete && !initializing)//방생성이 끝났다면
             {
-                //Debug.Log("dz");
+                //플레이어 생성(구조는 on_game_b와 동일)
                 if (Player_spawn == null)
                 {
-                    //Debug.Log("ez");
-                    //Player_spawn = GameObject.Find("Player spawner");
+                   
                     Player_spawn = GameObject.FindGameObjectWithTag("Spawner");
                     
                 }
@@ -392,13 +386,14 @@ public class Gamemanager : MonoBehaviour
                     Player_obj.SetActive(true);
                     spawn_check = true;
                 }
-                if (room_num == 0)
+
+                if (room_num == 0)//모든 층을 돌파시
                 {
-       
+       //페이드 아웃+스테이지 완료 처리
                     fade_out();
                     room_end = true;
                 }
-                if (room_end && fade_out_complete)
+                if (room_end && fade_out_complete)//설정을 초기화하고 보스 스테이지로
                 {
                     room_end = false;
                     if (!initializing)
@@ -409,12 +404,14 @@ public class Gamemanager : MonoBehaviour
             }
         }
     }
+    //카메라 페이드 인 이펙트를 활성화
     public void fade_in()
     {
         if(Player_obj!=null)
             Player_obj.GetComponent<PlayerCharacter>().Player_canvas.SetActive(true);
         fade_init.SetActive(true);
     }
+    //카메라 페이드 아웃 이펙트를 활성화
     public void fade_out()
     {
 
@@ -423,13 +420,6 @@ public class Gamemanager : MonoBehaviour
             Player_obj.GetComponent<PlayerCharacter>().Player_canvas.SetActive(false);
         fade_Outit.SetActive(true);
     }
-    public Transform get_player_transform()
-    {
-        return Player_obj.transform;
-    }
-    public void choose_sp_item(Item i)
-    {
-        game_ev.when_sp_item_will_get(i);
-    }
+   
 
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_07_AI : MonoBehaviour
+public class E_07_AI : MonoBehaviour//공중에서 플레이어를 추격하여 근접공격하는 적
 {
 
     public List<node> path;
@@ -31,8 +31,7 @@ public class E_07_AI : MonoBehaviour
     float moving_weight;
     public E_07_chase_range range_distance;
     public bool can_chase;
-    bool move_corutine_check;
-    bool idle_corutine_check;
+
     bool moving_status;
     public float idle_time;
     Animator e_ani;
@@ -69,19 +68,21 @@ public class E_07_AI : MonoBehaviour
         unit.size_x = enemy_size_x;
         unit.size_y = enemy_size_y;
     }
+    //플레이어를 감지
     void ray_to_player()
     {
-
+        //인식 범위 안의 플레이어를 감지
         if (range_distance.on_player)
-        {
+        {//인식시 추격
             can_chase = true;
         }
         else
         {
             can_chase = false;
         }
+        //공격 범위 안의 플레이어를 감지
         if (E_range.on_player)
-        {
+        {//공격 할 수 있다면 공격
             unit.can_attack = true;
 
         }
@@ -99,20 +100,21 @@ public class E_07_AI : MonoBehaviour
     }
     void brain()//ai 정리
     {
-        if (unit.onGround)
+        if (unit.onGround)//공중에 있다
         {
             unit.onGround = false;
         }
-        if (rgd.velocity.magnitude > 5)
+        if (rgd.velocity.magnitude > 5)//최대 가속도를 제한한다
         {
             rgd.velocity *= 0.95f;
         }
-        if (unit.can_forced)
+        if (unit.can_forced)//밀려나지 안흠
         {
             unit.can_forced = false;
         }
         if (unit.Health_point > 0)
         {
+            //플레이어 감지
             ray_to_player();
             if (on_attack)
             {
@@ -120,10 +122,9 @@ public class E_07_AI : MonoBehaviour
             }
            
 
-            if (unit.can_attack)//벽에 안막힘+사정거리안
+            if (unit.can_attack)//공격 가능 할 때 공격
             {
 
-                //StartCoroutine("attack");//공격+움직이지 않음
                 if (attack_delay <= 0)
                 {
                     attack();
@@ -138,15 +139,17 @@ public class E_07_AI : MonoBehaviour
             }
             else
             {
+                
                 if (!on_attack|| attack_delay > 0)
                 {
+                    //플레이어를 인식했다면 추격
                     if (can_chase)
                     {
 
                         chase_player();
-                        //StopCoroutine("attack");
+            
                     }
-                    else
+                    else//아닐 시 왕복하며 이동
                     {
 
 
@@ -158,6 +161,7 @@ public class E_07_AI : MonoBehaviour
 
 
             }
+            //공격 후 딜레이
             if (attack_delay > 0)
             {
                 
@@ -191,22 +195,14 @@ public class E_07_AI : MonoBehaviour
         }
     }
 
-    public void create_bullet()
-    {
-
-        GameObject obj = Instantiate(create_object[0], Player.transform.position, Quaternion.identity);
-        created_object.Add(obj);
-        attack_effect_06 a = obj.GetComponent<attack_effect_06>();
-        a.Attack = unit.Attack_point;
-        // Enemy_status e = this.GetComponent<Enemy_status>();
-    }
+  
 
 
 
 
 
-
-
+    //플레이어를 추격한다
+    //추격 할 때는 a*알고리즘을 이용한 길찿기 알고리즘을 이용한다
     void chase_player()
     {
         if (!move_strict&&unit.can_move)
@@ -214,50 +210,15 @@ public class E_07_AI : MonoBehaviour
 
             e_ani.SetBool("move", true);
             e_ani.SetBool("attack_delay", true);
-            /*  if (path.Count - 5 >= 0)
-              {
-                  node_dir = path[path.Count - 5].pos - (Vector2)this.transform.position;
-                  if (node_dir.x == 0)
-                  {
-                      if (path.Count - 6 >= 0)
-                      {
-                          node_dir = path[path.Count - 6].pos - (Vector2)this.transform.position;
-                          if (node_dir.x == 0)
-                          {
-                              if (path.Count - 7 >= 0)
-                              {
-                                  node_dir = path[path.Count - 7].pos - (Vector2)this.transform.position;
-
-                              }
-                              else
-                              {
-                                  node_dir = Vector3.zero;
-                              }
-                          }
-                      }
-                      else
-                      {
-                          node_dir = Vector3.zero;
-                      }
-                  }
-              }
-              else
-              {
-                  node_dir = Vector3.zero;
-              }*/
-            /* if(node_dir!=Vector2.zero)
-             rgd.AddForce(node_dir.normalized * move_force);
-             else
-             {
-                 node_dir = path[0].pos - (Vector2)this.transform.position;
-                 rgd.AddForce(node_dir.normalized * move_force);
-             }*/
+            //길찿기 벡터의 리스트의 위치를 이동방향으로 설정한다
             if (path.Count - 5 >= 0)
             {
+                //적 오브젝트의 크기를 고려해 [5]번 위치를 기준으로 방향을 정한다
                 node_dir = path[5].pos - (Vector2)this.transform.position;
             }
-
+            //이동
             rgd.AddForce(node_dir.normalized* (move_force+s_ran));
+            //이동 방향에 따라 스프라이트 방향 변경
             if (node_dir.x <= 0)
             {
                 if (unit.direction == -1)
@@ -272,46 +233,13 @@ public class E_07_AI : MonoBehaviour
                     unit.direction_change_spr();
                 }
             }
+            //이동을 멈췄을 때= 장애물에 끼였을 때
             if (rgd.velocity.magnitude == 0)
             {
+                //반대 방향으로 밀어내 새로운 길 탐색
                 p_e_07.find_not_stuckpath(path[0]);
             }
-            /* transform.Translate(node_dir.normalized * unit.move_speed * Time.deltaTime);
-             if (node_dir.x >0)
-                   {
-                       if (unit.direction == 1)
-                       {
-                           unit.direction_change_spr();
-                       }
-                       transform.Translate(Vector3.left * unit.direction * unit.move_speed * Time.deltaTime);
-                   }
-                   else if(node_dir.x < 0)
-                   {
-                       if (unit.direction == -1)
-                       {
-                           unit.direction_change_spr();
-                       }
-                       transform.Translate(Vector3.left * unit.direction * unit.move_speed * Time.deltaTime);
-              }
-              else
-              {
-
-              }
-                   if (node_dir.y > 0)
-                   {
-                       transform.Translate(Vector3.up* unit.move_speed * Time.deltaTime);
-                   }
-                   else if (node_dir.y < 0)
-                   {
-                       transform.Translate(Vector3.down* unit.move_speed * Time.deltaTime);
-              }
-              else
-              {
-
-              }*/
-
-
-
+            
 
         }
     }
@@ -319,7 +247,7 @@ public class E_07_AI : MonoBehaviour
 
 
 
-
+    //이동 4번적과 동일
         void move_ai_0()
         {
             if (!move_strict && unit.can_move)
@@ -336,23 +264,10 @@ public class E_07_AI : MonoBehaviour
                     move_distance = 0;
                 }
             }
-            /*//일정 거리 이상이면 방향 바꿈
-            if (move_distance >= move_distance_max)
-            {
-                unit.direction_change_spr();
-                move_distance = 0;
-            }*/
-            //앞에 플랫폼이 없으면 방향 바꿈
-            /* var bottom_ray = Physics2D.Raycast(transform.position + Vector3.left * (enemy_size_x / 2) * unit.direction, Vector3.down, enemy_size_y / 2 + 0.4f, LayerMask.GetMask("platform_can't_pass"));
-             var bottom_ray_2 = Physics2D.Raycast(transform.position + Vector3.left * (enemy_size_x / 2) * unit.direction, Vector3.down, enemy_size_y / 2 + 0.4f, LayerMask.GetMask("platform_can_pass"));
-             Debug.DrawLine(transform.position + Vector3.left * (enemy_size_x / 2) * unit.direction, transform.position + Vector3.left * (enemy_size_x / 2) * unit.direction + (Vector3.down * (enemy_size_y / 2) + new Vector3(0, 0.4f)), Color.blue);
-             if (bottom_ray.collider == null && bottom_ray_2.collider == null)
-             {
-                 unit.direction_change_spr();
-                 move_distance = 0;
-             }*/
+        
 
         }
+    //공격 에니메이션 실행
         void attack()
         {
         rgd.velocity = Vector3.zero;
@@ -363,61 +278,18 @@ public class E_07_AI : MonoBehaviour
             e_ani.SetTrigger("attack");
        
     }
-    /*
-    IEnumerator attack()
-    { // 처음에 FireState를 false로 만들고
-        var wait = new WaitForSeconds(attack_time - (float)(0.2 * Gamemanager.GM.stage - 1) + attack_weight);
-        attack_status = false;
-        e_ani.SetBool("move", false);
-        e_ani.SetTrigger("attack");
-        yield return wait;
-        attack_status = true;
-        attack_weight = Random.Range(-1, 1);
-
-
-    }*/
+   
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 12)
         {
             Debug.Log("충돌");
             //node_dir *= -1;
-            //Vector2 col_force = (Vector2)transform.position - collision.contacts[0].point;
-            //rgd.AddForce(-1*col_force.normalized * wall_bounce_force, ForceMode2D.Impulse);
-            // rgd.AddForce(, ForceMode2D.Impulse);
-           /* if (((Vector2)transform.position - collision.contacts[0].point).y >= 0)
-            {
-                rgd.AddForce(Vector3.up * wall_bounce_force, ForceMode2D.Impulse);
-            }
-            else
-            {
-                rgd.AddForce(Vector3.down * wall_bounce_force, ForceMode2D.Impulse);
-            }*/
+           
 
         }
     }
-    IEnumerator move()
-        {
-            var wait = new WaitForSeconds(moving_buffer + moving_weight);
-
-            moving_status = true;
-            e_ani.SetBool("move", true);
-            yield return wait;
-            move_corutine_check = false;
-            moving_status = false;
-            e_ani.SetBool("move", false);
-            moving_weight = Random.Range(-1, 1);
-        }
-        IEnumerator idle()
-        {
-            var wait = new WaitForSeconds(idle_time);
-            e_ani.SetBool("move", false);
-          
-            idle_corutine_check = true;
-            yield return wait;
-            move_corutine_check = true;
-            idle_corutine_check = false;
-        }
+    
 
     }
 
