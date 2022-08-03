@@ -78,6 +78,8 @@ MonoBehaviour:
   Attack_point: 1
   Defense_point: 0
   move_speed: 1
+  untouchable_state: 0
+  untouchable_timer: 0
   can_attack: 0
   can_move: 0
   direction: 1
@@ -89,7 +91,6 @@ MonoBehaviour:
   hitted_material_time: 0
   hitted_material_timer: 0
   enemy_rank: 0
-  e_active: 0
   active_timer: 0
   active_time: 0.1
   Player: {fileID: 0}
@@ -107,12 +108,11 @@ MonoBehaviour:
     Hit: 0
     Died: 0
     ClearStage: 0
-  can_forced: 0
+  can_forced: 1
   hitted_force_list: []
   hitted_force: {x: 0, y: 0}
   manner_time: 0.2
   prefab: {fileID: 0}
-  can_hitted: 0
   can_hitted_ani: 0
 --- !u!114 &3582927997347008729
 MonoBehaviour:
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5544141e03e83d94fabcd72ecee66dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   Attackrange: {fileID: 4048981692758128527}
   attack_time: 4
   tr_buffertime: 0.25

@@ -181,10 +181,7 @@ public class GameCharacter : MonoBehaviour//적,플레이어 등의 게임 상의 객체의 부
         }
         
     }
-    public void character_move()//캐릭터 이동 상속용
-    {
-        
-    }
+   
 
     
    

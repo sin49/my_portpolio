@@ -12,7 +12,7 @@ public class Unit : GameCharacter//적의 기본 행동을 처리하는 클레스(GameCharacte
     public float hitted_material_timer;
     Material this_material;
     public int enemy_rank;//0=common 1=elite 2=boss
-    public bool e_active;
+
     public float active_timer;
     public float active_time = 1.5f;
     public GameObject Player;
@@ -122,17 +122,17 @@ public class Unit : GameCharacter//적의 기본 행동을 처리하는 클레스(GameCharacte
     public GameObject prefab;
     GameObject Ins;
 
-    public bool can_hitted;
+
 
     public bool can_hitted_ani;
     private bool death_chk;
 
-    public virtual void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         //적의 피격을 처리
         if (enemy_rank != 3)
         {
-            if (e_active && Health_point > 0)
+            if ( Health_point > 0)
             {
 
                if (other.tag == "melee")
@@ -312,7 +312,7 @@ public class Unit : GameCharacter//적의 기본 행동을 처리하는 클레스(GameCharacte
     {
         if (!death_chk)
         {
-            e_active = false;
+    
             death_chk = true;
             Enemy_status e = GetComponent<Enemy_status>();
             int Total = e.get_money();

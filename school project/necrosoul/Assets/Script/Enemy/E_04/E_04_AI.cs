@@ -64,7 +64,7 @@ public class E_04_AI : MonoBehaviour//플레이어를 향해 돌진하는 적
         {
             E_Status.set_layout(1);
         }
-        unit.can_hitted = true;
+    
         unit.can_hitted_ani = true;
         unit.max_hp = E_Status.get_max_hp();
         unit.Health_point = E_Status.get_hp();

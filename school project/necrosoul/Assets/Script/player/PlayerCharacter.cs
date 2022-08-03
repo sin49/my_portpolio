@@ -563,7 +563,7 @@ public class PlayerCharacter : GameCharacter//플레이어 조작+상태 클레스(게임 내�
     //텔레포트 액션이 끝났을 때
     void teleport_end()
     {
-        //공격 가능,무픸E해픸E
+        //공격 가능,
         can_attack = true;
         untouchable_state = false;
         on_teleport = false;

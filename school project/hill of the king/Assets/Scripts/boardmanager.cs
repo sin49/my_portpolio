@@ -44,7 +44,7 @@ public class boardmanager : MonoBehaviour//킬로그를 만드는 클레스
                 i--;
             }
         }
-        //킬보드의 0번 잦리에 킬로그를 넣는다
+        //킬보드의 0번 자리에 킬로그를 넣는다
         d_board.death_text[i] = t;
     }
 }

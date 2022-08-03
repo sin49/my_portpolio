@@ -65,8 +65,10 @@ public class Launcher : Photon.PunBehaviour//서버에서 설정을하고 시작
     {
         if (PhotonNetwork.room.PlayerCount == 1)
         {
-            //
-            PhotonNetwork.LoadLevel(1);
+            //다른 플레이어가 들어올 때 까지 대기
+            // PhotonNetwork.LoadLevel(1);
+            //현재는 바로 게임에 들어오게 설정되있다
+            PhotonNetwork.LoadLevel(2);
         }
     }
     public override void OnDisconnectedFromPhoton()//연결이 끊겼을 때

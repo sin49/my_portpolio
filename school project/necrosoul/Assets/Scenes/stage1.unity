@@ -2723,7 +2723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 884596159024429195, guid: 1b8aaf962b941234cbf79d9c6571157c, type: 3}
       propertyPath: room_create_number
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 884596159024429195, guid: 1b8aaf962b941234cbf79d9c6571157c, type: 3}
       propertyPath: map_making_complete
