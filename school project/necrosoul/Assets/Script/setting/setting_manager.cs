@@ -23,17 +23,7 @@ public class setting_manager : MonoBehaviour//설정을 불려오고 그 값대로 게임을 �
         DontDestroyOnLoad(this.gameObject);
    
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-      
-    }
+  
     public void set_setting()//저장된 설정 값에 따라 구성
     {
         screen_resol(S.screen_resolution_size_X, S.screen_resolution_size_Y, S.full_scren);
@@ -85,9 +75,9 @@ public class setting_manager : MonoBehaviour//설정을 불려오고 그 값대로 게임을 �
             Key_manager.Keys[Key_manager.KeyAction.PAUSE] = S.Keys[8];
         }
     }
-    public void sound_manager()//사운드 설정값 적용(사운드를 audiomanager로 실제로 적용하는 것은 자신이 작업하지 않아서 주석처리)
+    public void sound_manager()//사운드 설정값 적용(사용되지 않음)
     {
-        //am.SetFloat("bgm", S.full_volume * S.bgm_volume);
-        //am.SetFloat("SFX", S.full_volume * S.sfx_volume);
+       // am.SetFloat("bgm", S.full_volume * S.bgm_volume);
+       // am.SetFloat("SFX", S.full_volume * S.sfx_volume);
     }
 }

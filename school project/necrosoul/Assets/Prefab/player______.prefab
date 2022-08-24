@@ -524,7 +524,7 @@ MonoBehaviour:
   dash_timer: 0
   m_audio: {fileID: 0}
   on_dash: 0
-  hitted_force: {x: -7, y: 5}
+  hitted_force: {x: -15, y: 5}
   m_teleport_effect: {fileID: 7788119396206561963, guid: eb19922eaeacefa43a91d1fcd72e8ac8, type: 3}
   hitted_time: 0.55
   hitted_timer: 0

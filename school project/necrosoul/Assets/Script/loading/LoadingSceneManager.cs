@@ -58,12 +58,12 @@ public class LoadingSceneManager : MonoBehaviour//로딩 씬 메니저
     {
         yield return null;
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
-        //op.allowSceneActivation = true;
+        
         op.allowSceneActivation = false;//씬의 로딩이 끝나면 바로 넘어가지 않도록
 
       //로딩이 끝나자마자 다음씬으로 넘어가는 것이 너무 빠르면 눈이 아프다는 내부 의견으로 기본 로딩 시간을 넣기로 함
 
-        while (!op.isDone)//다음 씬으로 넘어간 것ㅇ이 아니라면(로딩씬 동안)
+        while (!op.isDone)//다음 씬으로 넘어간 것이 아니라면(로딩씬 동안)
         {
             yield return null;
             t += Time.deltaTime;

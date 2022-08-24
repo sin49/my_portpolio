@@ -175,7 +175,7 @@ public class room_controller : MonoBehaviour//스테이지에 쓸 방을 생성하는 스크립
             }
 
         }
-        //room_database_V4를 기반으로 방 오브젝트를 실제로 생성한다
+        //room_database_V4를 기반으로 방 오브젝트를 생성한다
         make_room_V3_2(room_database_V4);
         connect_room_V3(room_database_V4);
         set_room_pos(room_database_V4);
@@ -184,7 +184,7 @@ public class room_controller : MonoBehaviour//스테이지에 쓸 방을 생성하는 스크립
     //scene에 들어올 때 room의 정보를 불려오는 방식을 할수도 있었지만
     //scene->scene으로 이동할 때 로딩씬을 계속 거쳐줘야 하는 문제로 한 scene에 모든 방을 생성하는 방법으로
     //생성->연결->재배치
-    public void connect_room_V3(List<List<room>> r)//방과 바을 연결
+    public void connect_room_V3(List<List<room>> r)//방과 방을 연결
     {
         for (int i = 0; i < r.Count - 1; i++)//층단위
         {
@@ -672,14 +672,13 @@ public class room_controller : MonoBehaviour//스테이지에 쓸 방을 생성하는 스크립
         //리스트의 길이 만큼 방을 만들고 문을 연결시킨다
 
         //생성된 방은 또 문을 체크할수 있게 제귀로 빠진다
-        //start가 awake보다 느리다는 점을 이용해서 생성이 다된 후에 다시 방을 만드는 방식으로 재귀한다 가능?
-        //start awake보다 재귀 방식을 list에 담긴 방을 순차적으로 불려오는 방식으로 바꾸면 가능하다! 이건 가능
+      
         return null;
 
     }
     public GameObject create_room_V2()//방 하나 생성 후 이어붙이는 방식
     {
-        //room[room_count] = make_room_V2();//방 만들고
+        
         GameObject b = make_room_V2();//방 만들고
         a++;
         if (room.Count< room_create_number)
@@ -689,13 +688,13 @@ public class room_controller : MonoBehaviour//스테이지에 쓸 방을 생성하는 스크립
         }
         else
         {
-            return null;//반환값이 필요하면 채우기
+            return null;
 
         }
 
 
     }
-    public GameObject create_room_V2(List<GameObject> room)//지금은 사용 금지
+    public GameObject create_room_V2(List<GameObject> room)
     {
         if (room.Count < room_create_number)//통로가 뚫려있으면
             {

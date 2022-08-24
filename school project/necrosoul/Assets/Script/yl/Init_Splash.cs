@@ -27,11 +27,21 @@ public class Init_Splash : MonoBehaviour
         if (checkbool)                                            //만약 checkbool 이 참이면
         {
             color.a = 1;                      //판넬 파괴, 삭제
+            image.color = color;
             checkbool = false;
             this.gameObject.SetActive(false);
         }
     }
-
+    private void OnDisable()
+    {
+        color.a = 1;
+        image.color = color;
+    }
+    private void OnEnable()
+    {
+        color.a = 1;
+        image.color = color;
+    }
     IEnumerator MainSplash()
     {
 

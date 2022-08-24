@@ -80,11 +80,11 @@ public class sound_setting : MonoBehaviour//사운드 설정
     {
         selected = 0;
     }
-    void set_sound()
+    void set_sound()//사운드 설정
     {
         if (selected != 0)
         {
-            if(Input.GetKey(Key_manager.Keys[Key_manager.KeyAction.RIGHT] )|| Input.GetKeyDown(KeyCode.RightArrow))
+            if(Input.GetKey(Key_manager.Keys[Key_manager.KeyAction.RIGHT] )|| Input.GetKeyDown(KeyCode.RightArrow))//좌우 키로 변경
             {
                 switch (selected)
                 {
@@ -114,18 +114,21 @@ public class sound_setting : MonoBehaviour//사운드 설정
                         break;
                 }
             }
+            //지정된 취소 키로 사운드 설정 종료
             if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.PAUSE]) || Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.JUMP])|| Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.ATTACK])||
                 Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.UP])|| Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.DOWN])||Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.DownArrow))
             {
                 un_set();
                 w.but_unselected();
             }
+            //실 사운드 적용(자신이 작업하지 않음)
                 setting_manager.s_manger.sound_manager();
             AudioContorl_Total();
             AudioContorl_Bgm();
             AudioContorl_SFX();
         }
     }
+    //이 밑은 자신의 작업이 아님
     public void AudioContorl_Total()    //마스터 볼륨 설정
     {
         float sound = main_slider.value;

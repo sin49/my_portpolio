@@ -6,7 +6,7 @@ public class PlayerCharacter : GameCharacter//ÇÃ·¹ÀÌ¾î Á¶ÀÛ+»óÅÂ Å¬·¹½º(°ÔÀÓ ³»º
 {
     public Rigidbody2D rgd;
     public int jump_count = 1;
-    public bool onground;//¶¥¿¡ ´EÒ´ÂÁE
+    public bool onground;
 
     public GameObject DNP;
 
@@ -197,7 +197,7 @@ public class PlayerCharacter : GameCharacter//ÇÃ·¹ÀÌ¾î Á¶ÀÛ+»óÅÂ Å¬·¹½º(°ÔÀÓ ³»º
         //ÇÃ·¹ÀÌ¾îÀÇ ¾Æ·§ ¹æÇâÀ¸·Î ÇÃ·§ÆûÀ» È®ÀÎÇÏ´Â ray¸¦ ½ð´Ù(ÇÃ·§ÆûÀÇ Á¾·ùº°·Î 2°³)
         down_ray_1 = Physics2D.Raycast(this.transform.position + (Vector3.down * (Player_Y - 0.1f)), Vector2.down, 0.1f, LayerMask.GetMask("platform_can't_pass"));
         down_ray_2 = Physics2D.Raycast(this.transform.position + (Vector3.down * (Player_Y - 0.1f)), Vector2.down, 0.1f, LayerMask.GetMask("platform_can_pass"));
-        //Ã¤·Â,¹æ¾ûÓÂ,ÀÌµ¿¼Óµµ´Â Player_statusÅ¬·¹½ºÀÇ °ªÀ» µû¶ó°£´Ù
+        //Ã¤·Â,¹æ¾î·Â,ÀÌµ¿¼Óµµ´Â Player_statusÅ¬·¹½ºÀÇ °ªÀ» µû¶ó°£´Ù
         max_hp = Player_status.p_status.get_max_hp();
         Health_point = Player_status.p_status.get_hp();
         Defense_point = Player_status.p_status.get_defense_point();
@@ -333,7 +333,7 @@ public class PlayerCharacter : GameCharacter//ÇÃ·¹ÀÌ¾î Á¶ÀÛ+»óÅÂ Å¬·¹½º(°ÔÀÓ ³»º
     }
     void jump()//Á¡ÇÁ
     {
-        //´ë½¬ »óÅÂ°¡ ¾Æ´Ò ¶§ Á¡ÇÁ Å°¸¦ ´­·È´Ù¸é¤¤
+        //´ë½¬ »óÅÂ°¡ ¾Æ´Ò ¶§ Á¡ÇÁ Å°¸¦ ´­·È´Ù¸é
         if (Input.GetKeyDown(Key_manager.Keys[Key_manager.KeyAction.JUMP]) && !p_anim.sword_delay && !on_dash && !on_teleport)
         {
             jumpbuffertimer = jumpbuffertime;//Á¡ÇÁ ¹öÆÛ¸¦ ÀÛµ¿
@@ -411,7 +411,7 @@ public class PlayerCharacter : GameCharacter//ÇÃ·¹ÀÌ¾î Á¶ÀÛ+»óÅÂ Å¬·¹½º(°ÔÀÓ ³»º
             RaycastHit2D teleport_ray = Physics2D.Raycast(this.transform.position, Vector2.right, teleport_length, LayerMask.GetMask("platform_can't_pass")); ;
             switch (teleport_direction)//teleport_direction¿¡ µû¶órayÀÇ ¹æÇâÀÌ ´Þ¶óÁø´Ù(teleport_directionÀº ´©¸£°íÀÖ´Â ÀÌµ¿ ¹æÇâÅ° µðÆúÆ® °ª:0)
             {
-                //Á¤È®ÇÑ ÆÇÁ¤À» À§ÇØ rayÀÇ À§Ä¡¸¦ ¹æÇâ¿¡ µû¶óÁ¶ÀýÇÑ´Ù
+                //rayÀÇ ¹æÇâÀ» Á¶ÀýÇÑ´Ù
                 case 0:
                     teleport_ray = Physics2D.Raycast(this.transform.position + (Vector3.right * Player_X * 0.5f), Vector2.right, teleport_length, LayerMask.GetMask("platform_can't_pass"));
                     break;
@@ -595,7 +595,7 @@ public class PlayerCharacter : GameCharacter//ÇÃ·¹ÀÌ¾î Á¶ÀÛ+»óÅÂ Å¬·¹½º(°ÔÀÓ ³»º
             dash_direction = Vector2.right * direction * dash_force;
             //ForceMode2D.Impulse¸¦ ÀÌ¿ëÇØ ¼ø°£ÀûÀ¸·Î °¡¼ÓÀ» ¹Þ´Â´Ù
             rgd.AddForce(dash_direction * Time.deltaTime, ForceMode2D.Impulse);
-            //´ë½¬È½¼ö°¨¼Ò ÀÏÁ¤½Ã°£µ¿¾È ´ë½¬ °¨¼Ò
+            //´ë½¬È½¼ö°¨¼Ò ÀÏÁ¤½Ã°£µ¿¾È ´ë½¬ ºÒ°¡
             dash_count--;
             can_dash = false;
             dash_recover_check = false;
@@ -658,7 +658,7 @@ public class PlayerCharacter : GameCharacter//ÇÃ·¹ÀÌ¾î Á¶ÀÛ+»óÅÂ Å¬·¹½º(°ÔÀÓ ³»º
         }
     }
     //Ä³¸¯ÅÍ ÀÌµ¿,Á¡ÇÁ,´ë½¬,Á¾ÇÕ Á¤¸®
-    new void character_move()
+    void character_move()
     {
 
         if (can_move && hitted_timer <= 0)//¿òÁ÷ÀÏ ¼ö ÀÖ°í ÇÇ°Ý´çÇÑ »óÅÂ°¡ ¾Æ´Ï¶ó¸é
@@ -765,7 +765,7 @@ public class PlayerCharacter : GameCharacter//ÇÃ·¹ÀÌ¾î Á¶ÀÛ+»óÅÂ Å¬·¹½º(°ÔÀÓ ³»º
             }
             else
             {
-                if (!on_dash)//´ë½¬ ÁßÀÏ ¶§  x°¡¼Óµµ ºü¸£°Ô °¨¼Ò
+                if (!on_dash)//´ë½¬ ÁßÀÏ ¶§ ºñÈ°¼ºÈ­ °¡¼Óµµ ºü¸£°Ô °¨¼Ò
                     rgd.velocity = new Vector2(rgd.velocity.x * 0.65f, rgd.velocity.y);
                 if (rgd.velocity.x < 1 && rgd.velocity.x > -1 && on_rush)//¹æÇâÅ°¸¦ ¶§°í ¸ØÃè´Ù¸é on_rushÃÊ±âÈ­
                 {

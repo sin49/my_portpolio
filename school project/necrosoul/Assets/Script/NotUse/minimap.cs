@@ -51,21 +51,6 @@ public class minimap : MonoBehaviour
         var globalstartpos_x = map_ui_x / 2 - (x_image_size * (x_image_number / 2));
         var globalstartpos_y = map_ui_y / 2 - (y_image_size* (y_image_number / 2));
 
-        /*for(int x = 0; x < x_image_number; x++)
-        {
-            for(int y = 0; y < y_image_number; y++)
-            {
-
-
-
-
-                Vector2 pos = new Vector2(globalstartpos_x + x * x_image_size, globalstartpos_y + y * y_image_size);
-                GameObject map_image_data = Instantiate(map_image, pos, Quaternion.identity);
-                map_image_data.transform.SetParent(mapUI.transform);
-                map.Add(map_image_data);
-                    }
-        }*/
-        //////////////////////////////////
         for(int x = 1; x < m_x; x += 3)
         {
             for(int y = 1; y < m_y; y += 3)
@@ -77,7 +62,7 @@ public class minimap : MonoBehaviour
                     for(int i = 0; i < 4; i++)
                     {
                         GameObject map_image_data_element = Instantiate(map_image_element, pos, Quaternion.identity);
-                       //만든이미지 다 자식으로 만들기
+                   
                         switch (i)
                         {
                             case 0:

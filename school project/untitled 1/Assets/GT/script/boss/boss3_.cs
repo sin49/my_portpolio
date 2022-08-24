@@ -16,7 +16,7 @@ public class boss3_ : MonoBehaviour//3스테이지 보스의 2페이즈의 오�
     // Update is called once per frame
     void Update()
     {
-        if (endure_check)//1페이즈로 부터 2페이즈 오브젝트 생성 명령을 biss_basic.cs를 통해 endure_check로 받는다
+        if (endure_check)//1페이즈로 부터 2페이즈 오브젝트 생성 명령을 boss_basic.cs를 통해 endure_check로 받는다
         {
             time += Time.deltaTime;
             if (time > 8)

@@ -207,7 +207,7 @@ public class Key_setting : MonoBehaviour//키설정 클레스
     }
     private void OnGUI()
     {
-        //키설정을 시작하고 특정 키를 누르면 그 특저키로 조작이 변한다
+        //키설정을 시작하고 특정 키를 누르면 그 특정키로 조작이 변한다
         if (setting_mode)
         {
             //delay_check에 대해

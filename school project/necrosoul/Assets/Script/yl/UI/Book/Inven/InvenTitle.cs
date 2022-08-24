@@ -263,14 +263,10 @@ public class InvenTitle : MonoBehaviour
     public void SetOnButtonPage()
     {
         
-        Debug.Log("¿ÀÆRÈþ" + this.gameObject.name);
+        
         Total_Content[key].SetIsOnWithoutNotify(true);
         Total_Content[key].gameObject.GetComponent<OpenMyInven>().PageOn();
-        //for (int i = 0; i < Total_Content.Count; i++)
-        //{
-        //    Debug.Log("¤¾¿Ë¹Ì");
-        //    Total_Content[i].gameObject.GetComponent<OpenMyInven>().PageOn();
-        //}
+       
     }
 
 }

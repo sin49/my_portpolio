@@ -6,7 +6,7 @@ using static UnityEngine.UI.Button;
 
 public class btn_system : MonoBehaviour//키보드로 작동시키는 ui 양식
 {
-    public List<Button> a = new List<Button>();
+    public List<Button> a = new List<Button>();//조작할 ui(버튼)을 list에 담기(순서대로)
     int select;
     public float timer;
     // Start is called before the first frame update
@@ -25,7 +25,7 @@ public class btn_system : MonoBehaviour//키보드로 작동시키는 ui 양식
         {
             if (i == select)//그래픽 요소가 없어서 interactable을 활용하여 그래픽 표시
             {
-                if (a[i].IsInteractable() == true)
+                if (a[i].IsInteractable() == true)//실 사용에 interactable은 안 건드는게 좋다!
                 {
                     a[i].interactable = false;
                 }
@@ -62,7 +62,8 @@ public class btn_system : MonoBehaviour//키보드로 작동시키는 ui 양식
 
             ButtonClickedEvent btn = a[select].onClick;
             btn.Invoke();
-            Toggle t;
+            //toggle ver
+           
            
         }
     }

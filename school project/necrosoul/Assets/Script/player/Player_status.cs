@@ -138,7 +138,7 @@ public class Player_status : MonoBehaviour//플레이어의 능력치를 가지는 클레스
         {
             //크리티컬이 발생하지않으면 확률에 보정을 넣어 점점 크리티컬이 터지기 쉽게 만든다
             critical_rate_plus();
-            Debug.Log("크리티컬! 이 아니었다?"+crit+","+rand);
+   
             return false;
         }
     }
@@ -349,7 +349,7 @@ public class Player_status : MonoBehaviour//플레이어의 능력치를 가지는 클레스
         }
     }
 
-
+    
   
     public float get_untouchable_time()//무적시간
     {

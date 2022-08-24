@@ -64,7 +64,7 @@ public class ItemEffect0 : MonoBehaviour//아이템의 효과 처리
         }
         return d;
     }
-    public void effect(Item i)//아이템ㅇ의 효과를 적용한다
+    public void effect(Item i)//아이템의 효과를 적용한다
     {
         if (i.Item_Useing)//슬룻에 장착했는지 체크
         {
@@ -80,6 +80,10 @@ public class ItemEffect0 : MonoBehaviour//아이템의 효과 처리
                 if (!code_effect[0])        //체력 증가
                 {
                     Player_status.p_status.set_max_HP((int)(20 * i.num*slot_bonus));
+                    if(Player_status.p_status.get_hp()> Player_status.p_status.get_max_hp())//체력이 최대체력을 초과하는 경우 방지
+                    {
+                        Player_status.p_status.lose_hp(Player_status.p_status.get_hp() - Player_status.p_status.get_max_hp());
+                    }
                     Debug.Log("체력적용");
                     if(i.Item_Useing)
                     item_type_effect[status_type.HP] += i.num;//체력 타입 특수효과 활성화 하기 위한 상수를 더한다

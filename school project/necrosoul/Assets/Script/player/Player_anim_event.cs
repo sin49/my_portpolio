@@ -191,7 +191,7 @@ public class Player_anim_event : MonoBehaviour//플레이어의 에니메이션을 통해 일�
     //공격 에니메이션이 끝나면 공격반동을 없애고 공격 판정을 비활성화 시켜서 플레이어의 공격을 마무리 짓는다
     void Melee_1_on()
     {
-            hitted_push(3f);//공격 반동ㅇ으로 살짝 앞으로 나온다
+            hitted_push(3f);//공격 반동으로 살짝 앞으로 나온다
         
         if (melee_1_instani == null)//생성된 적이 없다면
         {
@@ -229,13 +229,10 @@ public class Player_anim_event : MonoBehaviour//플레이어의 에니메이션을 통해 일�
             melee_1_instani.SetActive(true);
             player_ghost_attack_1_effect();
         }
-       // melee_1.SetActive(true);
+     
     }
     public void Melee_1_off()
     {
-  
-
-
 
         if (melee_1_instani!=null)
             melee_1_instani.SetActive(false);//공격을 비활성화 한다

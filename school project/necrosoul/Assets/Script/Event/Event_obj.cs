@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Event_obj : MonoBehaviour
+public class Event_obj : MonoBehaviour//이벤트 활성화 오브잭트
 {
 
     public List<GameObject> Event_list=new List<GameObject>();

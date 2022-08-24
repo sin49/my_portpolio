@@ -70,11 +70,6 @@ public class E_05_AI : MonoBehaviour//공중에서 좌우로 왕복하는 적
 
             Player = this.transform.GetComponent<Unit>().Player;
             
-          
-          
-            
-
-
                
                //계속 이동
                     move_ai_0();

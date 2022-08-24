@@ -96,7 +96,7 @@ public class Pathfinding_E_07 : MonoBehaviour//a*알고리즘을 이용한 7번 적의 길찿
         E_ai.path = path;
     }
 
-    int GetDistanceCost(node nodeA, node nodeB)//효율적인 거리를 계산한다
+    int GetDistanceCost(node nodeA, node nodeB)// 거리를 계산한다
     {
         int distX = Mathf.Abs(nodeA.gridX - nodeB.gridX);
         int distY = Mathf.Abs(nodeA.gridY - nodeB.gridY);

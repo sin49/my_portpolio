@@ -4,21 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.UI.Button;
 
-public class Event_system : MonoBehaviour
+public class Event_system : MonoBehaviour//이벤트 ui처리
 {
     public List<Button> a = new List<Button>();
    public int select;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
     public void event_end()
     {
         this.transform.parent.gameObject.SetActive(false);
         Gamemanager.GM.can_handle = true;
     }
-    // Update is called once per frame
     void Update()
     {
         BtnSystem(a);

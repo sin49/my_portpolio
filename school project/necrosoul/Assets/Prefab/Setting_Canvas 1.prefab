@@ -1520,7 +1520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8372445040678457838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4652,6 +4652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f6230ef2449b04baaae3a667aa92ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected: 0
   timer: 0
   scren_reol_but: {fileID: 3622600512723988712}
   key_setting_UI: {fileID: 2404266635506013258}
@@ -9200,11 +9201,17 @@ MonoBehaviour:
   main_voulume: 0
   bgm_volume: 0
   sfx_volume: 0
+  Main_button: {fileID: 0}
+  bgm_button: {fileID: 0}
+  sfx_button: {fileID: 0}
   main_slider: {fileID: 2837431962802227214}
   bgm_slider: {fileID: 2837431963971704665}
   sfx_slider: {fileID: 2837431962043018409}
   w: {fileID: 3564020610700445596}
   selected: 0
+  MasterMixer: {fileID: 0}
+  SFXMixer: {fileID: 0}
+  BGMMIxer: {fileID: 0}
 --- !u!1 &8807862678380300434
 GameObject:
   m_ObjectHideFlags: 0

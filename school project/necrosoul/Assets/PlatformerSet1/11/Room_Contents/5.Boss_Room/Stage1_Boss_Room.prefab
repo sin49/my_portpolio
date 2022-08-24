@@ -4805,7 +4805,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy 1 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5832525408929645477, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
 --- !u!1 &3288079686935916205 stripped
 GameObject:
@@ -5128,7 +5129,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy 1 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5832525408929645477, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
 --- !u!4 &4237422668545385239 stripped
 Transform:
@@ -5195,7 +5197,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5832525408929645477, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
 --- !u!4 &4141793625215246494 stripped
 Transform:
@@ -5319,7 +5322,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy 1 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5832525408929645477, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
 --- !u!4 &493534024186103665 stripped
 Transform:
@@ -6260,7 +6264,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5832525408929645477, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
 --- !u!4 &5500753400984994070 stripped
 Transform:
@@ -6592,7 +6597,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy 1 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5832525408929645477, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c484102ccabd01b47868ddc3bd3f63bd, type: 3}
 --- !u!4 &6481675684218598984 stripped
 Transform:

@@ -47,7 +47,7 @@ public class Inven_Book : MonoBehaviour
             PageTotal++;
         }
         ChangeElement();
-        PageNumber.text = PageNow + "/" + PageTotal;
+      //  PageNumber.text = PageNow + "/" + PageTotal;
     }
 
     public void GetTitle()

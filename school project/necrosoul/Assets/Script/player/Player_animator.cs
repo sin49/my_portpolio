@@ -126,9 +126,6 @@ public class Player_animator : MonoBehaviour//플레이어의 에니메이션을 관리하고 �
         if (!sword_delay)
         {
 
-           
-            
-           
             m_animator.SetInteger("sword_count", m_currentAttack_2);
             m_animator.SetTrigger("swordattack" + 1);
         }

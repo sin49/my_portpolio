@@ -75,7 +75,7 @@ public class new_shop : MonoBehaviour//상점
     {
         curren_re_price = re_price;
         re_price_add = Mathf.RoundToInt(re_price);
-        //상점에 판매될 아이템을 미리 생성하고 풀링한다(새로고침을 시도할 때 원할히 구현할 수 있도록 풀링을 사용)
+        //상점에 판매될 아이템을 미리 생성하고 풀링한다
         for(int i = 0; i < 3; i++)//소모품
         {
             var a = Instantiate(shopitem, item_list);

@@ -18,6 +18,7 @@ public class CameraFollow : MonoBehaviour//카메라가 플레이어를 추격
     float l;
     private void Start()
     {
+        //카메라의 크기 계산
         height = Camera.main.orthographicSize;
         width = height * Screen.width / Screen.height;
 
@@ -49,12 +50,14 @@ public class CameraFollow : MonoBehaviour//카메라가 플레이어를 추격
             transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime * speed);
             
 
-            float clampX=center.x;
+          
             if (r != null)
             {
-               //카메라가 일정한 이동 범위 밖으로 이동하지 않도록 한다
+                float clampX = center.x;
+                //카메라가 일정한 이동 범위 밖으로 이동하지 않도록 한다
                 if (!r.x_pin)//카메라의 x이동 고정
                 {
+                    //중심점에서 방의 길이의 절반-카메라의 길이로 카메라가 범위 밖을 비추지 않게 만든다
                     float lx = size.x * 0.5f - width;
                     clampX = Mathf.Clamp(transform.position.x, -lx + center.x, lx + center.x);
                 }
