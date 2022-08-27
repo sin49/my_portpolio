@@ -1,0 +1,901 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.17f1 (a4537701e4ab) revision 10769271'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 22000.856; Version 2009; 64bit' Language: 'ko' Physical Memory: 8101 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+D:\unity\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/project/Github/my_portpolio/school project/untitled 1
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+53306
+Successfully changed project path to: D:/project/Github/my_portpolio/school project/untitled 1
+D:/project/Github/my_portpolio/school project/untitled 1
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 62.02 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.17f1 (a4537701e4ab)
+[Subsystems] Discovering subsystems at path D:/unity/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/project/Github/my_portpolio/school project/untitled 1/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c8d)
+    Vendor:   
+    VRAM:     4021 MB
+    Driver:   30.0.14.9649
+Initialize mono
+Mono path[0] = 'D:/unity/Editor/Data/Managed'
+Mono path[1] = 'D:/unity/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/unity/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56816
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001761 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 48.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.551 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3551ms)
+		BeginReloadAssembly (89ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (499ms)
+			LoadAssemblies (89ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (182ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (196ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (48ms)
+				BeforeProcessingInitializeOnLoad (20ms)
+				ProcessInitializeOnLoadAttributes (88ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006655 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.436 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1437ms)
+		BeginReloadAssembly (195ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1166ms)
+			LoadAssemblies (167ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (347ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (520ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (100ms)
+				ProcessInitializeOnLoadAttributes (370ms)
+				ProcessInitializeOnLoadMethodAttributes (41ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2014 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 82.1 MB.
+System memory in use after: 82.2 MB.
+
+Unloading 58 unused Assets to reduce memory usage. Loaded Objects now: 2418.
+Total: 7.389800 ms (FindLiveObjects: 0.204000 ms CreateObjectMapping: 0.074000 ms MarkObjects: 7.030200 ms  DeleteObjects: 0.080400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Scenes/easy.unity
+  artifactKey: Guid(a9dcb6c60b3dfec4b9c21ce45188c676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/easy.unity using Guid(a9dcb6c60b3dfec4b9c21ce45188c676) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a8097ae094b42d79df9bc4433427db8') in 0.027483 seconds 
+  Import took 0.045515 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 18.29 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 47 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 43.1 MB.
+System memory in use after: 43.2 MB.
+
+Unloading 47 unused Assets to reduce memory usage. Loaded Objects now: 2418.
+Total: 12.585500 ms (FindLiveObjects: 0.282800 ms CreateObjectMapping: 0.112900 ms MarkObjects: 12.130900 ms  DeleteObjects: 0.056100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 17.01 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 47 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 43.1 MB.
+System memory in use after: 43.2 MB.
+
+Unloading 47 unused Assets to reduce memory usage. Loaded Objects now: 2418.
+Total: 9.896300 ms (FindLiveObjects: 0.235200 ms CreateObjectMapping: 0.081000 ms MarkObjects: 9.543300 ms  DeleteObjects: 0.035100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 227.916661 seconds.
+  path: Assets/script/enemy/attack/e_bullet_star.cs
+  artifactKey: Guid(2bffabbe8f96b114ea4fe55d61f68b51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_bullet_star.cs using Guid(2bffabbe8f96b114ea4fe55d61f68b51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '22ea7c0c35f60a4cde5078b6e14d4058') in 0.227076 seconds 
+  Import took 0.506713 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.061751 seconds.
+  path: Assets/Scenes/normal.unity
+  artifactKey: Guid(392f349304b65e443bfc3065c86c442a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/normal.unity using Guid(392f349304b65e443bfc3065c86c442a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c77a35431aa18b3a7609bd6d08a5828a') in 1.215298 seconds 
+  Import took 1.236363 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.128836 seconds.
+  path: Assets/animation/enemy_die.anim
+  artifactKey: Guid(9caab893e14464f45b094cb79b671540) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/enemy_die.anim using Guid(9caab893e14464f45b094cb79b671540) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '750cdd9e5bd2f79a470b963177b67c69') in 0.203299 seconds 
+  Import took 0.237568 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017306 seconds.
+  path: Assets/script/enemy/attack/e_bullet_type2.cs
+  artifactKey: Guid(a236f51b8f819ee4c90db0dba8182132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_bullet_type2.cs using Guid(a236f51b8f819ee4c90db0dba8182132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26c0f8bbba50dcd81f0ee250c202fea7') in 0.014988 seconds 
+  Import took 0.020888 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.091045 seconds.
+  path: Assets/script/boss/attack/b_3_2_specialbullet4.cs
+  artifactKey: Guid(64f3556b2039fac49b185445cf0cd824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/attack/b_3_2_specialbullet4.cs using Guid(64f3556b2039fac49b185445cf0cd824) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7c91ed2e8836a00187f9ffb787299c3') in 0.022655 seconds 
+  Import took 0.031399 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015033 seconds.
+  path: Assets/script/enemy/attack/e_bullet_star_spin.cs
+  artifactKey: Guid(7fff3702ef49fd247b6dc7e2b10270d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_bullet_star_spin.cs using Guid(7fff3702ef49fd247b6dc7e2b10270d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '920725e6e19cd81ab595b5a73b24d828') in 0.010826 seconds 
+  Import took 0.017294 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.052808 seconds.
+  path: Assets/Resources/BillingMode.json
+  artifactKey: Guid(080d347c6a0ed974381dc60ed574c848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/BillingMode.json using Guid(080d347c6a0ed974381dc60ed574c848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '695d7c3be6a6d2dc41d8369a42730a28') in 0.026651 seconds 
+  Import took 0.032890 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014851 seconds.
+  path: Assets/script/boss/attack/boss3_bullet_manager.cs
+  artifactKey: Guid(e4fee43d2dff8f245a4ed4c6d6cba200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/attack/boss3_bullet_manager.cs using Guid(e4fee43d2dff8f245a4ed4c6d6cba200) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '316b30f408dfddf8d67672949742dfe5') in 0.010713 seconds 
+  Import took 0.016057 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015433 seconds.
+  path: Assets/script/boss/attack/boss3_specialobject.cs
+  artifactKey: Guid(23cdf9fe1b2d50d4eadad7f6c111ff3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/attack/boss3_specialobject.cs using Guid(23cdf9fe1b2d50d4eadad7f6c111ff3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c9c0ff224a6e9ae24e81b090c7178c0') in 0.010809 seconds 
+  Import took 0.016609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015918 seconds.
+  path: Assets/script/enemy/attack/e_bullet_type4.cs
+  artifactKey: Guid(162d44979ba82934d8f64bb29b06355e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_bullet_type4.cs using Guid(162d44979ba82934d8f64bb29b06355e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9441e18f39e32b4e769dbb804957c08') in 0.010861 seconds 
+  Import took 0.015449 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014760 seconds.
+  path: Assets/script/enemy/e_deathrattle.cs
+  artifactKey: Guid(5db2909519f8009419562ff3e933560d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/e_deathrattle.cs using Guid(5db2909519f8009419562ff3e933560d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '038597e3f513e9cb20958572f6658a77') in 0.009976 seconds 
+  Import took 0.016075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.042951 seconds.
+  path: Assets/script/player/shooting_GameManager.cs
+  artifactKey: Guid(4df34535cb2a1d147bda834b38ac8386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/player/shooting_GameManager.cs using Guid(4df34535cb2a1d147bda834b38ac8386) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a45e952da0714768002f9c507c635186') in 0.010771 seconds 
+  Import took 0.019037 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013487 seconds.
+  path: Assets/animation/boss3_2idle.anim
+  artifactKey: Guid(a2d65e77b952a25489cf469e8554152e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss3_2idle.anim using Guid(a2d65e77b952a25489cf469e8554152e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07a546ddff3df175e945bd528206119c') in 0.007803 seconds 
+  Import took 0.012723 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012989 seconds.
+  path: Assets/animation/enemy.controller
+  artifactKey: Guid(f72f54bcdfe750f4b8b2737cafe541ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/enemy.controller using Guid(f72f54bcdfe750f4b8b2737cafe541ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e150a63859766de564bf4ef324f26429') in 0.019699 seconds 
+  Import took 0.025371 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.089821 seconds.
+  path: Assets/script/boss/boss1_bulletmaster.cs
+  artifactKey: Guid(ada650600292dde4ba8e7e745662a305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/boss1_bulletmaster.cs using Guid(ada650600292dde4ba8e7e745662a305) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '676dea10add1aa716193fdba4a5a0f92') in 0.006475 seconds 
+  Import took 0.010025 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.055533 seconds.
+  path: Assets/animation/enemy_move.anim
+  artifactKey: Guid(e9ec2491de38e5749b38b514ba545a49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/enemy_move.anim using Guid(e9ec2491de38e5749b38b514ba545a49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccfbb48a8c426caed65b4e96edb16c2b') in 0.007509 seconds 
+  Import took 0.012115 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.041135 seconds.
+  path: Assets/animation/bullet_hitted.anim
+  artifactKey: Guid(bacf9d89589b8d84d8f05fc76f3b52e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/bullet_hitted.anim using Guid(bacf9d89589b8d84d8f05fc76f3b52e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7355df5ba80ca453a648c31c233d36f') in 0.010523 seconds 
+  Import took 0.013944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.022872 seconds.
+  path: Assets/script/enemy/attack
+  artifactKey: Guid(6c6e21df23be0bc4ba9a1063c35492e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack using Guid(6c6e21df23be0bc4ba9a1063c35492e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '308fa21d9acdca4da5d7aa2c3174f16f') in 0.006469 seconds 
+  Import took 0.009736 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012932 seconds.
+  path: Assets/animation/bulltet.controller
+  artifactKey: Guid(c30ff0072df006844afe41eb446eec47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/bulltet.controller using Guid(c30ff0072df006844afe41eb446eec47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ae55aa71aa338c3de9a907cae629654') in 0.007694 seconds 
+  Import took 0.011307 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011250 seconds.
+  path: Assets/animation/boss_teleport.anim
+  artifactKey: Guid(c249a7f138a5de049a86e1b6b5728e14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss_teleport.anim using Guid(c249a7f138a5de049a86e1b6b5728e14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7ec15c49f094d97edf33930d5a9e1a1') in 0.006826 seconds 
+  Import took 0.010136 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016155 seconds.
+  path: Assets/script/effect
+  artifactKey: Guid(2d91154274c52a949a3842ba6646c1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/effect using Guid(2d91154274c52a949a3842ba6646c1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e01aaf42401d6e2ec8487dec7d9455c') in 0.007870 seconds 
+  Import took 0.011237 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.054893 seconds.
+  path: Assets/script/enemy/e_bulletManager.cs
+  artifactKey: Guid(0d20900c7d773d44c935084be7119016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/e_bulletManager.cs using Guid(0d20900c7d773d44c935084be7119016) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9b266991d819a4704a81ebea0ff4740') in 0.021299 seconds 
+  Import took 0.025176 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013209 seconds.
+  path: Assets/animation/main.controller
+  artifactKey: Guid(ae3c33ae1d572154d84c5f6e868c5a79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/main.controller using Guid(ae3c33ae1d572154d84c5f6e868c5a79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49a900136e4a729adc41e4413edb4dbb') in 0.010932 seconds 
+  Import took 0.014455 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.060738 seconds.
+  path: Assets/script/player/ex_bullet.cs
+  artifactKey: Guid(90c75af1e77d8a54a90b97aa76cd628a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/player/ex_bullet.cs using Guid(90c75af1e77d8a54a90b97aa76cd628a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c57a1559f06a793e3bc03abd4645218') in 0.008299 seconds 
+  Import took 0.012649 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014787 seconds.
+  path: Assets/script/enemy/attack/e_bullet_type3.cs
+  artifactKey: Guid(db90fae77f173ea43904457d01390085) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_bullet_type3.cs using Guid(db90fae77f173ea43904457d01390085) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffbe79498c5f772330ef434b9eb379a3') in 0.014172 seconds 
+  Import took 0.019180 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.027569 seconds.
+  path: Assets/animation/enemy_idle.anim
+  artifactKey: Guid(148a6303755bd564d92a9e7b5686adfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/enemy_idle.anim using Guid(148a6303755bd564d92a9e7b5686adfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33e194de417391584ae6b55978c488ca') in 0.221895 seconds 
+  Import took 0.227612 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.016865 seconds.
+  path: Assets/animation/enemy_teleport.anim
+  artifactKey: Guid(9a05249af9afc0240b2006cb0cbb0162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/enemy_teleport.anim using Guid(9a05249af9afc0240b2006cb0cbb0162) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c2ea93fd46bca00d1a91b5fce567ca8') in 0.012447 seconds 
+  Import took 0.018003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.060412 seconds.
+  path: Assets/script/UIManager.cs
+  artifactKey: Guid(20119a862557a3444b3fcf36bd385ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/UIManager.cs using Guid(20119a862557a3444b3fcf36bd385ac8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c17158061277cb9bf91201bea4eb4c1') in 0.009878 seconds 
+  Import took 0.014979 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012382 seconds.
+  path: Assets/script/boss/b_3_2_hit.cs
+  artifactKey: Guid(309d61f9e2ed06441a1e590df00c8f4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/b_3_2_hit.cs using Guid(309d61f9e2ed06441a1e590df00c8f4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0927a7d09de2d8399afe0c38e5f8bf14') in 0.006934 seconds 
+  Import took 0.010402 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.039728 seconds.
+  path: Assets/script/boss/attack/boss3_special_bullet_1.cs
+  artifactKey: Guid(8eb515d59fbfd814387227a7f55347cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/attack/boss3_special_bullet_1.cs using Guid(8eb515d59fbfd814387227a7f55347cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a45c1201dbe2b6ad1c75a8ee885f8b82') in 0.007126 seconds 
+  Import took 0.010567 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012304 seconds.
+  path: Assets/animation/boss3_2_die.anim
+  artifactKey: Guid(31b3be6736b0ec04a9d262e7d8c1f95e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss3_2_die.anim using Guid(31b3be6736b0ec04a9d262e7d8c1f95e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f441afb5a7b211107ab420079a6edf1d') in 0.008455 seconds 
+  Import took 0.012703 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011853 seconds.
+  path: Assets/animation/boss_1.anim
+  artifactKey: Guid(3f35b33333d616044a69bc6cc5044251) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss_1.anim using Guid(3f35b33333d616044a69bc6cc5044251) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5af470357c3a0d2335c97effe4e8d05e') in 0.008332 seconds 
+  Import took 0.012048 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011167 seconds.
+  path: Assets/script/enemy/attack/e_lazer_angle.cs
+  artifactKey: Guid(9bc15754f6ef8e44d8948c7a27941a3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_lazer_angle.cs using Guid(9bc15754f6ef8e44d8948c7a27941a3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0de7269a501c2dd284c384c13a1ab6d') in 0.006138 seconds 
+  Import took 0.009865 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011742 seconds.
+  path: Assets/animation/bullet_idle.anim
+  artifactKey: Guid(4fcaddf7af11faf4a903595ceb9233e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/bullet_idle.anim using Guid(4fcaddf7af11faf4a903595ceb9233e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5ebb19c3df95f5f78af08d447ccc1be') in 0.007982 seconds 
+  Import took 0.011639 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006333 seconds.
+  path: Assets/sprites
+  artifactKey: Guid(95f6cd904f4716f40b34127df6c3d2ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/sprites using Guid(95f6cd904f4716f40b34127df6c3d2ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26d16b7861bd9a022692866a8bd702e8') in 0.006350 seconds 
+  Import took 0.009886 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.024463 seconds.
+  path: Assets/script/player/shooting_playermove.cs
+  artifactKey: Guid(63df84488a2f1054c9b3c526862f8663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/player/shooting_playermove.cs using Guid(63df84488a2f1054c9b3c526862f8663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7765efa42fbc9fdd4f8219dc1d5953f0') in 0.007328 seconds 
+  Import took 0.011421 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.078722 seconds.
+  path: Assets/animation
+  artifactKey: Guid(01482aa5d018eaa409a33bd8d112e8a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation using Guid(01482aa5d018eaa409a33bd8d112e8a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff0bf111a0d9b489185d3552504c20b4') in 0.008746 seconds 
+  Import took 0.012139 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.049365 seconds.
+  path: Assets/animation/boss_clear2.anim
+  artifactKey: Guid(3e7b707e8a1cbbf48bd70a94b66fb411) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss_clear2.anim using Guid(3e7b707e8a1cbbf48bd70a94b66fb411) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7de65e6fffe6c48196cba91a9cf0050') in 0.009278 seconds 
+  Import took 0.015197 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011617 seconds.
+  path: Assets/script/boss/boss_spawner.cs
+  artifactKey: Guid(24fd1109fd3cd254a96b47b5be2191ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/boss_spawner.cs using Guid(24fd1109fd3cd254a96b47b5be2191ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '158988413bb81c634c097fa97049fa20') in 0.006245 seconds 
+  Import took 0.009658 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011132 seconds.
+  path: Assets/script/enemy/e_chasing.cs
+  artifactKey: Guid(694f9721a26be3f4a9ad22a69eaeb272) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/e_chasing.cs using Guid(694f9721a26be3f4a9ad22a69eaeb272) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b086b789a82ee4e35cc825491cd0e3b') in 0.007358 seconds 
+  Import took 0.011446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012930 seconds.
+  path: Assets/script/boss/attack/boss3_special_bullet_3.cs
+  artifactKey: Guid(8229223159c791c4d9d5dce24441f2bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/attack/boss3_special_bullet_3.cs using Guid(8229223159c791c4d9d5dce24441f2bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d3abfeab3b8d4d19383ca06b0dfea03') in 0.006674 seconds 
+  Import took 0.011322 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012139 seconds.
+  path: Assets/script/enemy/attack/e_bullet_type5.cs
+  artifactKey: Guid(ddd7547d9b643f048a3dd8b0ce41c489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_bullet_type5.cs using Guid(ddd7547d9b643f048a3dd8b0ce41c489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1cc75329856bc41f74981e9c21ddc6c') in 0.007222 seconds 
+  Import took 0.010748 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010967 seconds.
+  path: Assets/script/effect/magic_circle_2.cs
+  artifactKey: Guid(84c140b03dcbbb5449dcb473b0811a0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/effect/magic_circle_2.cs using Guid(84c140b03dcbbb5449dcb473b0811a0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96aea6c5e397acf2c3fed1df3d6ef4b2') in 0.006615 seconds 
+  Import took 0.010249 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.027130 seconds.
+  path: Assets/script/enemy/enemy_spawner.cs
+  artifactKey: Guid(bef1b0199773a8c4eba8a8efab1ae11b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/enemy_spawner.cs using Guid(bef1b0199773a8c4eba8a8efab1ae11b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be0a346c56e30e0daf34f7291de1ed46') in 0.006886 seconds 
+  Import took 0.010617 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.041747 seconds.
+  path: Assets/script/enemy/attack/spinner_spin.cs
+  artifactKey: Guid(a91cae1587bc2aa40984148c4b4f61bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/spinner_spin.cs using Guid(a91cae1587bc2aa40984148c4b4f61bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aae91868c07fa168c8989a478894f28') in 0.006720 seconds 
+  Import took 0.010024 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010629 seconds.
+  path: Assets/script/player/Player_spawn.cs
+  artifactKey: Guid(ab3c176fc9c25f349ac666c7228ca4b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/player/Player_spawn.cs using Guid(ab3c176fc9c25f349ac666c7228ca4b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbabfda2a7242499d1b0963aada2887c') in 0.006249 seconds 
+  Import took 0.009925 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.007328 seconds.
+  path: Assets/music
+  artifactKey: Guid(a800ae0b374ddc1459447e8522e1d894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/music using Guid(a800ae0b374ddc1459447e8522e1d894) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b76c994205b1732bd7e01e364775aa90') in 0.006499 seconds 
+  Import took 0.011920 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.092317 seconds.
+  path: Assets/physic
+  artifactKey: Guid(ff0468c71ea450d468ba0720e4229f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/physic using Guid(ff0468c71ea450d468ba0720e4229f8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc9dd1f60628787c431afb9292eaa186') in 0.006596 seconds 
+  Import took 0.011104 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.022166 seconds.
+  path: Assets/script/enemy/attack/e_lazer.cs
+  artifactKey: Guid(97267fbac403a0846aa42d46f29ab00b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_lazer.cs using Guid(97267fbac403a0846aa42d46f29ab00b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfe8bf8d99a4cacf9dae44747a24b640') in 0.006001 seconds 
+  Import took 0.009855 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011403 seconds.
+  path: Assets/script/effect/fade_out.cs
+  artifactKey: Guid(ed9bf92eddbe87040a6cae3d5db7bece) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/effect/fade_out.cs using Guid(ed9bf92eddbe87040a6cae3d5db7bece) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ce78ca44a8c21ebf0c45498b0325b5d') in 0.007809 seconds 
+  Import took 0.011350 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011068 seconds.
+  path: Assets/script/boss/boss3_.cs
+  artifactKey: Guid(506d2c39429ffd94392ed1d2b3f49f3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/boss3_.cs using Guid(506d2c39429ffd94392ed1d2b3f49f3c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75b241d77d4a758f9608b8786fd0a53b') in 0.006668 seconds 
+  Import took 0.012522 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012004 seconds.
+  path: Assets/animation/boss3_2_intro.anim
+  artifactKey: Guid(0b1acd3fd897ed8488275f39ae362cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss3_2_intro.anim using Guid(0b1acd3fd897ed8488275f39ae362cc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '614289d3fafec025b90f20c991e27b00') in 0.008971 seconds 
+  Import took 0.012385 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010214 seconds.
+  path: Assets/animation/boss_idle.anim
+  artifactKey: Guid(95b1a88d033cc4f42ab1c8498ddc712d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss_idle.anim using Guid(95b1a88d033cc4f42ab1c8498ddc712d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0992a2fbac7f172ee9a84c9d6214e51f') in 0.006925 seconds 
+  Import took 0.010294 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012619 seconds.
+  path: Assets/animation/player_die.anim
+  artifactKey: Guid(f887c83f95673c2448f1b4778341dc58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/player_die.anim using Guid(f887c83f95673c2448f1b4778341dc58) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60a105e5624c9121eecaa083ae7df9ac') in 0.007570 seconds 
+  Import took 0.011343 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.125780 seconds.
+  path: Assets/animation/boss_2.anim
+  artifactKey: Guid(fcfba26feeb4d5342b4803dbccdc20e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss_2.anim using Guid(fcfba26feeb4d5342b4803dbccdc20e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '523716d7565487ac7ae818aa430a50f1') in 0.006911 seconds 
+  Import took 0.010342 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012275 seconds.
+  path: Assets/animation/boss3_2.controller
+  artifactKey: Guid(d824287341e47f147a566474d6c7dcec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss3_2.controller using Guid(d824287341e47f147a566474d6c7dcec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd910c822bcdc323f510d016491767e29') in 0.009790 seconds 
+  Import took 0.013436 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.027027 seconds.
+  path: Assets/script/boss/boss2_bulletManager.cs
+  artifactKey: Guid(547c55ea0ee411d469989f6fb5235772) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/boss2_bulletManager.cs using Guid(547c55ea0ee411d469989f6fb5235772) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '820fafff807c491dfabb965d26b28b74') in 0.006574 seconds 
+  Import took 0.010195 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.029223 seconds.
+  path: Assets/script/enemy/attack/e_bullet_type6.cs
+  artifactKey: Guid(67490f6b7b3e3704694d64077bfb6605) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_bullet_type6.cs using Guid(67490f6b7b3e3704694d64077bfb6605) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '264afa33420f4ef4233464065195d84b') in 0.008426 seconds 
+  Import took 0.011985 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012023 seconds.
+  path: Assets/script/enemy/Enemy_basic.cs
+  artifactKey: Guid(ee110f249cf41a4428fa5cf9084f65f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/Enemy_basic.cs using Guid(ee110f249cf41a4428fa5cf9084f65f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3ebb812c9dde407c88ef35dacad1f98') in 0.006737 seconds 
+  Import took 0.010645 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.087746 seconds.
+  path: Assets/script/boss/boss3_2_bullet_manager.cs
+  artifactKey: Guid(9e690ccad7ee49145813f258ecd1db71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/boss3_2_bullet_manager.cs using Guid(9e690ccad7ee49145813f258ecd1db71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61132384541dfb8a84507ed78537f3ab') in 0.008400 seconds 
+  Import took 0.012063 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021904 seconds.
+  path: Assets/script/enemy/attack/e_lazer_orbit_2.cs
+  artifactKey: Guid(0f61954215934b24a976ee4794b357fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_lazer_orbit_2.cs using Guid(0f61954215934b24a976ee4794b357fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd08d55e2eb509e8859c28e29435b663d') in 0.007458 seconds 
+  Import took 0.011145 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010828 seconds.
+  path: Assets/script/enemy/e_bullet.cs
+  artifactKey: Guid(786e623f984c430428596c71d52e5f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/e_bullet.cs using Guid(786e623f984c430428596c71d52e5f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31754d878d02e3d769a126f8e1052d03') in 0.006290 seconds 
+  Import took 0.009607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011523 seconds.
+  path: Assets/script/boss/attack/b_3_2_special_bullet5.cs
+  artifactKey: Guid(0b17a88244e4fe4469b24a89e07884a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/attack/b_3_2_special_bullet5.cs using Guid(0b17a88244e4fe4469b24a89e07884a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '514b802682d99731a6348f5da938ffa1') in 0.007325 seconds 
+  Import took 0.010799 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012044 seconds.
+  path: Assets/script/player/Bullet.cs
+  artifactKey: Guid(ed9668745df7ff044ab3719595f0b4df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/player/Bullet.cs using Guid(ed9668745df7ff044ab3719595f0b4df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c5e75207262b760f93611c6a433d77e') in 0.006783 seconds 
+  Import took 0.010096 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011387 seconds.
+  path: Assets/animation/boss3_1.controller
+  artifactKey: Guid(23c0e271943889f47a35baeba1a16055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss3_1.controller using Guid(23c0e271943889f47a35baeba1a16055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4539a52061943cc2d874e7985860d592') in 0.009940 seconds 
+  Import took 0.013468 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011446 seconds.
+  path: Assets/script/boss/attack/boss3_special_bullet_2.cs
+  artifactKey: Guid(090b95eeca2410a40999ab446079a6a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/attack/boss3_special_bullet_2.cs using Guid(090b95eeca2410a40999ab446079a6a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c6dc86f257b1e50d725902939a71e25') in 0.023087 seconds 
+  Import took 0.026456 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011623 seconds.
+  path: Assets/script/setpositionz.cs
+  artifactKey: Guid(2ecd8ff28c34041428e7faef0d93edf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/setpositionz.cs using Guid(2ecd8ff28c34041428e7faef0d93edf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e534c94b3403105355d032f85d782f13') in 0.006631 seconds 
+  Import took 0.010002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011187 seconds.
+  path: Assets/animation/boss1.controller
+  artifactKey: Guid(faa775ee2c72b06449f20ea7ebc29d19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss1.controller using Guid(faa775ee2c72b06449f20ea7ebc29d19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86285780982d0a1cdf0285602dc4fd27') in 0.008836 seconds 
+  Import took 0.013447 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.044097 seconds.
+  path: Assets/script/player/BulletManager.cs
+  artifactKey: Guid(4bfc245743828d64d80d7f7017042ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/player/BulletManager.cs using Guid(4bfc245743828d64d80d7f7017042ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58b99aeabda2463d890be2e383b6d1b5') in 0.007306 seconds 
+  Import took 0.010944 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.041302 seconds.
+  path: Assets/script/boss/boss_basic.cs
+  artifactKey: Guid(0aba1e60ac4482e40b80c652b563ef35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/boss_basic.cs using Guid(0aba1e60ac4482e40b80c652b563ef35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f850ff0515eb9c0b06fe0dee25176dc') in 0.006484 seconds 
+  Import took 0.011500 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011987 seconds.
+  path: Assets/script/effect/CameraShake.cs
+  artifactKey: Guid(52e453ef2ff54b2489d6b09e43438b69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/effect/CameraShake.cs using Guid(52e453ef2ff54b2489d6b09e43438b69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11f925ab1bb9e859ecee724f789ac299') in 0.006596 seconds 
+  Import took 0.010147 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.027995 seconds.
+  path: Assets/animation/boss3_2_attack.anim
+  artifactKey: Guid(5df187dedb95c0043a37a9293a164361) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss3_2_attack.anim using Guid(5df187dedb95c0043a37a9293a164361) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bf0802b9158615d408dedfed3c2f781') in 0.007151 seconds 
+  Import took 0.010853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.100848 seconds.
+  path: Assets/animation/boss2.controller
+  artifactKey: Guid(48f2c104a6b5a5f4f9d324170da84120) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss2.controller using Guid(48f2c104a6b5a5f4f9d324170da84120) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '133f78167c2fed975bdb4193d3328419') in 0.008440 seconds 
+  Import took 0.012594 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011198 seconds.
+  path: Assets/animation/boss3_death.anim
+  artifactKey: Guid(43f22b3a18dba5249b939d5905be1a9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss3_death.anim using Guid(43f22b3a18dba5249b939d5905be1a9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3e6a794717578e38aa387a6e84a3756') in 0.007636 seconds 
+  Import took 0.011191 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.024435 seconds.
+  path: Assets/script/boss/attack
+  artifactKey: Guid(801c77efafe10e74d83cac6abd719a3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/boss/attack using Guid(801c77efafe10e74d83cac6abd719a3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e2110f2fdd83f178a96cb51ae199a95') in 0.002730 seconds 
+  Import took 0.006410 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.037946 seconds.
+  path: Assets/animation/player_s_power.anim
+  artifactKey: Guid(4716fec0763095341a74c481a50d1754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/player_s_power.anim using Guid(4716fec0763095341a74c481a50d1754) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f8ecc29d8a1813195251bdbcc8721f6') in 0.007460 seconds 
+  Import took 0.011553 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012683 seconds.
+  path: Assets/animation/boss3_idle.anim
+  artifactKey: Guid(4adcb4b1a27bc3f4b8ae6f382bfa2c93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss3_idle.anim using Guid(4adcb4b1a27bc3f4b8ae6f382bfa2c93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad431271071fe916e9ecfb582784a538') in 0.007485 seconds 
+  Import took 0.011588 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.094160 seconds.
+  path: Assets/animation/boss_idle2.anim
+  artifactKey: Guid(a2c1fc131e1d31f479b3e930e3ebab42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss_idle2.anim using Guid(a2c1fc131e1d31f479b3e930e3ebab42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82f873c8ef55bfe3b2452a9d203f4444') in 0.008064 seconds 
+  Import took 0.011797 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011293 seconds.
+  path: Assets/script/enemy/attack/e_lazer_orbit.cs
+  artifactKey: Guid(472f981594f79f64ea31d67466fa5ed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_lazer_orbit.cs using Guid(472f981594f79f64ea31d67466fa5ed0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8004ec49c93efc5d58d0b125d9bf355d') in 0.007199 seconds 
+  Import took 0.010583 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021002 seconds.
+  path: Assets/script/effect/magic_circle_1.cs
+  artifactKey: Guid(7bc1a79ef6b7e504c89dbb042d029ca9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/effect/magic_circle_1.cs using Guid(7bc1a79ef6b7e504c89dbb042d029ca9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee5b6aa6a758a1c4670bf49df64a6c55') in 0.015093 seconds 
+  Import took 0.018575 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011507 seconds.
+  path: Assets/script/player/shooting_player.cs
+  artifactKey: Guid(6ca53d85cbf86f9409eacef62dee4617) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/player/shooting_player.cs using Guid(6ca53d85cbf86f9409eacef62dee4617) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02f348fbf4ef89c194ce7cf86707d1fa') in 0.006728 seconds 
+  Import took 0.010092 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.026811 seconds.
+  path: Assets/animation/Player_idle.anim
+  artifactKey: Guid(d10e3f2983b0e1a4a8e3c352b2d963b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/Player_idle.anim using Guid(d10e3f2983b0e1a4a8e3c352b2d963b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '191beeec9200c8d7b26132e508411bc1') in 0.007590 seconds 
+  Import took 0.011460 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.040779 seconds.
+  path: Assets/script/enemy/attack/e_lazer_2.cs
+  artifactKey: Guid(4722113ade0e1c04ca64a4872850ff25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_lazer_2.cs using Guid(4722113ade0e1c04ca64a4872850ff25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adf09c4402e23d7dc43b6a37e689b537') in 0.006264 seconds 
+  Import took 0.009624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.040170 seconds.
+  path: Assets/Scenes/hard.unity
+  artifactKey: Guid(b3b04a5157a5f134fbbe55d0e8444369) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/hard.unity using Guid(b3b04a5157a5f134fbbe55d0e8444369) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '378a2f287afaa5f49b220b48ca6c1c8b') in 0.007504 seconds 
+  Import took 0.011537 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008074 seconds.
+  path: Assets/script/player
+  artifactKey: Guid(6c4170fa620d1e54a9c3f3b8adcaae39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/player using Guid(6c4170fa620d1e54a9c3f3b8adcaae39) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b697a66c7f9b3f2b48679e2a75237b0') in 0.008848 seconds 
+  Import took 0.012424 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012848 seconds.
+  path: Assets/script/enemy/attack/e_bullet_type7.cs
+  artifactKey: Guid(43f750de9c130784a819c19915ed4aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy/attack/e_bullet_type7.cs using Guid(43f750de9c130784a819c19915ed4aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '259211fe7383d4e4965ed690dc84f56d') in 0.007052 seconds 
+  Import took 0.010719 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.026278 seconds.
+  path: Assets/animation/player_untouchable.anim
+  artifactKey: Guid(7b4cb97eb8ddfb74d9eb4dd921373a52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/player_untouchable.anim using Guid(7b4cb97eb8ddfb74d9eb4dd921373a52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '863cb2193a4a1de3a9c9596a87409d1d') in 0.007647 seconds 
+  Import took 0.011815 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.094794 seconds.
+  path: Assets/Resources
+  artifactKey: Guid(c964d8d497cd9e44a83294841eb0c812) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources using Guid(c964d8d497cd9e44a83294841eb0c812) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '953466b7c8bdf559a35f8ab1d113e2b2') in 0.016600 seconds 
+  Import took 0.120340 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.131437 seconds.
+  path: Assets/script/enemy
+  artifactKey: Guid(9cb9a718fd972474cbe5759c72cc3f3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/script/enemy using Guid(9cb9a718fd972474cbe5759c72cc3f3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f80cf2241b8716556688a4ba9ac729f') in 0.006427 seconds 
+  Import took 0.010173 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.011864 seconds.
+  path: Assets/animation/boss_clear1.anim
+  artifactKey: Guid(f4a465e9beff9644987c900bfabce7c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/animation/boss_clear1.anim using Guid(f4a465e9beff9644987c900bfabce7c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8940a9702dcdad4e6e316a2b6153ffd') in 0.007391 seconds 
+  Import took 0.010896 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
