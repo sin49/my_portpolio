@@ -8,6 +8,6 @@
 
 
 
- 프로젝트 조작에 관해 build\프로젝트 혹은 project\프로젝트\asset 경로의 readme.txt 참고
+ 프로젝트 조작에 관해서는 build\프로젝트 혹은 project\프로젝트\asset 경로의 readme.txt 참고
  
  소스코드는 project\프로젝트\asset\script경로로 자세한 건 script 폴더 내부의 readme.txt 참고
