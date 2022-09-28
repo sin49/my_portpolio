@@ -14,8 +14,11 @@ public class Character_Priority:MonoBehaviour
         return gc[n].Character;
     }
     public Character_Priority(){
-        P = Stage._stage.Player_create;
-        E = Stage._stage.Enemy_create;
+        if (Stage._stage != null)
+        {
+            P = Stage._stage.Player_create;
+            E = Stage._stage.Enemy_create;
+        }
         gc = new List<Priority_Member>();
     
     }
@@ -43,6 +46,7 @@ public class Character_Priority:MonoBehaviour
         }
      
     }
+   
     void initialize_List(Team t)
     {
         for(int i = 0; i < gc.Count; i++)

@@ -35,7 +35,7 @@ public class Damage_font : MonoBehaviour
     }
     public void set_font(int a,Transform chr)
     {
-        damage_font.text = a.ToString();
+        damage_font.text ="-"+ a.ToString();
         character = chr.transform.position;
     }
     // Update is called once per frame

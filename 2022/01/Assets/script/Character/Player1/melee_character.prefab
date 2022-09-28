@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1500128936743349478}
   - component: {fileID: 5765075933459730297}
   - component: {fileID: 6158288244599430355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: melee_pivot
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2806344459475336731}
   m_LocalRotation: {x: -0.2513034, y: 0.06604507, z: 0.33911243, w: 0.9041501}
-  m_LocalPosition: {x: -0.36161047, y: -0.27551165, z: 0.3190863}
+  m_LocalPosition: {x: -0.3616105, y: -0.2755117, z: 0.3190863}
   m_LocalScale: {x: 1, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 2656808645492994417}
@@ -93,9 +93,8 @@ GameObject:
   - component: {fileID: 6193582657564312861}
   - component: {fileID: 3332542262777641783}
   - component: {fileID: 9143253061687353883}
-  - component: {fileID: 2558553037768885994}
   - component: {fileID: 2295054694353175378}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lookat
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -165,19 +164,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2558553037768885994
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3406352899898534859}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2295054694353175378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0.5, g: 0.5, b: 0.5, a: 0}
   Emission: {r: 0, g: 0, b: 0, a: 0}
+  Transparent_Material: {fileID: 0}
 --- !u!1 &3443128652010781640
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,10 +195,10 @@ GameObject:
   - component: {fileID: 8502389067474054199}
   - component: {fileID: 317254636623420009}
   - component: {fileID: 4061685724081192454}
-  - component: {fileID: 5055661210540615890}
   - component: {fileID: 1636401739363509442}
   - component: {fileID: 7681169000174509705}
-  m_Layer: 0
+  - component: {fileID: 1718068006440687450}
+  m_Layer: 6
   m_Name: melee_character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +298,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8502389067474054199
 MonoBehaviour:
@@ -326,6 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+  index: 0
   target: {fileID: 0}
   status: {fileID: 4061685724081192454}
   attack: {fileID: 317254636623420009}
@@ -355,20 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a55799cae13d14ebf11a0c71f143bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5055661210540615890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3443128652010781640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74a0c4baa8d24394ab017b7a868a0bef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 1, g: 1, b: 1, a: 0}
-  Emission: {r: 0, g: 0, b: 0, a: 0}
+  pos: 0
 --- !u!95 &1636401739363509442
 Animator:
   serializedVersion: 3
@@ -379,7 +354,7 @@ Animator:
   m_GameObject: {fileID: 3443128652010781640}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 991d029159d7d6442b85202002dfd6d0, type: 2}
+  m_Controller: {fileID: 9100000, guid: b278e9f759082184198a81510b2b9087, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -400,6 +375,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ace01404824c04aa14d90c6519c6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1718068006440687450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3443128652010781640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14f32db2bca1cf4597964d2f1896c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0.07410216, b: 1, a: 0}
+  Emission: {r: 0, g: 0, b: 0, a: 0}
+  Transparent_Material: {fileID: 2100000, guid: e1954627156626f47b658414aa1dadba, type: 2}
 --- !u!1 &8370848794371142302
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,9 +401,11 @@ GameObject:
   - component: {fileID: 2656808645492994417}
   - component: {fileID: 5987582101345933709}
   - component: {fileID: 5021566190960578150}
-  - component: {fileID: 8505876259397858393}
-  - component: {fileID: 1467152534607118759}
-  m_Layer: 0
+  - component: {fileID: 738390009624318399}
+  - component: {fileID: 3951851405069753707}
+  - component: {fileID: 3004619515551947363}
+  - component: {fileID: 8415564530742651208}
+  m_Layer: 6
   m_Name: melee_obj (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +475,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8505876259397858393
+--- !u!114 &738390009624318399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370848794371142302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14f32db2bca1cf4597964d2f1896c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+  Emission: {r: 0, g: 0, b: 0, a: 0}
+  Transparent_Material: {fileID: 2100000, guid: e1954627156626f47b658414aa1dadba, type: 2}
+--- !u!114 &3951851405069753707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8370848794371142302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c54f9d69ad8e4944993862ce044c86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 0}
+  Object_flying: 1
+--- !u!65 &3004619515551947363
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -495,18 +516,20 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1467152534607118759
-MonoBehaviour:
+  m_Center: {x: 0.000000029802322, y: -0.00000008940697, z: 0}
+--- !u!54 &8415564530742651208
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8370848794371142302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74a0c4baa8d24394ab017b7a868a0bef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {r: 0.5, g: 0.5, b: 0.5, a: 0}
-  Emission: {r: 0, g: 0, b: 0, a: 0}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

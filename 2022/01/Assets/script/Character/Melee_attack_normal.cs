@@ -14,6 +14,6 @@ public class Melee_attack_normal : attack_basic
     {
      
       if(obj!=null)
-           obj.get_damage(damage);
+           obj.hitted(damage);
     }
 }

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class attack_basic : MonoBehaviour, iAct
 {
-    float _init_delay = 0.3f;
+    protected float _init_delay = 0.1f;
     public float init_delay()
     {
         return _init_delay;
     }
     bool action_completed_check;
-    int action_num;
+
    
     public bool Active(GameCharacter chr = null, GameCharacter target = null)
     {
