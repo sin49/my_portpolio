@@ -61,7 +61,7 @@ public class GameCharacter : MonoBehaviour, Character
         if (status != null)
             current_hp = status.HP;
         _deadbody_duration = 3f;
-        Camera_ViewPort_min=Camera.main.ViewportToWorldPoint()
+
     }
   
     // Update is called once per frame
@@ -85,6 +85,7 @@ public class GameCharacter : MonoBehaviour, Character
             return;
         }
 
+        Snap_ViewPort();
         if (forced&&forced_timer>0 )
         {
             forced_timer -= Time.deltaTime;
@@ -234,13 +235,31 @@ public class GameCharacter : MonoBehaviour, Character
         if (C_ani != null)
             C_ani.initialize_animation();
         rgd.freezeRotation = true;
+        initialize_target();
+        attack.initalize();
 
     }
-    Vector2 Camera_ViewPort_min;
-    Vector2 Camera_ViewPort_max;
+    Vector3 viewport_position;
     void Snap_ViewPort()
     {
-        
+        viewport_position = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewport_position.x>0.95f)
+        {
+            viewport_position.x = 0.95f;
+        }
+        else if(viewport_position.x < 0.05f)
+        {
+            viewport_position.x = 0.05f;
+        }
+        if (viewport_position.y > 0.95f)
+        {
+            viewport_position.y = 0.95f;
+        }
+        else if (viewport_position.y < 0.05f)
+        {
+            viewport_position.y = 0.05f;
+        }
+        transform.position = Camera.main.ViewportToWorldPoint(viewport_position);
     }
     
 }

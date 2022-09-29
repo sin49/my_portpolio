@@ -7,8 +7,8 @@ public class ChracterShader : ColorShaderManager
     float hitted_emission_duration = 0.2f;
     float _hitted_emission_duration;
     Color hitted_emission_color;
-  
-   
+
+    Color enemy_emission;
     public float deadbody_duration { get; set; }
     float _deadbody_duration;
     Color Die_color;
@@ -29,6 +29,18 @@ public class ChracterShader : ColorShaderManager
     
       
    }
+    public void use_enemy_emission()
+    {
+        Original_Emission = new Vector4(0.5f, 0.125f, 0.5f, 0);
+        Emission = Original_Emission;
+
+    }
+    public void use_Player_emission()
+    {
+        Original_Emission = new Vector4(0, 0, 0, 0);
+        Emission = Original_Emission;
+
+    }
     public void initialize_shader()
     {
         this.GetComponent<MeshRenderer>().material = Original_material;

@@ -32,12 +32,7 @@ public class Character_status :MonoBehaviour
 
 
 
-    /*Dictionary<pattern, int> _skill_lv = new Dictionary<pattern, int>();
-
-    public int skill_lv(pattern p)
-    {
-        return _skill_lv[p];
-    }*/
+   
     public Character_status()
     {
         movement_speed = 1;
@@ -77,10 +72,6 @@ public class Character_status :MonoBehaviour
    
     }
 
-    private void Awake()
-    {
-       // current_HP = HP;
-    }
-
+  
 }
 

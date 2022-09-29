@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Hpbar : MonoBehaviour,Character_observer
 {
    
-    public GameCharacter Character;
+    public Transform Character;
     Slider HP;
     int max_HP;
     int current_hp;
@@ -16,7 +16,7 @@ public class Hpbar : MonoBehaviour,Character_observer
      
         if (Character == null)
         {
-            Character = character;
+            Character = character.transform;
             max_HP = character.status.HP;
         }
         current_hp = a;
@@ -39,7 +39,7 @@ public class Hpbar : MonoBehaviour,Character_observer
     void Update()
     {
        if(Character!=null)
-            this.transform.position = Camera.main.WorldToScreenPoint(Character.transform.position + new Vector3(0,1,0.5f));
+            this.transform.position = Camera.main.WorldToScreenPoint(Character.position + new Vector3(0,1,0.5f));
 
             HP.value = ( (float)current_hp / (float)max_HP);
 

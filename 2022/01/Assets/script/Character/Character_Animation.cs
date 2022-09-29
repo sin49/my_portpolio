@@ -27,11 +27,15 @@ public class Character_Animation : MonoBehaviour
         die_animation += Shader.active_death_Shader;
         die_animation += active_death_animation;
         action_animation += active_action_animation;
+        
     }
-
+  
     void FixedUpdate()
     {
-       
+        if (this_chr.T == Team.Enemy)
+            Shader.use_enemy_emission();
+        else
+            Shader.use_Player_emission();
     }
     
    public void initialize_animation()

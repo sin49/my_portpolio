@@ -33,12 +33,6 @@ public class Character_attack : Character_Priority
             action_delay -= Time.deltaTime;
     }
 
-
-    
-    
-
-
-
     void Act(GameCharacter c)
     {
         action_delay = 1.5f;
@@ -98,8 +92,11 @@ public class Character_attack : Character_Priority
         
         c.action_animation(action_num);
     }
-    private void OnDisable()
+    public void initalize()
     {
         pattern_num = 0;
+        action_completed_check = false;
+        action_delay = 0;
+        on_acition = false;
     }
 }

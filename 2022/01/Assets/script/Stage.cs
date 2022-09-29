@@ -17,7 +17,7 @@ public class Stage : MonoBehaviour, Character_observer
 
     public List<GameCharacter> Player_create;
 
-    public List<GameCharacter> for_test_sort_list=new List<GameCharacter>();
+
 
     
 
@@ -92,6 +92,7 @@ public class Stage : MonoBehaviour, Character_observer
                 chr.gameObject.SetActive(true);
                 chr.gameObject.transform.position = spawwn.position;
                 chr.gameObject.transform.rotation = spawwn.rotation;
+                chr.transform.SetParent(spawwn);
                 active_HPbar(chr);
                 return chr;
             }
