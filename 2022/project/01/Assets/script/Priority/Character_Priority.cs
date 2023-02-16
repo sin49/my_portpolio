@@ -36,9 +36,12 @@ public class Character_Priority:MonoBehaviour
         }
         gc.Sort();
         
-        if (gc.Count < n)
+        if (gc.Count < n&&gc.Count-1!>=0)
         {
             return gc[gc.Count-1].Character;
+        }else if (gc.Count - 1! < 0)
+        {
+            return null;
         }
         else
         {

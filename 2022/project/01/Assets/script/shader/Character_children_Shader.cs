@@ -11,6 +11,8 @@ public class Character_children_Shader : MonoBehaviour, Character_observer
     Vector3 localPosition;
     Quaternion localrotation;
     Transform parent;
+    Transform t;
+    Vector3 localscale;
     public void update_information(int a, GameCharacter character)
     {
         
@@ -18,6 +20,7 @@ public class Character_children_Shader : MonoBehaviour, Character_observer
         {
         
             if (Object_flying) {
+                rgd.useGravity = true;
                 rgd.constraints = RigidbodyConstraints.None;
                 rgd.transform.SetParent(this.transform.parent.parent);
                 rgd.AddForce((-1*this.transform.parent.forward+Vector3.up)*0.000035f);
@@ -35,12 +38,18 @@ public class Character_children_Shader : MonoBehaviour, Character_observer
         chr.AddObserver(this);
         shader.deadbody_duration = chr.deadbody_duration;
         deadbody_duration= shader.deadbody_duration;
+      
         if (Object_flying) {
+
             rgd = this.GetComponent<Rigidbody>();
             localrotation = this.transform.localRotation;
             localPosition = this.transform.localPosition;
+            localscale = this.transform.localScale;
             parent = this.transform.parent;
-                }
+            rgd.useGravity = false;
+            
+        }
+        
 
         }
     private void Update()
@@ -68,8 +77,10 @@ public class Character_children_Shader : MonoBehaviour, Character_observer
             this.transform.SetParent(parent);
             this.transform.localRotation = localrotation;
             this.transform.localPosition = localPosition;
+            this.transform.localScale = localscale;
             rgd.constraints = RigidbodyConstraints.FreezeAll;
-     
+            rgd.useGravity = false;
+
         }
     }
 }

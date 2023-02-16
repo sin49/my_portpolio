@@ -7,96 +7,126 @@ public class Character_attack : Character_Priority
     protected int[] action_pattern;
     int pattern_num;
     protected List<iAct> action=new List<iAct>();
-    
-   
 
-    float action_delay;
+    LimitBurst limitburst;
+    bool on_LB;
+    [HideInInspector]
+    public bool is_LB_can_use_anywhere;
+
+    float action_delay=1f;
+    float delay_time;
 
     public GameCharacter target;
     GameCharacter _target;
-
     Team _t;
 
-    bool action_completed_check;
+    bool on_corutine;
     public Team T { get { return _t; } set { _t = value; } }
 
-   
+   Coroutine act_corutine;
+
+    float corutine_timer;
+    private void Start()
+    {
+        if (limitburst != null)
+            is_LB_can_use_anywhere = limitburst.set_LB();
+        _target= get_enemy_by_distance(T, 0);
+    }
     public void attack_enemy(GameCharacter c)
     {
-
-        if (action_delay <= 0)
+        if (on_corutine)
+        {
+            corutine_timer += Time.deltaTime;
+        }
+         else if (delay_time <= 0)
         {
             Act(c);
             
         }
         else
-            action_delay -= Time.deltaTime;
+            delay_time -=Time.deltaTime;
     }
 
     void Act(GameCharacter c)
     {
-        action_delay = 1.5f;
-        if (action_completed_check)
-        {
-            pattern_num++;
-            if (pattern_num > action_pattern.Length)
-                pattern_num = 0;
-            action_completed_check = false;
-           
-        }
+        delay_time =action_delay;
+        
         if (action.Count == 0)
             return;
-        int a= pattern_num >= action.Count ? 0 : pattern_num;
-        _target = action[action_pattern[a]].set_target(T, this);
+      
+        _target = get_enemy_by_distance(T, 0);
         if (_target != target)
         {
             target = _target;
            
             return;
         }
-        if (!on_acition)
-        {
-            StartCoroutine(Act(c, target, action_pattern[a]));
+        if (target == null)
+            return;
+        int a = pattern_num >= action.Count ? 0 : pattern_num;
+        act_corutine = StartCoroutine(Act(c,  action_pattern[a]));
             
-        }
+       
       
         
      
 
     }
-    bool on_acition;
-    IEnumerator Act(GameCharacter chr = null, GameCharacter target = null, int action_num = 0)
+  public bool Active_LB(GameCharacter c)
     {
-      
-        act_animation(chr.C_ani, action_num);
-        on_acition = true;
-        yield return new WaitForSeconds(action[action_num].init_delay());
-        action[action_num].Active(chr, target);
-        action_completed_check = true;
-        on_acition = false;
-        
+
+        if (limitburst != null)
+        {
+            stop_action(c);
+            StartCoroutine(Act_LB(c));
+            return true;
+        }
+        else
+            return false;
+    }
+    IEnumerator Act(GameCharacter chr = null, int action_num = 0)
+    {
+        if (!act_animation(chr.C_ani, action_num))
+            stop_action(chr);
+        on_corutine = true;
+        yield return new WaitUntil(()=>corutine_timer>= action[action_num].init_delay());
+        corutine_timer = 0;
+        action[action_num].Active(chr);
+        pattern_num++;
+        if (pattern_num > action_pattern.Length)
+            pattern_num = 0;
+        chr.gain_LBgauge();
+        on_corutine = false;
+    }
+    IEnumerator Act_LB(GameCharacter c)
+    {
+        on_corutine = true;
+        yield return new WaitForSeconds(limitburst.init_delay());
+        limitburst.Active(c);
+        on_corutine = false;
+        delay_time = action_delay;
+        c.End_LB();
     }
     public void stop_action(GameCharacter c)
     {
-        
-        StopAllCoroutines();
-        on_acition = false;
+        StopCoroutine(act_corutine);
+    
         if(pattern_num<action_pattern.Length)
             c.C_ani.stop_animation(action_pattern[pattern_num]);
     }
 
-    void act_animation(Character_Animation c = null, int action_num = 0)
+    bool act_animation(Character_Animation c = null, int action_num = 0)
     {
         if (c == null)
-            return;
+            return true;
         
-        c.action_animation(action_num);
+        return c.action_animation(action_num);
     }
     public void initalize()
     {
         pattern_num = 0;
-        action_completed_check = false;
+        on_corutine = false;
         action_delay = 0;
-        on_acition = false;
+  
     }
 }

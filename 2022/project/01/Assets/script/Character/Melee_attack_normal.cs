@@ -5,11 +5,13 @@ using UnityEngine;
 public class Melee_attack_normal : attack_basic
 {
     
-   
-    protected override void attack_by_type( int damage, GameCharacter obj)
+   public Melee_attack_normal()
     {
-     
-      if(obj!=null)
-           obj.hitted(damage);
+       
+    }
+    protected override void attack_by_type( int ATK, List<GameCharacter> obj_list)
+    {
+        obj_list[0].hitted(ATK);
+        base.attack_by_type(ATK, obj_list);
     }
 }

@@ -9,27 +9,28 @@ public class attack_basic : MonoBehaviour, iAct
     {
         return _init_delay;
     }
-    bool action_completed_check;
+   protected GameCharacter _target;
+    //chr=본인 ,_target=대상
+    protected List<GameCharacter> _Target_list = new List<GameCharacter>();
 
-   
-    public bool Active(GameCharacter chr = null, GameCharacter target = null)
+    public virtual void Active(GameCharacter chr = null)
     {
 
-        if (target != null)
-            attack_by_type(chr.status.ATK, target);
+        set_target(chr.attack);
+            attack_by_type(chr.status.ATK,_Target_list);
 
-        return action_completed_check;
-    }
-   
- 
-    virtual public GameCharacter set_target(Team t,Character_Priority priority = null)
-    {
-        return priority.get_enemy_by_distance(t,0);
+       
     }
 
-    virtual protected void attack_by_type(int ATK, GameCharacter obj = null)
+    virtual protected void set_target(Character_attack priority = null)
     {
-        action_completed_check = true;
+        _target= priority.get_enemy_by_distance(priority.T,0);
+        _Target_list.Add(_target);
+    }
+
+    virtual protected void attack_by_type(int ATK, List<GameCharacter>  obj = null)
+    {
+        _Target_list = new List<GameCharacter>();
     }
 
 

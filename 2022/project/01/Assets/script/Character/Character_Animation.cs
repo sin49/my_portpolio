@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class Character_Animation : MonoBehaviour
 {
     Animator ani;
     public delegate void active_animation();
-    public delegate void _action_animation(int n);
+    public delegate bool _action_animation(int n);
     public active_animation hitted_animation;
     public active_animation die_animation;
     ChracterShader Shader;
@@ -29,9 +31,18 @@ public class Character_Animation : MonoBehaviour
         action_animation += active_action_animation;
         
     }
-  
+    public void change_animator_mode_unscaledTime()
+    {
+        ani.updateMode = AnimatorUpdateMode.UnscaledTime;
+    }
+    public void change_animator_mode_normal()
+    {
+        ani.updateMode = AnimatorUpdateMode.Normal;
+    }
+
     void FixedUpdate()
     {
+        
         if (this_chr.T == Team.Enemy)
             Shader.use_enemy_emission();
         else
@@ -47,7 +58,10 @@ public class Character_Animation : MonoBehaviour
     {
         ani.SetBool("Die", true);
     }
-
+    public void set__animation_speed(float a)
+    {
+        ani.speed = a;
+    }
     public void stop_animation(int n)
     {
         ani.SetTrigger("Stop");
@@ -57,9 +71,16 @@ public class Character_Animation : MonoBehaviour
     {
         ani.ResetTrigger("Stop");
     }
-    void active_action_animation(int n)
+    bool active_action_animation(int n)
     {
-        ani.SetTrigger("action" + n);
+        if (ani.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+        {
+            
+            ani.SetTrigger("action" + n);
+            return true;
+        }
+        else
+            return false;
     }
  
 }

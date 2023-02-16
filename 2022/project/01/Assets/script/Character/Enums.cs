@@ -3,3 +3,4 @@ public enum Team { Player, Enemy };
 
 public enum Position { front,mid,back}
 
+public enum attack_type { Melee, range };

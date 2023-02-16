@@ -7,11 +7,16 @@ public class Character_status :MonoBehaviour
     int ID;
 
     string Name;
+    public int id { get { return ID; } }
 
     public attack_type A_type { get; set; }
 
     float _range;
 
+    float _LBGauge_max;
+    public float LBGauge_max { get { return _LBGauge_max; } set { _LBGauge_max = value; } }
+    float _LBgauge_gain;
+    public float LBGauge_gain { get { return _LBgauge_gain; } set { _LBgauge_gain = value; } }
     public float Distance_number { get { return _range; } set { _range = value; set_position(); } }
 
     int LV;
@@ -37,7 +42,8 @@ public class Character_status :MonoBehaviour
     {
         movement_speed = 1;
         attack_speed = 1;
-       
+        LBGauge_gain = 1;
+        LBGauge_max = 10;
 
     }
     void set_position()

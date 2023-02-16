@@ -26,7 +26,7 @@ public class ChracterShader : ColorShaderManager
         Original_Color = color;
         Original_Emission = Emission;
         Die_color =color;
-    
+   
       
    }
     public void use_enemy_emission()

@@ -6,35 +6,31 @@ public class range_attack_normal : attack_basic
 {
 
     GameObject bullet;
-    GameObject bullet_create;
+    range_bullet bullet_create;
     Transform bullet_create_transform;
     range_attack_normal(GameObject bullet,Transform bullet_create_transform){
         this.bullet = bullet;
         this.bullet_create_transform = bullet_create_transform;
         }
 
-    protected override void attack_by_type( int damage,GameCharacter obj )
+    protected override void attack_by_type(int ATK, List<GameCharacter> obj_list)
     {
-        if(obj!=null)
-        create_bullet(bullet);
-
-      
+        create_bullet(obj_list[0],ATK);
+        base.attack_by_type(ATK, obj_list);
     }
 
   
 
-    void create_bullet(GameObject bullet)
+    void create_bullet(GameCharacter Target,int Damage)
     {
+        if (bullet == null)
+            return;
         if (bullet_create == null)
         {
-            bullet_create = Instantiate(bullet, this.transform);
-            create_bullet(bullet_create);
+            bullet_create = Instantiate(bullet, this.transform).GetComponent<range_bullet>();
         }
-        else
-        {
-            create_bullet(bullet_create);
-        }
-        bullet.transform.position = bullet_create_transform.position;
-        bullet.SetActive(true);
+        bullet_create.set_bullet(Target, Damage);
+            bullet_create.transform.position = bullet_create_transform.position;
+            bullet_create.gameObject.SetActive(true);
     }
 }

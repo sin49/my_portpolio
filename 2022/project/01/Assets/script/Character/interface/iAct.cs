@@ -4,11 +4,10 @@ using UnityEngine;
 
 public interface iAct
 {
-    GameCharacter set_target(Team t,Character_Priority priority=null);
-    bool Active(GameCharacter chr = null, GameCharacter target=null);
+    void Active(GameCharacter chr = null);
 
     float init_delay();
-
+    
 
 
 }

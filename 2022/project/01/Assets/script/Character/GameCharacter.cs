@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum attack_type { Melee, range };
 
-public class GameCharacter : MonoBehaviour, Character
-{
+public class GameCharacter : _GameOBj, Character { 
 
     public int ID;
     public int index;
 
-    Rigidbody rgd;
+    public Sprite chr_sprite;
+
+
+    float _LB_gauge;
+    public float LB_gauge { get { return _LB_gauge; } set { _LB_gauge = value; } }
+    float LB_gauge_max;
+    float LB_gauge_gain;
+   bool on_LB;
 
     Stage s;
 
@@ -32,6 +37,7 @@ public class GameCharacter : MonoBehaviour, Character
 
    float _deadbody_duration = 3f;
 
+
     public float deadbody_duration { get { return _deadbody_duration; } set { _deadbody_duration = value; } }
 
    
@@ -39,6 +45,22 @@ public class GameCharacter : MonoBehaviour, Character
     bool forced;
     float forced_timer;
 
+  
+
+    public void gain_LBgauge()
+    {
+        if (LB_gauge < LB_gauge_max)
+            LB_gauge += LB_gauge_gain;
+        else
+            return;
+        if (LB_gauge > LB_gauge_max)
+            LB_gauge = LB_gauge_max;
+    }
+    public void End_LB()
+    {
+        LB_gauge = 0;
+        on_LB = false;
+    }
     void chase_enemy()
     {
         if (target == null)
@@ -59,14 +81,36 @@ public class GameCharacter : MonoBehaviour, Character
         C_ani = this.GetComponent<Character_Animation>();
         s = Stage._stage;
         if (status != null)
+        {
             current_hp = status.HP;
+            LB_gauge_gain = status.LBGauge_gain;
+            LB_gauge_max = status.LBGauge_max;
+        }
         _deadbody_duration = 3f;
 
     }
-  
-    // Update is called once per frame
-    void FixedUpdate()
+    public override void active_obj()
     {
+        base.active_obj();
+        if (C_ani != null)
+        {
+            C_ani.set__animation_speed(1);
+        }
+    }
+    public override void deactive_chr()
+    {
+        base.deactive_chr();
+        
+        if (C_ani != null)
+        {
+            C_ani.set__animation_speed(0);
+        }
+    }
+
+    // Update is called once per frame
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
         if (target == null)
         {
             target = attack.target;   
@@ -106,10 +150,11 @@ public class GameCharacter : MonoBehaviour, Character
                 initialize_target();
 
         }
+        if (attack.is_LB_can_use_anywhere)
+            use_LB();
         if (target_distance > status.Distance_number)
             {
-                /*q = Quaternion.LookRotation(target_direction);
-                transform.rotation = q;*/
+               
                 
                 chase_enemy();
             }
@@ -119,11 +164,21 @@ public class GameCharacter : MonoBehaviour, Character
                 rgd.velocity = Vector3.zero;
               
                 attack.attack_enemy(this);
-            
-            }
+            use_LB();
+        }
         }
 
-       
+       public void use_LB()
+    {
+        if (on_LB)
+            return;
+        if (LB_gauge > LB_gauge_max)
+        {
+            attack.Active_LB(this);
+            on_LB = true;
+        }
+        
+    }
           
         void initialize_target()
     {
@@ -178,11 +233,13 @@ public class GameCharacter : MonoBehaviour, Character
 
     void Die()
     {
-
+       
         attack.stop_action(this);
+        LB_gauge = 0;
         rgd.freezeRotation = false;
        
         rgd.velocity = Vector3.zero;
+
         get_forced(Random.Range(8, 16),0);
         if (C_ani == null)
             return;
@@ -261,6 +318,7 @@ public class GameCharacter : MonoBehaviour, Character
         }
         transform.position = Camera.main.ViewportToWorldPoint(viewport_position);
     }
-    
+
+   
 }
 
