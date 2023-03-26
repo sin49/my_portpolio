@@ -80,8 +80,8 @@ public class Stage : MonoBehaviour, Character_observer
     private void Awake()
     {
         _stage = this;
-        Enemies = Enemies.OrderBy(x => x.status.Distance_number).ToList();
-        Players = Players.OrderBy(x => x.status.Distance_number).ToList();
+        Enemies = Enemies.OrderBy(x => x.Distance_number).ToList();
+        Players = Players.OrderBy(x => x.Distance_number).ToList();
         if (icon_plate != null && chr_icon_ui != null)
         {
             for (int i = 0; i < icon_ui_list.Length; i++)
@@ -145,7 +145,7 @@ public class Stage : MonoBehaviour, Character_observer
         return character;
 
     }
-    public void creaate_damagee_font(int a,Transform t)
+    public Damage_font pulling_damage_font()
     {
         GameObject obj=null;
        for(int i = 0; i < Damage_font_pulling.Count; i++)
@@ -153,21 +153,19 @@ public class Stage : MonoBehaviour, Character_observer
             if (!Damage_font_pulling[i].activeSelf)
             {
                 obj = Damage_font_pulling[i];
-             
+                obj.SetActive(true);
+                break;
             }
         }
         if (obj == null) {
             obj = Instantiate(Damage_font, font_Canvas.transform);
-            Damage_font_pulling.Add(obj);
+            Damage_font_pulling.Add(obj); 
         }
-        obj.SetActive(true);
-        obj.GetComponent<Damage_font>().set_font(a, t);
+        return obj.GetComponent<Damage_font>();
     }
     
     void Update()
     {
-        
-        
         if (Enemies.Count == 0)
         {
             win();

@@ -26,7 +26,7 @@ public struct character_information
     public character_information(GameCharacter c, int N, int S)
     {
         chr = c;
-        ID = c.status.id;
+        ID = c.ID;
         number = N;
         stage = S;
     }

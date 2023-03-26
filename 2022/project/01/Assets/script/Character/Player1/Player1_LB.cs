@@ -11,17 +11,20 @@ public class Player1_LB : LimitBurst
     {
         int Total_damage = ATK * 3;
         float anim_time_chk=0;
-        for(int i = 0; i < 2; i++)
+        GameCharacter chr = obj_list[0];
+
+        for (int i = 0; i < 2; i++)
         {
             anim_time_chk += Time.unscaledDeltaTime;
             if (anim_time_chk >= 0.3f)
             {
-                obj_list[0].hitted(Total_damage / 3);
+                
+                chr.execute_Hit_handler(Total_damage / 3);
                 anim_time_chk = 0;
                 i++;
             }
         }
-        obj_list[0].get_forced(4, 1.25f);
+        obj_list[0].forced(obj_list[0].transform.forward*3, 1.25f);
         base.attack_by_type(ATK, obj_list);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface iAct
 {
-    void Active(GameCharacter chr = null);
+    void Active(int ATK, List<GameCharacter> chr = null);
 
     float init_delay();
     

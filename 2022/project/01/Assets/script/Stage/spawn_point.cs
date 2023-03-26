@@ -20,7 +20,7 @@ public class spawn_point : MonoBehaviour, spawn
             {
                 if (c.gameObject.activeSelf)
                     return;
-                switch (c.status.pos)
+                switch (c.this_pos)
                 {
                     case Position.front:
                         c.transform.position = this.transform.position + Vector3.forward * spawn_distance_meter_y;

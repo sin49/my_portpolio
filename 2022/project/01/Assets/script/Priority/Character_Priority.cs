@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character_Priority:MonoBehaviour
+public class Character_Priority
 {
+    public static Character_Priority instance;
     List<GameCharacter> P;
     List<GameCharacter> E;
     List<GameCharacter> Target;
@@ -14,6 +15,8 @@ public class Character_Priority:MonoBehaviour
         return gc[n].Character;
     }
     public Character_Priority(){
+        if (instance == null)
+            instance = this;
         if (Stage._stage != null)
         {
             P = Stage._stage.Player_create;
@@ -23,23 +26,28 @@ public class Character_Priority:MonoBehaviour
     
     }
    
-    public GameCharacter get_enemy_by_distance(Team t, int n = 0)
+   
+    public GameCharacter get_enemy_by_distance(Team t,Vector3 pos, int n = 0)
     {
-       
+
         initialize_List(t);
         if (Target.Count == 0)
             return null;
-        for (int i = 0; i < Target.Count; i++)
+        foreach(GameCharacter c in Target)
         {
-            Distance_Member memeber = new Distance_Member(Target[i]);
-            gc.Add(memeber);
+            if (c.object_activasion)
+            {
+                Distance_Member memeber = new Distance_Member(c, pos);
+                gc.Add(memeber);
+            }
         }
         gc.Sort();
-        
-        if (gc.Count < n&&gc.Count-1!>=0)
+
+        if (gc.Count < n && gc.Count - 1! >= 0)
         {
-            return gc[gc.Count-1].Character;
-        }else if (gc.Count - 1! < 0)
+            return gc[gc.Count - 1].Character;
+        }
+        else if (gc.Count - 1! < 0)
         {
             return null;
         }
@@ -47,15 +55,38 @@ public class Character_Priority:MonoBehaviour
         {
             return gc[n].Character;
         }
-     
+
     }
-   
+    public List<GameCharacter> get_enemy_by_distance(Team t, Vector3 pos, List<int> n)
+    {
+
+        initialize_List(t);
+        if (Target.Count == 0)
+            return null;
+        for (int i = 0; i < Target.Count; i++)
+        {
+            Distance_Member memeber = new Distance_Member(Target[i], pos);
+            gc.Add(memeber);
+        }
+        gc.Sort();
+        if (gc.Count == 0)
+            return null;
+        List<GameCharacter> target_list = new List<GameCharacter>();
+        foreach(int index in n)
+        {
+            if (gc.Count <= index)
+                target_list.Add(gc[gc.Count - 1].Character);
+            else if (index < 0)
+                target_list.Add(gc[0].Character);
+            else
+                target_list.Add(gc[index].Character);
+        }
+        return target_list;
+
+    }
     void initialize_List(Team t)
     {
-        for(int i = 0; i < gc.Count; i++)
-        {
-            gc.RemoveAt(0);
-        }
+        gc.Clear();
         if (t == Team.Player)
             Target = E;
         else

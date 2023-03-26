@@ -11,9 +11,10 @@ public class Player1_Skill1 : attack_basic
     }
     protected override void attack_by_type(int ATK, List<GameCharacter> obj_list)
     {
+        GameCharacter chr = obj_list[0];
 
-        obj_list[0].hitted(ATK * 2);
-        obj_list[0].get_forced(4, 1.25f);
+        chr.execute_Hit_handler(ATK*2);
+        chr.forced(chr.transform.forward*3, 1.25f);
         base.attack_by_type(ATK, obj_list);
     }
 

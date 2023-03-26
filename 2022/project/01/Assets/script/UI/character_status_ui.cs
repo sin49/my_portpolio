@@ -10,12 +10,12 @@ public class character_status_ui : MonoBehaviour, Character_observer
     {
         if (HP_slider != null)
         {
-            HP_slider.max_vaule = character.status.HP;
+            HP_slider.max_vaule = character.current_hp;
             HP_slider.current_vaule = a;
         }
         if (LB_slider != null)
         {
-            LB_slider.max_vaule = character.status.LBGauge_max;
+            LB_slider.max_vaule = character.LB_gauge_max;
             LB_slider.current_vaule = character.LB_gauge;
         }
     }
